@@ -1,4 +1,4 @@
-package Moodle;
+package modele;
 
 public class Cours {
 

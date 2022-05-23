@@ -1,7 +1,7 @@
-package utils;
+package modele;
 
 /**
- * Exception generée lorsque une exception est generée par une sauvegarde du profil étudiant.
+ * Exception generï¿½e lorsque une exception est generï¿½e par une sauvegarde du profil ï¿½tudiant.
  *
  */
 public class SauvegardeProfilException extends Exception {

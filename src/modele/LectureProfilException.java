@@ -1,7 +1,7 @@
-package utils;
+package modele;
 
 /**
- * Exception generée lorsque une exception est generée par une lecture du fichier contenant le profil étudiant.
+ * Exception generï¿½e lorsque une exception est generï¿½e par une lecture du fichier contenant le profil ï¿½tudiant.
  *
  */
 public class LectureProfilException extends Exception {
