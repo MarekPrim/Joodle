@@ -1,6 +1,5 @@
 package views;
 
-import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
 
 public class AppContainerView extends Pane{
