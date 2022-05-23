@@ -20,11 +20,11 @@ public class RequestFormeur {
 	private URL urlRequest;
 	
 	public RequestFormeur(String start,String end) throws IOException {
-		this.urlRequest = new URL("https://edt.inp-toulouse.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=3730&projectId=35&calType=ical&firstDate=2021-08-01&lastDate=2022-07-15");
+		this.urlRequest = new URL("https://edt.inp-toulouse.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=3730&projectId=35&calType=ical&firstDate=2022-07-02&lastDate=2022-07-15");
 	}
 	
 	public void write() throws IOException {
-		Path addresseFile = Files.createTempFile("calendrier", ".ics");
+		Path addresseFile = Files.createTempFile("fffffff", ".ics");
         BufferedInputStream inputStream = new BufferedInputStream(this.urlRequest.openStream());
         
         while (inputStream.available() > 0) {
@@ -34,6 +34,7 @@ public class RequestFormeur {
                 char c = (char)inputStream.read();
       
                 // Print the characters
+                System.out.print(c);
                 
        }
         Files.copy(inputStream, addresseFile, StandardCopyOption.REPLACE_EXISTING);
