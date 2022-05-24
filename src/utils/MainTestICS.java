@@ -7,14 +7,9 @@ import java.text.ParseException;
 
 public class MainTestICS {
 
-	public static void main(String[] args) throws IOException, ParseException {
-//		RequestFormeur rq = new RequestFormeur();
-//		Path adresse = rq.write();
-		ICSParser p = new ICSParser();
-		System.out.println(p.toString());
-//		for(ICSTimeSlot slot : p.recoverData()) {
-//			System.out.println(slot);
-//		}
+	public static void main(String[] args) throws IOException, ParseException, ICSFormatException {
+		ICSParser p = new ICSParser();		
+		p.recoverData();
 	}
 
 }

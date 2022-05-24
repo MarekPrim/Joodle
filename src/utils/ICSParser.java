@@ -15,7 +15,18 @@ import java.util.ArrayList;
 //Parse each element from a .ics file
 public class ICSParser {
 	
-	private static final String FILENAME = "ADECal.ics";
+	//Unused ics parameters enumeration
+	private final ArrayList<String> UnusedParameter = new ArrayList<String>() {{
+		add("SEQUENCE");
+		add("LAST-MODIFIED");
+		add("METHOD");
+		add("PRODID");
+		add("VERSION");
+		add("CALSCALE");
+		
+	   }};
+	
+	private static final String FILENAME = "/home/greenteam/N7/S6/CPO/projet-long/ADECal.ics";
 
 	private ArrayList<String> icsContent;
 
@@ -91,7 +102,9 @@ public class ICSParser {
 			break;
 		case "DESCRIPTION":
 			slot.setProfesseur(value);
+			break;
 		default:
+			//do nothing
 			break;
 		}
 	}
