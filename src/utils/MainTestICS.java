@@ -9,7 +9,9 @@ public class MainTestICS {
 
 	public static void main(String[] args) throws IOException, ParseException, ICSFormatException {
 		ICSParser p = new ICSParser();		
-		p.recoverData();
+		for(ICSTimeSlot i : p.recoverData()) {
+			System.out.println(i);
+		}
 	}
 
 }
