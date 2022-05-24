@@ -24,7 +24,11 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: A1C6EA;" HBox.hgrow="ALWAYS" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: A1C6EA;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="profil_etudiant" layoutX="497.0" layoutY="14.0" onMouseClicked="#modifier_profil_etudiant" text="profil_etudiant" />
+               </children>
+            </AnchorPane>
          </children>
       </HBox>
       <HBox VBox.vgrow="ALWAYS">
