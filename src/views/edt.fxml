@@ -31,7 +31,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EDT" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EDT" fx:controller="com.joodle.javafx_edt.PrimaryController"/>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Group.png" />
