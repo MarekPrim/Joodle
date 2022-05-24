@@ -17,11 +17,16 @@ public class ICSParser {
 	
 	private static final String FILENAME = "ADECal.ics";
 
-private ArrayList<String> icsContent;
+	private ArrayList<String> icsContent;
 
 	public ICSParser() throws IOException {
 		//Read the file and store the content in a string
 		this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
+	}
+	
+	public ICSParser(Path adresse) throws IOException {
+		//Read the file and store the content in a string
+		this.icsContent = this.readFileToArrayListOfString(adresse.toString());
 	}
 
 	private ArrayList<String> readFileToArrayListOfString(String pathFile)
@@ -45,7 +50,10 @@ private ArrayList<String> icsContent;
 		}
 	}
 	
-	public ICSTimeSlotStack recoverData() throws ParseException{
+	public ICSTimeSlotStack recoverData() throws ParseException, ICSFormatException{
+		if(!this.isValidICSFile()) {
+			throw new ICSFormatException();
+		}
 		ICSTimeSlotStack stack = new ICSTimeSlotStack();
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
@@ -86,6 +94,15 @@ private ArrayList<String> icsContent;
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	public String toString() {
+		String c="";
+		for(String s : this.icsContent) {
+			c+=s+"\n";
+		}
+		return c;
 	}
 
 }

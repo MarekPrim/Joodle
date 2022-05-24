@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
@@ -13,77 +11,26 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Joodle" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Joodle" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TestControlleur">
    <content>
-      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+      <SplitPane dividerPositions="0.8612040133779264" prefHeight="160.0" prefWidth="200.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <GridPane layoutX="20.0" layoutY="111.0" prefHeight="213.0" prefWidth="100.0">
-                    <columnConstraints>
-                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EDT" fx:controller="com.joodle.javafx_edt.PrimaryController"/>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Group.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets left="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cours" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@Vector2.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets left="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notes" GridPane.rowIndex="2" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@Vector1.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets left="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Taches" GridPane.rowIndex="3" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@Group_4.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets left="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                     </children>
-                  </GridPane>
+                  <WebView fx:id="Browser" layoutY="14.0" minHeight="800.0" minWidth="520.0" prefHeight="244.0" prefWidth="490.0" />
                </children>
             </AnchorPane>
-            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <SplitPane dividerPositions="0.4787234042553192" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="186.0" prefWidth="161.0">
                      <children>
                         <Pane layoutX="19.0" layoutY="56.0" prefHeight="111.0" prefWidth="259.0">
                            <children>
                               <SplitPane dividerPositions="0.51010101010101" layoutY="-3.0" orientation="VERTICAL" prefHeight="112.0" prefWidth="259.0">
                                 <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="257.0">
-                                       <children>
-                                          <Text layoutX="103.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semaine" />
-                                       </children>
-                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="257.0" />
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="53.0" prefWidth="257.0">
                                        <children>
                                           <GridPane layoutY="11.0" prefHeight="30.0" prefWidth="256.0">
@@ -111,12 +58,12 @@
                                                 </ImageView>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Text layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28" />
+                                                      <Text fx:id="V1" layoutX="14.0" layoutY="20.0" onMouseClicked="#incremente" strokeType="OUTSIDE" strokeWidth="0.0" text="28" />
                                                    </children>
                                                 </Pane>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Text layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="29" />
+                                                      <Text fx:id="V2" layoutX="14.0" layoutY="20.0" onMouseClicked="#incremente" strokeType="OUTSIDE" strokeWidth="0.0" text="29" />
                                                    </children>
                                                 </Pane>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">

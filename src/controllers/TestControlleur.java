@@ -1,15 +1,34 @@
 package controllers;
 
-import java.io.IOException;
-
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import views.HelloFX;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
 
 public class TestControlleur {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        HelloFX.setRoot("secondary");
+    private Text V1;
+
+    @FXML
+    private WebView Browser;
+    
+    @FXML
+    private Text V2;
+
+    @FXML
+    private Text edt_text;
+
+    @FXML
+    void Print(MouseEvent event) {
+
     }
+
+    @FXML
+    void incremente(MouseEvent event) {
+    	System.out.println(V1.getText());
+    	V1.setText(Integer.parseInt(V1.getText())+1+"");
+    	Browser.getEngine().load("https://mdw.inp-toulouse.fr/mdw3/#!notesView");
+    }
+
 }
