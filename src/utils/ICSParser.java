@@ -1,7 +1,6 @@
 package utils;
 
 import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,6 +9,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 //Parse each element from a .ics file
@@ -87,5 +90,29 @@ private ArrayList<String> icsContent;
 			break;
 		}
 	}
+	
+	public String getClasseFichierICS() {
+		Set<String> nomClasseTrouvee = new HashSet<String>();
+		Pattern pattern = Pattern.compile("[^\\\\n]*\\(\\d+\\)\\s?");
+		Matcher matcher;
+		for(int i = 0; i < this.icsContent.size() - 1 && nomClasseTrouvee.size() != 1; i++) {
+			nomClasseTrouvee.clear();
+			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {
+				while(! this.icsContent.get(i).equals("END:VEVENT") && i<this.icsContent.size()-1) {
+					String icsString = this.icsContent.get(i);
+					if (icsString.split(":")[0].equals("DESCRIPTION")) {
+						String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
+						matcher = pattern.matcher(value);
+						while(matcher.find()) {
+							nomClasseTrouvee.add(matcher.group(0));
+						}
+					}
+					i++;
+				}
+			}
+		}
+		return (String) nomClasseTrouvee.toArray()[0];
+	}
+
 
 }
