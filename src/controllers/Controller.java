@@ -9,21 +9,21 @@ public class Controller {
 
     @FXML
     private void switchToEDT(ActionEvent e) throws IOException {
-        App.setRoot("View_EDT");
+        App.setRoot("view_EDT");
     }
 
     @FXML
     private void switchToCours(ActionEvent e) throws IOException {
-        App.setRoot("View_Cours");
+        App.setRoot("view_Cours");
     }
 
     @FXML
     private void switchToNotes(ActionEvent e) throws IOException {
-        App.setRoot("View_Notes");
+        App.setRoot("view_Notes");
     }
 
     @FXML
     private void switchToTaches(ActionEvent e) throws IOException {
-        App.setRoot("View_Taches");
+        App.setRoot("view_Taches");
     }
 }
