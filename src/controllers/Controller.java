@@ -21,7 +21,7 @@ import views.App;
 public class Controller implements Initializable{
 	
 	private Etudiant etudiant;
-	private ICSTimeSlotStack icsData;
+	private ICSTimeSlotStack icsData = new ICSTimeSlotStack();
 	
 	@FXML private Label profil_etudiant;
 	
