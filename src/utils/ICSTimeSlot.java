@@ -68,7 +68,25 @@ public class ICSTimeSlot {
 		return "start=" + start + "\nend=" + end + "\ncours=" + cours + "\nsalle=" + salle + "\nprofesseur="
 				+ professeur + "\n";
 	}
-
 	
+	public String getDay(){
+		return UtilitaireICSTimeSlot.getDay(this);
+	}
+
+	public String getDayNumber() {
+		return UtilitaireICSTimeSlot.getDayNumber(this);
+	}
+
+	public String getMonth() {
+		return UtilitaireICSTimeSlot.getMonth(this);
+	}
+
+	public String getStartingHour() {
+		return UtilitaireICSTimeSlot.getStartingHour(this);
+	}
+
+	public String getEndingHour() {
+		return UtilitaireICSTimeSlot.getEndingHour(this);
+	}
 	
 }

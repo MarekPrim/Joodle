@@ -10,6 +10,6 @@ public class TestControlleur {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        HelloFX.setRoot("secondary");
+        //HelloFX.setRoot("secondary");
     }
 }
