@@ -109,7 +109,7 @@ public class Etudiant implements Serializable {
 			oos.writeObject(this);
 			oos.close();
 		} catch (IOException e) {
-			throw new SauvegardeProfilException("Une erreur est survenue lors de la sauvegarde du profil �tudiant", e);
+			throw new SauvegardeProfilException("Une erreur est survenue lors de la sauvegarde du profil etudiant", e);
 		}
 	
 		

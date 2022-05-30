@@ -8,16 +8,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import modele.Etudiant;
 import modele.LectureProfilException;
+import utils.ICSParser;
+import utils.ICSTimeSlot;
+import utils.ICSTimeSlotStack;
 import views.App;
 
 public class Controller implements Initializable{
 	
 	private Etudiant etudiant;
+	private ICSTimeSlotStack icsData;
 	
 	@FXML private Label profil_etudiant;
+	
+    @FXML private ListView<Text> liste_vendredi;
 	
 	public Controller() throws LectureProfilException {
 		etudiant = Etudiant.getInstanceEtudiant();
@@ -50,6 +58,20 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		ICSParser parser = null;
+		try {
+			parser = new ICSParser();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(ICSTimeSlot timeslot : parser.recoverData()) {
+			if(timeslot.getDay().equals("Vendredi")) {
+				this.icsData.add(timeslot);
+				liste_vendredi.getItems().add(new Text(timeslot.getCours()));
+			}
+		}
+		
 		profil_etudiant.setText(etudiant.toString());
 	}
 }

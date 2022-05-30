@@ -48,14 +48,19 @@ private ArrayList<String> icsContent;
 		}
 	}
 	
-	public ICSTimeSlotStack recoverData() throws ParseException{
+	public ICSTimeSlotStack recoverData(){
 		ICSTimeSlotStack stack = new ICSTimeSlotStack();
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
 			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {
 				ICSTimeSlot cumul = new ICSTimeSlot();
 				while(! this.icsContent.get(i).equals("END:VEVENT") && i<this.icsContent.size()-1) {
-					this.parseICSSpecificString(this.icsContent.get(i),cumul);i++;
+
+					try {
+						this.parseICSSpecificString(this.icsContent.get(i),cumul);
+					} catch (ParseException e) {
+						System.out.println("Error while parsing the string: " + this.icsContent.get(i));
+					}i++;
 				}
 				stack.add(cumul);
 			}
