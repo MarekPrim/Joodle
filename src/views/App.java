@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import modele.Etudiant;
+import modele.LectureProfilException;
 import utils.Utils;
 
 import java.io.FileNotFoundException;
@@ -18,8 +20,13 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("view_EDT"), 1200, 800);
+    public void start(Stage stage) throws IOException, LectureProfilException {
+    	if(Etudiant.estConnecte()) {
+    		scene = new Scene(loadFXML("view_EDT"), 1200, 800);
+    	} else {
+    		scene = new Scene(loadFXML("view_Profil_Etudiant"), 1200, 800);
+    	}
+        
         stage.setScene(scene);
         stage.show();
     }
