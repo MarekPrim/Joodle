@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <HBox prefHeight="44.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #507DBC;">
+               <children>
+                  <Text fill="WHITE" layoutX="76.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joodle">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: A1C6EA;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="profil_etudiant" layoutX="497.0" layoutY="14.0" onMouseClicked="#modifier_profil_etudiant" text="profil_etudiant" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <AnchorPane prefWidth="200.0" style="-fx-background-color: #DAE3E5;">
+               <children>
+                  <VBox alignment="CENTER" prefWidth="200.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="17.0" fitWidth="17.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Group.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="Boutton_EDT" onAction="#switchToEDT" style="-fx-background-color: #DAE3E5;" text="EDT" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="19.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Vector(2).png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="Boutton_Cours" onAction="#switchToCours" style="-fx-background-color: #DAE3E5;" text="Cours" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="17.0" fitWidth="17.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Vector(1).png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="Boutton_Notes" onAction="#switchToNotes" style="-fx-background-color: #DAE3E5;" text="Notes" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Group%204.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="Boutton_Taches" onAction="#switchToTaches" style="-fx-background-color: #DAE3E5;" text="Taches" underline="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="50.0" top="50.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>
