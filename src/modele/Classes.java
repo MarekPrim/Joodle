@@ -1,17 +1,27 @@
 package modele;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Classes {
 	
-	private Map<Integer, String> classes = new HashMap<Integer, String>();
+	private static Map<Integer, String> classes = new HashMap<Integer, String>();
 	
-	public boolean estClassePresente(int code) {
-		return classes.containsKey(code);
+	private Classes() {
+		
 	}
 	
-	public void ajouterClasse(int code, String nomClasse) {
+	public static List<String> getListeNomClasse() {
+		return new ArrayList<String>(classes.values());
+	}
+	
+	public static String getNomClasse(int code) {
+		return classes.get(code);
+	}
+	
+	public static void ajouterClasse(int code, String nomClasse) {
 		classes.put(code, nomClasse);
 	}
 }
