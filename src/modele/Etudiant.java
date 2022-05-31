@@ -10,6 +10,8 @@ import java.io.Serializable;
 
 import javax.swing.JFileChooser;
 
+import utils.Utils;
+
 /**
  * Regroupe les informations d'un �tudiant qui sont utilis�es par l'application 
  * Un seul profil d'�tudiant n'est disponible par application, ce profil est acc�sible avec la m�thode getInstanceEtudiant.
@@ -58,11 +60,11 @@ public class Etudiant implements Serializable {
 	private static Etudiant LireProfilEtudiantSauvegarde() throws LectureProfilException {
 		// R�cuperation de l'adresse du dossier joodle
 		String cheminDossierDocument = new JFileChooser().getFileSystemView().getDefaultDirectory().toString();
-		String cheminDossierJoodle = cheminDossierDocument +  "\\Joodle";
+		String cheminDossierJoodle = Utils.addresseDossierDonneesApplication();
 
 		// On v�rifie que le dossier et le fichier des profils existent 
 		File dossier = new File(cheminDossierJoodle);
-		String cheminFichier = cheminDossierJoodle + "\\profilEtudiant.ser";
+		String cheminFichier = cheminDossierJoodle + File.pathSeparator + "profilEtudiant.ser";
 		File fichier = new File(cheminFichier);
 		if (dossier.exists() && fichier.exists()) {
 			try {
@@ -90,8 +92,7 @@ public class Etudiant implements Serializable {
 	public void sauvegarderProfilEtudiant() throws SauvegardeProfilException {
 		
 		// R�cuperation de l'adresse du dossier joodle
-		String cheminDossierDocument = new JFileChooser().getFileSystemView().getDefaultDirectory().toString();
-		String cheminDossierJoodle = cheminDossierDocument +  "\\Joodle";
+		String cheminDossierJoodle = Utils.addresseDossierDonneesApplication();
 		
 		// Cr�ation du dossier joodle s'il n'existe pas
 		File dossier = new File(cheminDossierJoodle);
@@ -100,7 +101,7 @@ public class Etudiant implements Serializable {
 		}
 		
 		// Ouverture d'un flux d'�criture sur le fichier profilEtudiant
-		String cheminFichier = cheminDossierJoodle + "\\profilEtudiant.ser";
+		String cheminFichier = cheminDossierJoodle + File.pathSeparator + "profilEtudiant.ser";
 		File fichier = new File(cheminFichier);
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier));
