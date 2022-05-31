@@ -14,6 +14,8 @@ public class MainTestICS {
 			System.out.println(t.getDayNumber());
 			System.out.println(t.getMonth());
 			System.out.println(t.getStartingHour());
+			System.out.println(t.getSalle());
+			System.out.println(t.getProfesseur());
 		}
 	}
 
