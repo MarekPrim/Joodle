@@ -35,6 +35,7 @@ public class ControllerProfilEtudiant implements Initializable{
 	    	etudiant.setPrenom(prenom.getText());
 	    	etudiant.setNom(nom.getText());
 	    	etudiant.sauvegarderProfilEtudiant();
+	    	etudiant.setClasse(classe.getValue());
 	    	App.setRoot("view_EDT");
 	    }
 	    
@@ -45,6 +46,7 @@ public class ControllerProfilEtudiant implements Initializable{
 	        login.setText(etudiant.getLogin());
 	        List<String> listeNomClasse = Classes.getListeNomClasse();
 	        classe.setItems(FXCollections.observableList(listeNomClasse));
+	        classe.setValue(etudiant.getClasse());
 	    }
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class Classes {
 	
@@ -11,6 +13,15 @@ public class Classes {
 	
 	private Classes() {
 		
+	}
+	
+	public static int getCodeClasse(String nomClasse) throws NomClasseIntrouvableException {
+		for (Entry<Integer, String> entry : classes.entrySet()) {
+			if(nomClasse.equals(entry.getValue())) {
+				return entry.getKey();
+			}
+		}
+		throw new NomClasseIntrouvableException("La classe " + nomClasse + "+n'a pas été trouvée");
 	}
 	
 	public static List<String> getListeNomClasse() {
