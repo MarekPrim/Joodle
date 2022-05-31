@@ -77,6 +77,16 @@
                               <Button fx:id="Boutton_Taches" onAction="#switchToTaches" style="-fx-background-color: #DAE3E5;" text="Taches" />
                            </children>
                         </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="20.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Group%204.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="Boutton_Taches" onAction="#switchToRestauU" style="-fx-background-color: #DAE3E5;" text="Menu du RU" />
+                           </children>
+                        </HBox>
                      </children>
                      <padding>
                         <Insets bottom="50.0" top="50.0" />

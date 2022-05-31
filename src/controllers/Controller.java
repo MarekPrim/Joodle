@@ -50,6 +50,10 @@ public class Controller implements Initializable{
     private void switchToTaches(ActionEvent e) throws IOException {
         App.setRoot("view_Taches");
     }
+    @FXML
+    private void switchToRestauU(ActionEvent e) throws IOException {
+        App.setRoot("view_RestauU");
+    }
     
     @FXML
     private void modifier_profil_etudiant(MouseEvent e) throws IOException {
