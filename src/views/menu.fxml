@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefWidth="200.0" style="-fx-background-color: #DAE3E5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+<AnchorPane prefWidth="200.0" style="-fx-background-color: #DAE3E5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerMenuNavigation">
    <children>
       <VBox alignment="CENTER" prefWidth="200.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -59,7 +59,7 @@
                         <Image url="@../../../../../../Group%204.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_RU" onAction="#switchToRU" style="-fx-background-color: #DAE3E5;" text="Menu RU" />
+                  <Button fx:id="Boutton_RU" style="-fx-background-color: #DAE3E5;" text="Menu RU" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -69,7 +69,7 @@
                         <Image url="@../../../../../../Group%204.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_Salles_vides" onAction="#switchToSallesVides" style="-fx-background-color: #DAE3E5;" text="Salles vides" />
+                  <Button fx:id="Boutton_Salles_vides" style="-fx-background-color: #DAE3E5;" text="Salles vides" />
                </children>
             </HBox>
          </children>

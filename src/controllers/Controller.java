@@ -48,10 +48,11 @@ public class Controller implements Initializable{
 
     @FXML
     private Button S5;
-	
-	public Controller() throws LectureProfilException {
+    
+    public Controller() throws LectureProfilException {
 		etudiant = Etudiant.getInstanceEtudiant();
 	}
+
 	
 	@FXML
     void changeWeek(MouseEvent event) {
@@ -70,26 +71,6 @@ public class Controller implements Initializable{
 			S5.setText((Integer.parseInt(S5.getText())+1)+"");
 		}
     }
-
-    @FXML
-    private void switchToEDT(ActionEvent e) throws IOException {
-        App.setRoot("view_EDT");
-    }
-
-    @FXML
-    private void switchToCours(ActionEvent e) throws IOException {
-        App.setRoot("view_Cours");
-    }
-
-    @FXML
-    private void switchToNotes(ActionEvent e) throws IOException {
-        App.setRoot("view_Notes");
-    }
-
-    @FXML
-    private void switchToTaches(ActionEvent e) throws IOException {
-        App.setRoot("view_Taches");
-    }
     
     @FXML
     private void modifier_profil_etudiant(MouseEvent e) throws IOException {
@@ -105,13 +86,7 @@ public class Controller implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(ICSTimeSlot timeslot : parser.recoverData()) {
-			if(timeslot.getDay().equals("Vendredi")) {
-				this.icsData.add(timeslot);
-				liste_vendredi.getItems().add(new Text(timeslot.getCours()));
-			}
-		}
-		
 		profil_etudiant.setText(etudiant.toString());
+		
 	}
 }
