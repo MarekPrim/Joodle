@@ -48,6 +48,10 @@ private ArrayList<String> icsContent;
 		}
 	}
 	
+	/**
+	 * Return the list of all the events in the file
+	 * @return
+	 */
 	public ICSTimeSlotStack recoverData(){
 		ICSTimeSlotStack stack = new ICSTimeSlotStack();
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
@@ -90,7 +94,18 @@ private ArrayList<String> icsContent;
 			slot.setSalle(value);
 			break;
 		case "DESCRIPTION":
-			slot.setProfesseur(value);
+			int index = icsContent.indexOf(icsString);
+			String deuxiemeValue = icsContent.get(index+1);
+			value = value + deuxiemeValue;
+			Pattern rgx = Pattern.compile("[^\\\\n]*\\(\\d+\\)\\s?\\\\n[a-zA-Z\\s]+");
+			Matcher matcher = rgx.matcher(value);
+			if(matcher.find()) {
+				value = matcher.group(0);
+				value.replace('\n', ':');
+			} else {
+				//Non trouvé
+			}
+			slot.setProfesseur(value.split("\\\\n")[1]);
 		default:
 			break;
 		}
