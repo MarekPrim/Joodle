@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import modele.Classes;
+import modele.Salles;
 
 public class Utils {
 	
@@ -34,6 +35,16 @@ public class Utils {
 			Classes.ajouterClasse(Integer.parseInt(ligneClasse[0].strip()), ligneClasse[1]);
 		}
 		sc.close();
+	}
+	
+	public static void chargerSalles() throws FileNotFoundException {
+		Scanner sc = new Scanner(new File("salles.csv"));
+        sc.useDelimiter(",");
+        while(sc.hasNext()) {
+            String data = sc.next();
+            Salles.ajouterSalles(Integer.parseInt(data.split(";")[1]), data.split(";")[0].replace("\n", ""));
+        }
+        sc.close();
 	}
 
 }
