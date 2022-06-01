@@ -65,6 +65,7 @@ public class Etudiant implements Serializable {
 		// On v�rifie que le dossier et le fichier des profils existent 
 		File dossier = new File(cheminDossierJoodle);
 		String cheminFichier = cheminDossierJoodle + File.pathSeparator + "profilEtudiant.ser";
+		System.out.println(cheminFichier);
 		File fichier = new File(cheminFichier);
 		if (dossier.exists() && fichier.exists()) {
 			try {
@@ -178,6 +179,10 @@ public class Etudiant implements Serializable {
 	 */
 	public void setLogin(String login) {
 		this.login = login;
+	}
+	
+	public static boolean estConnecte() throws LectureProfilException {
+		return (Etudiant.getInstanceEtudiant().nom != null && Etudiant.getInstanceEtudiant().prenom != null);
 	}
 
 	@Override

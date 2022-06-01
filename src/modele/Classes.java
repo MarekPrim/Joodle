@@ -1,17 +1,38 @@
 package modele;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class Classes {
 	
-	private Map<Integer, String> classes = new HashMap<Integer, String>();
+	private static Map<Integer, String> classes = new HashMap<Integer, String>();
 	
-	public boolean estClassePresente(int code) {
-		return classes.containsKey(code);
+	private Classes() {
+		
 	}
 	
-	public void ajouterClasse(int code, String nomClasse) {
+	public static int getCodeClasse(String nomClasse) throws NomClasseIntrouvableException {
+		for (Entry<Integer, String> entry : classes.entrySet()) {
+			if(nomClasse.equals(entry.getValue())) {
+				return entry.getKey();
+			}
+		}
+		throw new NomClasseIntrouvableException("La classe " + nomClasse + "+n'a pas été trouvée");
+	}
+	
+	public static List<String> getListeNomClasse() {
+		return new ArrayList<String>(classes.values());
+	}
+	
+	public static String getNomClasse(int code) {
+		return classes.get(code);
+	}
+	
+	public static void ajouterClasse(int code, String nomClasse) {
 		classes.put(code, nomClasse);
 	}
 }

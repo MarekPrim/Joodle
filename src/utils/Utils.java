@@ -1,6 +1,11 @@
 package utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import modele.Classes;
+import modele.Salles;
 
 public class Utils {
 	
@@ -20,6 +25,26 @@ public class Utils {
 	        return System.getProperty("user.home") + File.separator + ".config" +
 	        	File.separator + "joodle";
 	    return System.getProperty("user.dir");
+	}
+	
+	public static void chargerClasse() throws FileNotFoundException {
+		Scanner sc = new Scanner(new File("groupeEtudiant.csv"));
+		sc.useDelimiter(";");
+		while(sc.hasNext()) {
+			String[] ligneClasse = sc.next().split(",");
+			Classes.ajouterClasse(Integer.parseInt(ligneClasse[0].strip()), ligneClasse[1]);
+		}
+		sc.close();
+	}
+	
+	public static void chargerSalles() throws FileNotFoundException {
+		Scanner sc = new Scanner(new File("salles.csv"));
+        sc.useDelimiter(",");
+        while(sc.hasNext()) {
+            String data = sc.next();
+            Salles.ajouterSalles(Integer.parseInt(data.split(";")[1]), data.split(";")[0].replace("\n", ""));
+        }
+        sc.close();
 	}
 
 }
