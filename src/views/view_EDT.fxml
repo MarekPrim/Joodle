@@ -75,11 +75,11 @@
                            <children>
                               <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: C4C4C4;">
                                  <children>
-                                    <Label text="Lundi 4" />
-                                    <Label text="Mardi 5" />
-                                    <Label text="Mercredi 6" />
-                                    <Label text="Jeudi 7" />
-                                    <Label text="Vendredi 8" />
+                                    <Label fx:id="lundi" text="Lundi" />
+                                    <Label fx:id="mardi" text="Mardi" />
+                                    <Label fx:id="mercredi" text="Mercredi" />
+                                    <Label fx:id="jeudi" text="Jeudi" />
+                                    <Label fx:id="vendredi" text="Vendredi" />
                                  </children>
                                  <padding>
                                     <Insets right="10.0" />
@@ -88,42 +88,29 @@
                                  <children>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Text fill="#2e8613" strokeType="OUTSIDE" strokeWidth="0.0" text="9:30  Réseau avec J. Gentian" wrappingWidth="100.0" />
+                                          <ListView fx:id="liste_lundi" prefHeight="200.0" prefWidth="200.0" />
+                                       </children></VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <ListView fx:id="liste_mardi" prefHeight="200.0" prefWidth="200.0" />
                                        </children></VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Text fill="#0f12b5" strokeType="OUTSIDE" strokeWidth="0.0" text="9:45 Graphes avec JL Beylot" wrappingWidth="100.0" />
-                                          <Text fill="#97284d" strokeType="OUTSIDE" strokeWidth="0.0" text="11:25 Quantum avec M. Wuxia" wrappingWidth="100.0">
-                                             <VBox.margin>
-                                                <Insets top="15.0" />
-                                             </VBox.margin>
-                                          </Text>
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets left="15.0" />
-                                       </HBox.margin></VBox>
+                                          <ListView fx:id="liste_mercredi" prefHeight="200.0" prefWidth="200.0" />
+                                       </children></VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Text fill="#da1212" strokeType="OUTSIDE" strokeWidth="0.0" text="10:20 Gestion de projet avec Rick Astley" wrappingWidth="100.0">
-                                             <VBox.margin>
-                                                <Insets left="5.0" />
-                                             </VBox.margin>
-                                          </Text>
+                                          <ListView fx:id="liste_jeudi" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
-                                       <HBox.margin>
-                                          <Insets left="10.0" />
-                                       </HBox.margin></VBox>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <Text fill="#7224c6" strokeType="OUTSIDE" strokeWidth="0.0" text="10:00 SHS avec Zhana" wrappingWidth="100.0" />
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets left="10.0" />
-                                       </HBox.margin></VBox>
+                                    </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
                                           <ListView fx:id="liste_vendredi" prefHeight="200.0" prefWidth="200.0" />
-                                       </children></VBox>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </HBox>
                            </children>

@@ -2,6 +2,7 @@ package modele;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 
 public class Semaine {
@@ -41,7 +42,9 @@ public class Semaine {
   
   @Override
   public String toString() {
-	  return this.week.toString();
+	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM");
+	  String formattedString = week.format(formatter);
+	  return formattedString;
   }
   
   public void setSelectedWeek(LocalDate date) {
