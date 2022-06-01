@@ -8,9 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import modele.Semaine;
 
 public class ControllerEDT implements Initializable{
 	
+	private Semaine semaineSelectionne = new Semaine();
 	
     @FXML private ListView<Text> liste_vendredi;
     
@@ -42,18 +44,11 @@ public class ControllerEDT implements Initializable{
     void changeWeek(MouseEvent event) {
 		String idSource = event.getPickResult().getIntersectedNode().getId();
 		if(idSource.equals("previous_edt")) {
-			S1.setText((Integer.parseInt(S1.getText())-1)+"");
-			S2.setText((Integer.parseInt(S2.getText())-1)+"");
-			S3.setText((Integer.parseInt(S3.getText())-1)+"");
-			S4.setText((Integer.parseInt(S4.getText())-1)+"");
-			S5.setText((Integer.parseInt(S5.getText())-1)+"");
+			//semaine.decrease
 		} else {
-			S1.setText((Integer.parseInt(S1.getText())+1)+"");
-			S2.setText((Integer.parseInt(S2.getText())+1)+"");
-			S3.setText((Integer.parseInt(S3.getText())+1)+"");
-			S4.setText((Integer.parseInt(S4.getText())+1)+"");
-			S5.setText((Integer.parseInt(S5.getText())+1)+"");
+			//semaine.increase
 		}
+		//Maj weeks graphique
     }
     
  
@@ -62,4 +57,5 @@ public class ControllerEDT implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("tt");
 	}
+
 }
