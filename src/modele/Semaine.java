@@ -1,19 +1,56 @@
 package modele;
 
-public class Semaine {
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 
-	private date week;
-	private date monday_week;
+public class Semaine {
+	
+	private final int REGULAR_STEP = 5;
+
+	private LocalDate week;
+	private LocalDate selectedDate;
 
 	public Semaine() {
-		this.week = new Date();
+		this.week = LocalDate.now().with(TemporalAdjusters.dayOfWeekInMonth(1,DayOfWeek.MONDAY));
+		this.selectedDate = LocalDate.now().with(TemporalAdjusters.dayOfWeekInMonth(1,DayOfWeek.MONDAY));
 	}
 
   public void increase() {
-    //Do nothing
+	  System.out.println("Increase");
+	  week = week.plusWeeks(REGULAR_STEP);
   }
 
   public void decrease() {
-	 //Do nothing
+	  System.out.println("Decrease");
+	 week = week.minusWeeks(REGULAR_STEP);
   }
+  
+  public LocalDate getFollowingWeek(int step) {
+	  if(step<=0 || step>=REGULAR_STEP) {
+		  throw new IllegalArgumentException();
+	  }
+	  LocalDate copy = week;
+	  copy = copy.plusWeeks(step);
+	  return copy;
+  }
+  
+  public LocalDate getLastLundi() {
+	  return week.with(TemporalAdjusters.previous( DayOfWeek.MONDAY ));
+  }
+  
+  @Override
+  public String toString() {
+	  return this.week.toString();
+  }
+  
+  public void setSelectedWeek(LocalDate date) {
+	  this.selectedDate = date;
+	  System.out.println(date);
+  }
+  
+  public LocalDate getSelectedWeek() {
+	  return selectedDate;
+  }
+  
 }
