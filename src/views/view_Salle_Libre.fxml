@@ -29,7 +29,7 @@
       </HBox>
       <HBox VBox.vgrow="ALWAYS">
          <children>
-            <fx:include source="menu.fxml"/>
+            <fx:include source="menu.fxml" />
          </children>
       </HBox>
    </children>

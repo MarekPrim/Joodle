@@ -19,7 +19,7 @@
                         <Image url="@../../../../../../Group.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_EDT" onAction="#switchToEDT" style="-fx-background-color: #DAE3E5;" text="EDT" underline="true" />
+                  <Button fx:id="boutonEDT" onAction="#switchToEDT" style="-fx-background-color: #DAE3E5;" text="EDT"/>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -29,7 +29,7 @@
                         <Image url="@../../../../../../Vector(2).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_Cours" onAction="#switchToCours" style="-fx-background-color: #DAE3E5;" text="Cours" />
+                  <Button fx:id="boutonCours" onAction="#switchToCours" style="-fx-background-color: #DAE3E5;" text="Cours" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -39,7 +39,7 @@
                         <Image url="@../../../../../../Vector(1).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_Notes" onAction="#switchToNotes" style="-fx-background-color: #DAE3E5;" text="Notes" />
+                  <Button fx:id="boutonNotes" onAction="#switchToNotes" style="-fx-background-color: #DAE3E5;" text="Notes" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -49,7 +49,7 @@
                         <Image url="@../../../../../../Group%204.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_Taches" onAction="#switchToTaches" style="-fx-background-color: #DAE3E5;" text="Taches" />
+                  <Button fx:id="boutonTaches" onAction="#switchToTaches" style="-fx-background-color: #DAE3E5;" text="Taches" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -59,7 +59,7 @@
                         <Image url="@../../../../../../Group%204.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_RU" style="-fx-background-color: #DAE3E5;" text="Menu RU" />
+                  <Button fx:id="boutonMenuRu" onAction="#switchToMenuRu" style="-fx-background-color: #DAE3E5;" text="Menu RU" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
@@ -69,7 +69,7 @@
                         <Image url="@../../../../../../Group%204.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Boutton_Salles_vides" style="-fx-background-color: #DAE3E5;" text="Salles vides" />
+                  <Button fx:id="boutonSallesLibres" onAction="#switchToSalleLibre" style="-fx-background-color: #DAE3E5;" text="Salles vides" />
                </children>
             </HBox>
          </children>

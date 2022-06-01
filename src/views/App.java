@@ -16,9 +16,12 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    
+    private static PagesDisponibles pageActuelle;
 
     @Override
     public void start(Stage stage) throws IOException {
+    	setPageActuelle(PagesDisponibles.EDT);
         scene = new Scene(loadFXML("view_EDT"), 1200, 800);
         stage.setScene(scene);
         stage.show();
@@ -32,6 +35,10 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+    
+    public static Scene getRoot() {
+    	return scene;
+    }
 
     public static void main(String[] args){
     	try {
@@ -41,5 +48,13 @@ public class App extends Application {
 			e.printStackTrace();
 		}
     }
+
+	public static PagesDisponibles getPageActuelle() {
+		return pageActuelle;
+	}
+
+	public static void setPageActuelle(PagesDisponibles pageActuelle) {
+		App.pageActuelle = pageActuelle;
+	}
 
 }
