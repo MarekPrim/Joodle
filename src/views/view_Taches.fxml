@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerTaches">
    <children>
-      <HBox prefHeight="44.0">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #507DBC;">
-               <children>
-                  <Text fill="WHITE" layoutX="76.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joodle">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: A1C6EA;" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="profil_etudiant" layoutX="497.0" layoutY="14.0" onMouseClicked="#modifier_profil_etudiant" text="profil_etudiant" />
-               </children>
-            </AnchorPane>
-         </children>
-      </HBox>
+      <fx:include source="barre_superieure.fxml" />
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
