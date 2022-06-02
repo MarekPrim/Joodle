@@ -71,6 +71,10 @@ public class Cours {
 				+ professeur + "\n";
 	}
 	
+	public String afficher() {
+		return this.getStartingHour()+" - "+this.cours + ", "+this.salle+";\n"+this.professeur;
+	}
+	
 	public String getDay(){
 		return UtilitaireICSTimeSlot.getDay(this);
 	}

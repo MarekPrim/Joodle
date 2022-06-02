@@ -154,19 +154,19 @@ public class ControllerEDT implements Initializable{
 			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {
 				switch(creneau.getDay()) {
 				case "Lundi":
-					liste_lundi.getItems().add(new Text(creneau.toString()));
+					liste_lundi.getItems().add(new Text(creneau.afficher()));
 					break;
 				case "Mardi":
-					liste_mardi.getItems().add(new Text(creneau.toString()));
+					liste_mardi.getItems().add(new Text(creneau.afficher()));
 					break;
 				case "Mercredi":
-					liste_mercredi.getItems().add(new Text(creneau.toString()));
+					liste_mercredi.getItems().add(new Text(creneau.afficher()));
 					break;
 				case "Jeudi":
-					liste_jeudi.getItems().add(new Text(creneau.toString()));
+					liste_jeudi.getItems().add(new Text(creneau.afficher()));
 					break;
 				case "Vendredi":
-					liste_vendredi.getItems().add(new Text(creneau.toString()));
+					liste_vendredi.getItems().add(new Text(creneau.afficher()));
 					break;
 				default:
 					break;
