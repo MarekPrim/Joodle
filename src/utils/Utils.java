@@ -17,7 +17,7 @@ public class Utils {
 	{
 		String nomOS = System.getProperty("os.name").toLowerCase();
 	    if (nomOS.contains("win"))
-	        return System.getenv("APPDATA");
+	        return System.getenv("APPDATA") + File.separator + "Joodle";
 	    else if (nomOS.contains("mac"))
 	        return System.getProperty("user.home") + File.separator + "Library" 
 	        		+ File.separator + "Preferences" + File.separator + "Joodle";
