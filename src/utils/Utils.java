@@ -2,10 +2,11 @@ package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import modele.Classes;
-import modele.Salles;
+import modele.Salle;
 
 public class Utils {
 	
@@ -37,12 +38,12 @@ public class Utils {
 		sc.close();
 	}
 	
-	public static void chargerSalles() throws FileNotFoundException {
+	public static void chargerSalles() throws NumberFormatException, IOException {
 		Scanner sc = new Scanner(new File("salles.csv"));
-        sc.useDelimiter(",");
+        sc.useDelimiter(";");
         while(sc.hasNext()) {
             String data = sc.next();
-            Salles.ajouterSalles(Integer.parseInt(data.split(";")[1]), data.split(";")[0].replace("\n", ""));
+            new Salle(data.split(",")[0].replace("\n", ""), Integer.parseInt(data.split(",")[1]));
         }
         sc.close();
 	}
