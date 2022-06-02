@@ -7,12 +7,12 @@ public class Categorie {
     
     private int id;
     private String nom; //Méthodes de l'ingénieur / UE11
-    private List<Cours> cours;
+    private List<Matiere> cours;
     
     public Categorie(int id, String nom) {
         this.id = id;
         this.nom = nom;
-        this.cours = new ArrayList<Cours>();
+        this.cours = new ArrayList<Matiere>();
     }
 
     public int getId() {
@@ -31,23 +31,23 @@ public class Categorie {
         this.nom = nom;
     }
 
-	public List<Cours> getCours() {
+	public List<Matiere> getCours() {
 		return cours;
 	}
 
-	public void setCours(List<Cours> cours) {
+	public void setCours(List<Matiere> cours) {
 		this.cours = cours;
 	}
 
-    public boolean addCours(Cours cours) {
+    public boolean addCours(Matiere cours) {
         return this.cours.add(cours);
     }
 
-    public boolean removeCours(Cours cours) {
+    public boolean removeCours(Matiere cours) {
         return this.cours.remove(cours);
     }
 
-    public boolean containsCours(Cours cours) {
+    public boolean containsCours(Matiere cours) {
         return this.cours.contains(cours);
     }
 
@@ -55,11 +55,11 @@ public class Categorie {
         return this.cours.size();
     }
 
-    public Cours getCours(int index) {
+    public Matiere getCours(int index) {
         return this.cours.get(index);
     }
 
-    public void setCours(int index, Cours cours) {
+    public void setCours(int index, Matiere cours) {
         this.cours.set(index, cours);
     }
 
