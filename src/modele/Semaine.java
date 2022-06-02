@@ -42,7 +42,7 @@ public class Semaine {
   
   @Override
   public String toString() {
-	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM");
+	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
 	  String formattedString = week.format(formatter);
 	  return formattedString;
   }
