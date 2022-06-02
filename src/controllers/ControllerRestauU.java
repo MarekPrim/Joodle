@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-public class ControllerResteauU implements Initializable{
+public class ControllerRestauU implements Initializable{
 
 	@FXML private TextField Jour1Menu;
 	@FXML private TextField Jour1Date;
