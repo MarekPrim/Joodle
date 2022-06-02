@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +28,10 @@ private ArrayList<String> icsContent;
 	public ICSParser() throws IOException {
 		//Read the file and store the content in a string
 		this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
+	}
+	
+	public ICSParser(File fichier) throws IOException {
+		this.icsContent = this.readFileToArrayListOfString(fichier.getPath());
 	}
 
 	private ArrayList<String> readFileToArrayListOfString(String pathFile)

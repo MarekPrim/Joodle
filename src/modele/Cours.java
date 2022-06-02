@@ -71,11 +71,15 @@ public class Cours {
 				+ professeur + "\n";
 	}
 	
+	public String afficher() {
+		return this.getStartingHour()+" - "+this.cours + ", "+this.salle+";\n"+this.professeur;
+	}
+	
 	public String getDay(){
 		return UtilitaireICSTimeSlot.getDay(this);
 	}
 
-	public String getDayNumber() {
+	public int getDayNumber() {
 		return UtilitaireICSTimeSlot.getDayNumber(this);
 	}
 
@@ -89,6 +93,10 @@ public class Cours {
 
 	public String getEndingHour() {
 		return UtilitaireICSTimeSlot.getEndingHour(this);
+	}
+
+	public int getMonthNumber() {
+		return UtilitaireICSTimeSlot.getMonthNumber(this);
 	}
 	
 }

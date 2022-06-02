@@ -20,9 +20,26 @@ public class UtilitaireICSTimeSlot {
 			return "";
 		}
 	}
+	
+	static int getDayWeekNumber(Cours timeSlot) {
+		switch (timeSlot.getStart().substring(0, 3)) {
+		case "Mon":
+			return 1;
+		case "Tue":
+			return 2;
+		case "Wed":
+			return 3;
+		case "Thu":
+			return 4;
+		case "Fri":
+			return 5;
+		default:
+			return -1;
+		}
+	}
 
-	public static String getDayNumber(Cours timeSlot){
-		return timeSlot.getStart().substring(8, 10);
+	public static int getDayNumber(Cours timeSlot){
+		return Integer.parseInt(timeSlot.getStart().substring(8, 10));
 	}
 	
 	public static String getMonth(Cours timeSlot) {
@@ -53,6 +70,37 @@ public class UtilitaireICSTimeSlot {
 			return "Décembre";
 		default:
 			return "";
+		}
+	}
+	
+	public static int getMonthNumber(Cours timeSlot) {
+		switch (timeSlot.getStart().substring(4, 7)) {
+		case "Jan":
+			return 1;
+		case "Feb":
+			return 2;
+		case "Mar":
+			return 3;
+		case "Apr":
+			return 4;
+		case "May":
+			return 5;
+		case "Jun":
+			return 6;
+		case "Jul":
+			return 7;
+		case "Aug":
+			return 8;
+		case "Sep":
+			return 9;
+		case "Oct":
+			return 10;
+		case "Nov":
+			return 11;
+		case "Dec":
+			return 12;
+		default:
+			return -1;
 		}
 	}
 	
