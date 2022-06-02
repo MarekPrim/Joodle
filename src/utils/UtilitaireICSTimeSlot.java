@@ -21,7 +21,7 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	static int getDayWeekNumber(ICSTimeSlot timeSlot) {
+	static int getDayWeekNumber(Cours timeSlot) {
 		switch (timeSlot.getStart().substring(0, 3)) {
 		case "Mon":
 			return 1;
@@ -38,7 +38,7 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 
-	static int getDayNumber(ICSTimeSlot timeSlot){
+	public static int getDayNumber(Cours timeSlot){
 		return Integer.parseInt(timeSlot.getStart().substring(8, 10));
 	}
 	
@@ -73,7 +73,7 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	static int getMonthNumber(ICSTimeSlot timeSlot) {
+	public static int getMonthNumber(Cours timeSlot) {
 		switch (timeSlot.getStart().substring(4, 7)) {
 		case "Jan":
 			return 1;
@@ -104,7 +104,7 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	static String getStartingHour(ICSTimeSlot timeSlot) {
+	public static String getStartingHour(Cours timeSlot) {
 		return timeSlot.getStart().substring(12, 16);
 	}
 	

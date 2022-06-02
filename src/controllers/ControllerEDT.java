@@ -14,9 +14,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import modele.Cours;
 import modele.Semaine;
 import utils.ICSParser;
-import utils.ICSTimeSlot;
+
 import utils.ICSTimeSlotStack;
 
 public class ControllerEDT implements Initializable{
@@ -139,6 +140,7 @@ public class ControllerEDT implements Initializable{
 		if(edt == null) {
 			throw new NullPointerException();
 		}
+		
 		majButtonSemaine();
 		fillEDT();
 		System.out.println("Démarrage controlleur EDT");
@@ -146,7 +148,7 @@ public class ControllerEDT implements Initializable{
 	
 	void fillEDT() {
 		clearListes();
-		for(ICSTimeSlot creneau : edt) {
+		for(Cours creneau : edt) {
 			int dayNumber = creneau.getDayNumber() - modeledSemaine.getSelectedWeek().getDayOfMonth();
 			boolean isSameMonth = modeledSemaine.getSelectedWeek().getMonthValue() == creneau.getMonthNumber();
 			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {
@@ -169,6 +171,10 @@ public class ControllerEDT implements Initializable{
 				default:
 					break;
 				}
+			} else {
+				System.out.println("Modele : "+modeledSemaine.getSelectedWeek().getMonthValue());
+				System.out.println("EDT : "+creneau.getMonthNumber()+"/"+dayNumber);
+				
 			}
 		}
 	}
@@ -185,8 +191,48 @@ public class ControllerEDT implements Initializable{
 		System.out.println(t);
 		String day = t.substring(0,2);
 		String year = t.substring(t.length()-4, t.length());
-		String month = "06";
-		return LocalDate.parse(year+"-"+month+"-"+day);
+		String monthString = t.replaceAll("[0-9]", "").strip();
+		switch(monthString) {
+			case "janvier":
+				monthString = "01";
+				break;
+			case "février":
+				monthString = "02";
+				break;
+			case "mars":
+				monthString = "03";
+				break;
+			case "avril":
+				monthString = "04";
+				break;
+			case "mai":
+				monthString = "05";
+				break;
+			case "juin":
+				monthString = "06";
+				break;
+			case "juillet":
+				monthString = "07";
+				break;
+			case "août":
+				monthString = "08";
+				break;
+			case "septembre":
+				monthString = "09";
+				break;
+			case "octobre":
+				monthString = "10";
+				break;
+			case "novembre":
+				monthString = "11";
+				break;
+			case "décembre":
+				monthString = "12";
+				break;
+			default:
+				break;
+		}
+		return LocalDate.parse(year+"-"+monthString+"-"+day);
 	}
 	
 }

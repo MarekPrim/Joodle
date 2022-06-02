@@ -75,7 +75,7 @@ public class Cours {
 		return UtilitaireICSTimeSlot.getDay(this);
 	}
 
-	public String getDayNumber() {
+	public int getDayNumber() {
 		return UtilitaireICSTimeSlot.getDayNumber(this);
 	}
 
@@ -89,6 +89,10 @@ public class Cours {
 
 	public String getEndingHour() {
 		return UtilitaireICSTimeSlot.getEndingHour(this);
+	}
+
+	public int getMonthNumber() {
+		return UtilitaireICSTimeSlot.getMonthNumber(this);
 	}
 	
 }
