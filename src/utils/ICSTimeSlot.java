@@ -73,12 +73,20 @@ public class ICSTimeSlot {
 		return UtilitaireICSTimeSlot.getDay(this);
 	}
 
-	public String getDayNumber() {
+	public int getDayNumber() {
 		return UtilitaireICSTimeSlot.getDayNumber(this);
+	}
+	
+	public int getDayWeekNumber() {
+		return UtilitaireICSTimeSlot.getDayWeekNumber(this);
 	}
 
 	public String getMonth() {
 		return UtilitaireICSTimeSlot.getMonth(this);
+	}
+	
+	public int getMonthNumber() {
+		return UtilitaireICSTimeSlot.getMonthNumber(this);
 	}
 
 	public String getStartingHour() {

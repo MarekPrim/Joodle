@@ -16,11 +16,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import modele.Semaine;
 import utils.ICSParser;
+import utils.ICSTimeSlot;
+import utils.ICSTimeSlotStack;
 
 public class ControllerEDT implements Initializable{
 	
 	private Semaine modeledSemaine = new Semaine();
-	private ICSParser parser;
+	private ICSTimeSlotStack edt;
 	
     
     @FXML
@@ -100,7 +102,7 @@ public class ControllerEDT implements Initializable{
 	
 	void majButtonSemaine() {
 		S1.setText(modeledSemaine.toString());
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
 		S2.setText(modeledSemaine.getFollowingWeek(1).format(formatter));
 		S3.setText(modeledSemaine.getFollowingWeek(2).format(formatter));
 		S4.setText(modeledSemaine.getFollowingWeek(3).format(formatter));
@@ -117,8 +119,10 @@ public class ControllerEDT implements Initializable{
     void select_week(MouseEvent event) {
     	String date = ((Text)event.getTarget()).getText();
     	System.out.println(date);
-    	modeledSemaine.setSelectedWeek(LocalDate.parse(date));
+    	
+    	modeledSemaine.setSelectedWeek(stringToLocalDate(date));
     	majButtonSemaine();
+    	fillEDT();
     }
     
  
@@ -126,13 +130,63 @@ public class ControllerEDT implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			parser = new ICSParser();
+			ICSParser parser = new ICSParser();
+			edt = parser.recoverData();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(edt == null) {
+			throw new NullPointerException();
+		}
 		majButtonSemaine();
+		fillEDT();
 		System.out.println("Démarrage controlleur EDT");
 	}
+	
+	void fillEDT() {
+		clearListes();
+		for(ICSTimeSlot creneau : edt) {
+			int dayNumber = creneau.getDayNumber() - modeledSemaine.getSelectedWeek().getDayOfMonth();
+			boolean isSameMonth = modeledSemaine.getSelectedWeek().getMonthValue() == creneau.getMonthNumber();
+			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {
+				switch(creneau.getDay()) {
+				case "Lundi":
+					liste_lundi.getItems().add(new Text(creneau.toString()));
+					break;
+				case "Mardi":
+					liste_mardi.getItems().add(new Text(creneau.toString()));
+					break;
+				case "Mercredi":
+					liste_mercredi.getItems().add(new Text(creneau.toString()));
+					break;
+				case "Jeudi":
+					liste_jeudi.getItems().add(new Text(creneau.toString()));
+					break;
+				case "Vendredi":
+					liste_vendredi.getItems().add(new Text(creneau.toString()));
+					break;
+				default:
+					break;
+				}
+			}
+		}
+	}
 
+	private void clearListes() {
+		liste_lundi.getItems().clear();
+		liste_mardi.getItems().clear();
+		liste_mercredi.getItems().clear();
+		liste_jeudi.getItems().clear();
+		liste_vendredi.getItems().clear();
+	}
+
+	public LocalDate stringToLocalDate(String t) {
+		System.out.println(t);
+		String day = t.substring(0,2);
+		String year = t.substring(t.length()-4, t.length());
+		String month = "06";
+		return LocalDate.parse(year+"-"+month+"-"+day);
+	}
+	
 }
