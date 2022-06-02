@@ -59,13 +59,11 @@ public class Etudiant implements Serializable {
 	 */
 	private static Etudiant LireProfilEtudiantSauvegarde() throws LectureProfilException {
 		// R�cuperation de l'adresse du dossier joodle
-		String cheminDossierDocument = new JFileChooser().getFileSystemView().getDefaultDirectory().toString();
 		String cheminDossierJoodle = Utils.addresseDossierDonneesApplication();
 
 		// On v�rifie que le dossier et le fichier des profils existent 
 		File dossier = new File(cheminDossierJoodle);
-		String cheminFichier = cheminDossierJoodle + File.pathSeparator + "profilEtudiant.ser";
-		System.out.println(cheminFichier);
+		String cheminFichier = cheminDossierJoodle + File.separator + "profilEtudiant.ser";
 		File fichier = new File(cheminFichier);
 		if (dossier.exists() && fichier.exists()) {
 			try {
@@ -102,7 +100,7 @@ public class Etudiant implements Serializable {
 		}
 		
 		// Ouverture d'un flux d'�criture sur le fichier profilEtudiant
-		String cheminFichier = cheminDossierJoodle + File.pathSeparator + "profilEtudiant.ser";
+		String cheminFichier = cheminDossierJoodle + File.separator + "profilEtudiant.ser";
 		File fichier = new File(cheminFichier);
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier));

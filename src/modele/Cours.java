@@ -1,50 +1,94 @@
 package modele;
 
+import utils.UtilitaireICSTimeSlot;
+
 public class Cours {
+	private String start;
+	private String end;
+	private String cours;
+	private String salle;
+	private String professeur;
 
-    /*
-    Exemple :
-    Nom : CPO
-    id = $url/id=1187
-    intitule : Conception et Programmation Objet
-    */
+	public Cours(){
+		this.start = "";
+		this.end = "";
+		this.cours = "";
+		this.salle = "";
+		this.professeur = "";
+	}
+	
+	public Cours(String start, String end, String cours, String salle, String professeur) {
+		this.start = start;
+		this.end = end;
+		this.cours = cours;
+		this.salle = salle;
+		this.professeur = professeur;
+	}
 
-    private int id;
-    private String nom;
-    private String intitule;
+	public String getStart() {
+		return start;
+	}
 
-    public Cours(int id, String nom, String intitule) {
-        this.id = id;
-        this.nom = nom;
-        this.intitule = intitule;
-    }
+	public void setStart(String start) {
+		this.start = start;
+	}
 
-    public int getId() {
-        return id;
-    }
-    
-    public String getNom() {
-        return nom;
-    }
+	public String getEnd() {
+		return end;
+	}
 
-    public String getIntitule() {
-        return intitule;
-    }
+	public void setEnd(String end) {
+		this.end = end;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getCours() {
+		return cours;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public void setCours(String cours) {
+		this.cours = cours;
+	}
 
-    public void setIntitule(String intitule) {
-        this.intitule = intitule;
-    }
+	public String getSalle() {
+		return salle;
+	}
 
-    public String toString() {
-        return "Cours [id=" + id + ", nom=" + nom + ", intitule=" + intitule + "]";
-    }
+	public void setSalle(String salle) {
+		this.salle = salle;
+	}
 
+	public String getProfesseur() {
+		return professeur;
+	}
+
+	public void setProfesseur(String professeur) {
+		this.professeur = professeur;
+	}
+
+	@Override
+	public String toString() {
+		return "start=" + start + "\nend=" + end + "\ncours=" + cours + "\nsalle=" + salle + "\nprofesseur="
+				+ professeur + "\n";
+	}
+	
+	public String getDay(){
+		return UtilitaireICSTimeSlot.getDay(this);
+	}
+
+	public String getDayNumber() {
+		return UtilitaireICSTimeSlot.getDayNumber(this);
+	}
+
+	public String getMonth() {
+		return UtilitaireICSTimeSlot.getMonth(this);
+	}
+
+	public String getStartingHour() {
+		return UtilitaireICSTimeSlot.getStartingHour(this);
+	}
+
+	public String getEndingHour() {
+		return UtilitaireICSTimeSlot.getEndingHour(this);
+	}
+	
 }

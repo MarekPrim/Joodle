@@ -14,6 +14,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import modele.Cours;
+
 
 //Parse each element from a .ics file
 public class ICSParser {
@@ -57,7 +59,7 @@ private ArrayList<String> icsContent;
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
 			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {
-				ICSTimeSlot cumul = new ICSTimeSlot();
+				Cours cumul = new Cours();
 				while(! this.icsContent.get(i).equals("END:VEVENT") && i<this.icsContent.size()-1) {
 
 					try {
@@ -72,7 +74,7 @@ private ArrayList<String> icsContent;
 		return stack;
 	}
 	
-	private void parseICSSpecificString(String icsString, ICSTimeSlot slot) throws ParseException {
+	private void parseICSSpecificString(String icsString, Cours slot) throws ParseException {
 		String goodValue = "";
 		String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
 		//Standard ICS date format, see RFC 5545 for further information

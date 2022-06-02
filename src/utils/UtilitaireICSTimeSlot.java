@@ -1,8 +1,10 @@
 package utils;
 
+import modele.Cours;
+
 public class UtilitaireICSTimeSlot {
 	
-	static String getDay(ICSTimeSlot timeSlot) {
+	public static String getDay(Cours timeSlot) {
 		switch (timeSlot.getStart().substring(0, 3)) {
 		case "Mon":
 			return "Lundi";
@@ -19,11 +21,11 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 
-	static String getDayNumber(ICSTimeSlot timeSlot){
+	public static String getDayNumber(Cours timeSlot){
 		return timeSlot.getStart().substring(8, 10);
 	}
 	
-	static String getMonth(ICSTimeSlot timeSlot) {
+	public static String getMonth(Cours timeSlot) {
 		switch (timeSlot.getStart().substring(4, 7)) {
 		case "Jan":
 			return "Janvier";
@@ -54,11 +56,11 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	static String getStartingHour(ICSTimeSlot timeSlot) {
+	public static String getStartingHour(Cours timeSlot) {
 		return timeSlot.getStart().substring(12, 16);
 	}
 	
-	static String getEndingHour(ICSTimeSlot timeSlot) {
+	public static String getEndingHour(Cours timeSlot) {
 		return timeSlot.getEnd().substring(12, 16);
 	}
 
