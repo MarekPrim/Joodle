@@ -14,7 +14,9 @@ import java.util.regex.Pattern;
 import modele.Cours;
 
 
-//Parse each element from a .ics file
+/**
+ * Permet de parser un fichier .ics
+ */
 public class ICSParser {
 	
 	private static final String FILENAME = "ADECal.ics";
@@ -36,6 +38,9 @@ private ArrayList<String> icsContent;
 		this.icsContent = this.readFileToArrayListOfString(file.getAbsolutePath());
 	}
 
+	/**
+	 * Permet de passer d'un fichier à une ArrayList de String
+	 */
 	private ArrayList<String> readFileToArrayListOfString(String pathFile)
   throws IOException {
     Path path = Paths.get(pathFile);
@@ -48,7 +53,10 @@ private ArrayList<String> icsContent;
     }
     return stack;
 }
-	
+	/**
+	 * Indique si un fichier est valide
+	 * @return
+	 */
 	public boolean isValidICSFile() {
 		if(this.icsContent.get(0).equals("BEGIN:VCALENDAR")) {
 			return true;
@@ -85,6 +93,12 @@ private ArrayList<String> icsContent;
 		return stack;
 	}
 	
+	/**
+	 * Parse une ligne d'un fichier ICS en fonction de son identifiant en début de ligne
+	 * @param string La ligne à parser
+	 * @param cumul Le cours à construire
+	 * @throws ParseException
+	 */
 	private void parseICSSpecificString(String icsString, Cours slot) throws ParseException {
 		String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
 	
@@ -96,7 +110,7 @@ private ArrayList<String> icsContent;
 			slot.setEnd(value);
 			break;
 		case "SUMMARY":
-			if(value.split("-").length == 3) {
+			if(value.split("-").length >= 3) {
 				slot.setCours(value.split("-")[2]);
 				slot.setType(value.split("-")[1]);
 			} else {
