@@ -2,14 +2,12 @@ package modele;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import utils.ICSParser;
+import utils.ListeCours;
 import utils.RequestFormeur;
 
 public class Salle {
@@ -18,7 +16,7 @@ public class Salle {
 	
 	private int codeSalle;
 	
-	private List<Cours> listeCours = new ArrayList<>();
+	private ListeCours listeCours;
 	
 	private static List<Salle> listeSalles = new ArrayList<Salle>();
 	
@@ -34,8 +32,6 @@ public class Salle {
 	private void chargerCours() throws IOException {
 		LocalDateTime heureActuelle = LocalDateTime.now();
 		LocalDateTime heure12HAvant = heureActuelle.minusHours(12);
-		System.out.println(heure12HAvant);
-		System.out.println(derniereMiseAJourCours);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
 			System.out.println("Tentative de mise a jour");
 			//RequestFormeur request = new RequestFormeur(this.codeSalle);
@@ -43,8 +39,7 @@ public class Salle {
 			//ICSParser ics = new ICSParser(fichierCalendrier);
 			//this.listeCours = ics.recoverData();
 			this.derniereMiseAJourCours = LocalDateTime.now();
-		}
-		
+		}	
 	}
 
 	public String getNomSalle() {
@@ -63,13 +58,10 @@ public class Salle {
 		this.codeSalle = codeSalle;
 	}
 
-	public List<Cours> getListeCours() {
+	public ListeCours getListeCours() {
 		return listeCours;
 	}
 
-	public void setListeCours(List<Cours> listeCours) {
-		this.listeCours = listeCours;
-	}
 
 	public static List<Salle> getListeSalles() {
 		return listeSalles;

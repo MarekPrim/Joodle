@@ -2,18 +2,16 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modele.Cours;
 import modele.Etudiant;
@@ -21,13 +19,12 @@ import modele.LectureProfilException;
 import modele.NomClasseIntrouvableException;
 import modele.Semaine;
 import utils.ICSParser;
-
-import utils.ICSTimeSlotStack;
+import utils.ListeCours;
 
 public class ControllerEDT implements Initializable{
 	
 	private Semaine modeledSemaine = new Semaine();
-	private ICSTimeSlotStack edt;
+	private ListeCours edt;
 	
     
     @FXML

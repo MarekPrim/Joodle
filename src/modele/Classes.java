@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 /*
  * Permet d'obtenir la correspondance entre une classe (Ex : 1A APP MF2E) et son code

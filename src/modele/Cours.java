@@ -1,7 +1,10 @@
 package modele;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javafx.scene.paint.Color;
-import utils.UtilitaireICSTimeSlot;
+
 
 /*
  * Permet de représenter un créneau de cours avec sa salle, sa matière, son type, son professeur
@@ -9,44 +12,56 @@ import utils.UtilitaireICSTimeSlot;
  * @author Kilyan
  */
 public class Cours {
-	private String start;
-	private String end;
+	private LocalDateTime start;
+	private LocalDateTime end;
 	private String cours;
 	private String salle;
 	private String professeur;
 	private String type;
+	
+	private static final DateTimeFormatter formatterDateHeure = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
 	public Cours(){
-		this.start = "";
-		this.end = "";
+		this.start = null;
+		this.end = null;
 		this.cours = "";
 		this.type = "";
 		this.salle = "";
 		this.professeur = "";
 	}
 	
-	public Cours(String start, String end, String cours, String salle, String professeur) {
-		this.start = start;
-		this.end = end;
+	public Cours(String startString, String endString, String cours, String salle, String professeur) {
+		this.start = convertirDateHeureStringVersLocalDateTime(startString);
+		this.end = convertirDateHeureStringVersLocalDateTime(endString);
 		this.cours = cours;
 		this.salle = salle;
 		this.professeur = professeur;
 	}
 
-	public String getStart() {
+	public LocalDateTime getStart() {
 		return start;
+	}
+	
+	private LocalDateTime convertirDateHeureStringVersLocalDateTime(String dateHeure) {
+		return LocalDateTime.parse(dateHeure, formatterDateHeure);
+	}
+	
+	public boolean estCoursDansCreneau(LocalDateTime debutCreneau, LocalDateTime finCreneau) {
+		return this.start.isEqual(debutCreneau) || this.end.isEqual(finCreneau) || 
+				(this.start.isAfter(debutCreneau) && this.start.isBefore(finCreneau)) ||
+				(this.start.isBefore(debutCreneau) && this.end.isAfter(debutCreneau));
 	}
 
 	public void setStart(String start) {
-		this.start = start;
+		this.start = convertirDateHeureStringVersLocalDateTime(start);
 	}
 
-	public String getEnd() {
+	public LocalDateTime getEnd() {
 		return end;
 	}
 
 	public void setEnd(String end) {
-		this.end = end;
+		this.end = convertirDateHeureStringVersLocalDateTime(end);
 	}
 
 	public String getCours() {
@@ -124,7 +139,7 @@ public class Cours {
 	 * @return String
 	 */
 	public int getDayNumber() {
-		return UtilitaireICSTimeSlot.getDayNumber(this);
+		return start.getDayOfMonth();
 	}
 
 	/**
@@ -132,7 +147,7 @@ public class Cours {
 	 * @return String
 	 */
 	public String getMonth() {
-		return UtilitaireICSTimeSlot.getMonth(this);
+		return start.getMonth().toString();
 	}
 
 	/**
@@ -140,7 +155,7 @@ public class Cours {
 	 * @return String
 	 */
 	public String getStartingHour() {
-		return UtilitaireICSTimeSlot.getStartingHour(this);
+		return start.getHour() + ":" + start.getMinute();
 	}
 
 	/**
@@ -148,7 +163,7 @@ public class Cours {
 	 * @return String
 	 */
 	public String getEndingHour() {
-		return UtilitaireICSTimeSlot.getEndingHour(this);
+		return end.getHour() + ":" + end.getMinute();
 	}
 
 	/**
@@ -156,7 +171,7 @@ public class Cours {
 	 * @return int
 	 */
 	public int getMonthNumber() {
-		return UtilitaireICSTimeSlot.getMonthNumber(this);
+		return start.getMonthValue();
 	}
 	
 }

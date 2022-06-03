@@ -6,12 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -66,8 +62,8 @@ private ArrayList<String> icsContent;
 	 * @return
 	 * @throws IOException 
 	 */
-	public ICSTimeSlotStack recoverData() throws IOException{
-		ICSTimeSlotStack stack = new ICSTimeSlotStack();
+	public ListeCours recoverData() throws IOException{
+		ListeCours stack = new ListeCours();
 		if(!isValidICSFile()) {
 			this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
 		}
@@ -90,19 +86,14 @@ private ArrayList<String> icsContent;
 	}
 	
 	private void parseICSSpecificString(String icsString, Cours slot) throws ParseException {
-		String goodValue = "";
 		String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
-		//Standard ICS date format, see RFC 5545 for further information
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
-		
+	
 		switch (icsString.split(":")[0]) {
 		case "DTSTART":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setStart(goodValue);
+			slot.setStart(value);
 			break;
 		case "DTEND":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setEnd(goodValue);
+			slot.setEnd(value);
 			break;
 		case "SUMMARY":
 			if(value.split("-").length == 3) {
