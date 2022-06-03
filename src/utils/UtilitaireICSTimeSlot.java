@@ -10,16 +10,16 @@ public class UtilitaireICSTimeSlot {
 	 * @return la traduction du jour au format français
 	 */
 	public static String getDay(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(0, 3)) {
-		case "Mon":
+		switch (timeSlot.getStart().getDayOfWeek()) {
+		case MONDAY:
 			return "Lundi";
-		case "Tue":
+		case TUESDAY:
 			return "Mardi";
-		case "Wed":
+		case WEDNESDAY:
 			return "Mercredi";
-		case "Thu":
+		case THURSDAY:
 			return "Jeudi";
-		case "Fri":
+		case FRIDAY:
 			return "Vendredi";
 		default:
 			return "";
@@ -32,20 +32,7 @@ public class UtilitaireICSTimeSlot {
 	 * @return int
 	 */
 	static int getDayWeekNumber(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(0, 3)) {
-		case "Mon":
-			return 1;
-		case "Tue":
-			return 2;
-		case "Wed":
-			return 3;
-		case "Thu":
-			return 4;
-		case "Fri":
-			return 5;
-		default:
-			return -1;
-		}
+		return timeSlot.getStart().getDayOfWeek().getValue();
 	}
 
 	/**
@@ -54,7 +41,7 @@ public class UtilitaireICSTimeSlot {
 	 * @return int
 	 */
 	public static int getDayNumber(Cours timeSlot){
-		return Integer.parseInt(timeSlot.getStart().substring(8, 10));
+		return timeSlot.getStart().getDayOfMonth();
 	}
 	
 	/**
@@ -63,30 +50,30 @@ public class UtilitaireICSTimeSlot {
 	 * @return String
 	 */
 	public static String getMonth(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(4, 7)) {
-		case "Jan":
+		switch (timeSlot.getStart().getMonth()) {
+		case JANUARY:
 			return "Janvier";
-		case "Feb":
+		case FEBRUARY:
 			return "Février";
-		case "Mar":
+		case MARCH:
 			return "Mars";
-		case "Apr":
+		case APRIL:
 			return "Avril";
-		case "May":
+		case MAY:
 			return "Mai";
-		case "Jun":
+		case JUNE:
 			return "Juin";
-		case "Jul":
+		case JULY:
 			return "Juillet";
-		case "Aug":
+		case AUGUST:
 			return "Août";
-		case "Sep":
+		case SEPTEMBER:
 			return "Septembre";
-		case "Oct":
+		case OCTOBER:
 			return "Octobre";
-		case "Nov":
+		case NOVEMBER:
 			return "Novembre";
-		case "Dec":
+		case DECEMBER:
 			return "Décembre";
 		default:
 			return "";
@@ -99,34 +86,7 @@ public class UtilitaireICSTimeSlot {
 	 * @return int
 	 */
 	public static int getMonthNumber(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(4, 7)) {
-		case "Jan":
-			return 1;
-		case "Feb":
-			return 2;
-		case "Mar":
-			return 3;
-		case "Apr":
-			return 4;
-		case "May":
-			return 5;
-		case "Jun":
-			return 6;
-		case "Jul":
-			return 7;
-		case "Aug":
-			return 8;
-		case "Sep":
-			return 9;
-		case "Oct":
-			return 10;
-		case "Nov":
-			return 11;
-		case "Dec":
-			return 12;
-		default:
-			return -1;
-		}
+		return timeSlot.getStart().getMonthValue();
 	}
 	
 	/**
@@ -134,8 +94,8 @@ public class UtilitaireICSTimeSlot {
 	 * @param timeSlot
 	 * @return String
 	 */
-	public static String getStartingHour(Cours timeSlot) {
-		return timeSlot.getStart().substring(12, 16);
+	public static int getStartingHour(Cours timeSlot) {
+		return timeSlot.getStart().getHour();
 	}
 	
 	/**
@@ -143,8 +103,8 @@ public class UtilitaireICSTimeSlot {
 	 * @param timeSlot
 	 * @return String
 	 */
-	public static String getEndingHour(Cours timeSlot) {
-		return timeSlot.getEnd().substring(12, 16);
+	public static int getEndingHour(Cours timeSlot) {
+		return timeSlot.getEnd().getHour();
 	}
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javafx.scene.paint.Color;
+import utils.UtilitaireICSTimeSlot;
 
 
 /*
