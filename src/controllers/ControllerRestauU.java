@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -11,11 +13,13 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import modele.menu.Repa;
 
 public class ControllerRestauU implements Initializable {
 
+	private static final String COLOR_AND_RADIUS_PANE = "-fx-background-radius: 7 ; -fx-background-color: #AFA7A7";
 	private static final String LI = "li";
 	private static final String RESTO_FIN = "</resto>";
 	private static final String LI_DEBUT = "<li>";
@@ -29,29 +33,39 @@ public class ControllerRestauU implements Initializable {
 	private static final String NUM_RU = "r665";
 
 	@FXML
-	private ListView<Text> jour1Menu;
+	private ListView<Text> jour1list;
 	@FXML
 	private Text jour1Date;
+	@FXML
+	private Pane jour1Pane;
 
 	@FXML
-	private ListView<Text> jour2Menu;
+	private ListView<Text> jour2list;
 	@FXML
 	private Text jour2Date;
+	@FXML
+	private Pane jour2Pane;
 
 	@FXML
-	private ListView<Text> jour3Menu;
+	private ListView<Text> jour3list;
 	@FXML
 	private Text jour3Date;
+	@FXML
+	private Pane jour3Pane;
 
 	@FXML
-	private ListView<Text> jour4Menu;
+	private ListView<Text> jour4list;
 	@FXML
 	private Text jour4Date;
+	@FXML
+	private Pane jour4Pane;
 
 	@FXML
-	private ListView<Text> jour5Menu;
+	private ListView<Text> jour5list;
 	@FXML
 	private Text jour5Date;
+	@FXML
+	private Pane jour5Pane;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -122,28 +136,31 @@ public class ControllerRestauU implements Initializable {
 	private void remplirAffichage(List<Repa> menu) {
 		for (int i = 0; i < 5; i++) {
 			Repa repa = menu.get(i);
-			System.out.println(repa.getPlats().get(0));
-			System.out.println(repa.getDate());
 			switch (i) {
 			case 0:
-				setMenu(jour1Menu,repa.getPlats());
+				setMenu(jour1list, repa.getPlats());
 				jour1Date.setText(repa.getDate());
+				setRadiusPane(repa.getDate(), jour1Pane);
 				break;
 			case 1:
-				setMenu(jour1Menu,repa.getPlats());
+				setMenu(jour2list, repa.getPlats());
 				jour2Date.setText(repa.getDate());
+				setRadiusPane(repa.getDate(), jour2Pane);
 				break;
 			case 2:
-				setMenu(jour2Menu,repa.getPlats());
+				setMenu(jour3list, repa.getPlats());
 				jour3Date.setText(repa.getDate());
+				setRadiusPane(repa.getDate(), jour3Pane);
 				break;
 			case 3:
-				setMenu(jour3Menu,repa.getPlats());
+				setMenu(jour4list, repa.getPlats());
 				jour4Date.setText(repa.getDate());
+				setRadiusPane(repa.getDate(), jour4Pane);
 				break;
 			case 4:
-				setMenu(jour4Menu,repa.getPlats());
+				setMenu(jour5list, repa.getPlats());
 				jour5Date.setText(repa.getDate());
+				setRadiusPane(repa.getDate(), jour5Pane);
 				break;
 
 			default:
@@ -151,7 +168,26 @@ public class ControllerRestauU implements Initializable {
 			}
 		}
 	}
-	
+
+	private void setRadiusPane(String date, Pane pane) {
+		if (date.equals(getActualDate())) {
+			pane.setStyle(COLOR_AND_RADIUS_PANE);
+		}
+	}
+
+	private String getActualDate() {
+		LocalDate dateObj = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String date = dateObj.format(formatter);
+		return date;
+
+	}
+
+	/**
+	 * Set all the plats of a menu in a ListView
+	 * @param menu  the ListView
+	 * @param plats menus
+	 */
 	private void setMenu(ListView<Text> menu, List<String> plats) {
 		for (String plat : plats) {
 			Text platText = new Text(plat);
