@@ -1,5 +1,6 @@
 package modele;
 
+import javafx.scene.paint.Color;
 import utils.UtilitaireICSTimeSlot;
 
 public class Cours {
@@ -77,6 +78,18 @@ public class Cours {
 	
 	public String getDay(){
 		return UtilitaireICSTimeSlot.getDay(this);
+	}
+	
+	public Color color() {
+		if(this.cours.contains("TP")) {
+			return Color.GREEN;
+		} else if(this.cours.contains("TD")){
+			return Color.BLUE;
+		} else if(this.cours.contains("EXAM")) {
+			return Color.RED;
+		} else {
+			return Color.BLACK;
+		}
 	}
 
 	public int getDayNumber() {

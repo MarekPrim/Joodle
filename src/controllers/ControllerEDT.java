@@ -170,7 +170,7 @@ public class ControllerEDT implements Initializable{
 			boolean isSameMonth = modeledSemaine.getSelectedWeek().getMonthValue() == creneau.getMonthNumber();
 			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {
 				Text texteToBeAdded = new Text(creneau.afficher());
-				texteToBeAdded.setFill(Color.RED);
+				texteToBeAdded.setFill(creneau.color());
 				switch(creneau.getDay()) {
 				case "Lundi":
 					liste_lundi.getItems().add(texteToBeAdded);
