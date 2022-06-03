@@ -32,8 +32,8 @@ public class Cours {
 	}
 	
 	public Cours(String startString, String endString, String cours, String salle, String professeur) {
-		this.start = convertirDateHeureStringVersLocalDateTime(startString);
-		this.end = convertirDateHeureStringVersLocalDateTime(endString);
+		this.start = convertirDateHeureStringVersLocalDateTime(startString).plusHours(2);
+		this.end = convertirDateHeureStringVersLocalDateTime(endString).plusHours(2);
 		this.cours = cours;
 		this.salle = salle;
 		this.professeur = professeur;
@@ -54,7 +54,7 @@ public class Cours {
 	}
 
 	public void setStart(String start) {
-		this.start = convertirDateHeureStringVersLocalDateTime(start);
+		this.start = convertirDateHeureStringVersLocalDateTime(start).plusHours(2);
 	}
 
 	public LocalDateTime getEnd() {
@@ -62,7 +62,7 @@ public class Cours {
 	}
 
 	public void setEnd(String end) {
-		this.end = convertirDateHeureStringVersLocalDateTime(end);
+		this.end = convertirDateHeureStringVersLocalDateTime(end).plusHours(2);
 	}
 
 	public String getCours() {
@@ -108,7 +108,7 @@ public class Cours {
 	 * @return String : le cours sous forme d'une chaine de caractères
 	 */
 	public String afficher() {
-		return this.getStartingHour()+" - " +this.getEndingHour() + "\n" + this.type + " - " + this.cours+"\n"+this.professeur+"\n";
+		return this.getStartingHour()+" - " +this.getEndingHour() + " - " + this.type + "\n" + this.cours + "\n" + this.professeur + "\n";
 	}
 	
 	/**

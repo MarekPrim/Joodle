@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerEDT">
+<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerEDT">
    <children>
       <fx:include source="barre_superieure.fxml" />
       <HBox prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
@@ -76,29 +81,29 @@
                            <children>
                               <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="10.0" style="-fx-background-color: C4C4C4;">
                                  <children>
-                                    <AnchorPane prefHeight="40.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label fx:id="lundi" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="13.0" text="Lundi" textAlignment="CENTER" />
+                                          <Label fx:id="lundi" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="13.0" text="Lundi" textAlignment="CENTER" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label fx:id="mardi" alignment="CENTER" layoutX="56.0" layoutY="13.0" text="Mardi" />
+                                          <Label fx:id="mardi" alignment="CENTER" layoutX="82.0" layoutY="13.0" text="Mardi" textAlignment="CENTER" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label fx:id="mercredi" alignment="CENTER" layoutX="46.0" layoutY="13.0" text="Mercredi" />
+                                          <Label fx:id="mercredi" alignment="CENTER" layoutX="72.0" layoutY="13.0" text="Mercredi" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label fx:id="jeudi" alignment="CENTER" layoutX="59.0" layoutY="13.0" text="Jeudi" />
+                                          <Label fx:id="jeudi" alignment="CENTER" layoutX="84.0" layoutY="13.0" text="Jeudi" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label fx:id="vendredi" alignment="CENTER" layoutX="46.0" layoutY="13.0" text="Vendredi" />
+                                          <Label fx:id="vendredi" alignment="CENTER" layoutX="71.0" layoutY="13.0" text="Vendredi" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -109,27 +114,27 @@
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="150.0">
                                        <children>
-                                          <ListView fx:id="liste_lundi" prefHeight="200.0" prefWidth="150.0" />
+                                          <ListView fx:id="liste_lundi" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="150.0">
                                        <children>
-                                          <ListView fx:id="liste_mardi" prefHeight="200.0" prefWidth="150.0" />
+                                          <ListView fx:id="liste_mardi" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="150.0">
                                        <children>
-                                          <ListView fx:id="liste_mercredi" layoutX="-1.0" layoutY="1.0" prefHeight="200.0" prefWidth="150.0" />
+                                          <ListView fx:id="liste_mercredi" layoutX="-1.0" layoutY="1.0" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="150.0">
                                        <children>
-                                          <ListView fx:id="liste_jeudi" prefHeight="200.0" prefWidth="150.0" />
+                                          <ListView fx:id="liste_jeudi" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="150.0">
                                        <children>
-                                          <ListView fx:id="liste_vendredi" prefHeight="200.0" prefWidth="150.0" />
+                                          <ListView fx:id="liste_vendredi" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
