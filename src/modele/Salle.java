@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import utils.ICSParser;
+import utils.ListeCours;
 import utils.RequestFormeur;
 
 public class Salle {
@@ -18,7 +19,7 @@ public class Salle {
 	
 	private int codeSalle;
 	
-	private List<Cours> listeCours = new ArrayList<>();
+	private ListeCours listeCours;
 	
 	private static List<Salle> listeSalles = new ArrayList<Salle>();
 	
@@ -34,17 +35,18 @@ public class Salle {
 	private void chargerCours() throws IOException {
 		LocalDateTime heureActuelle = LocalDateTime.now();
 		LocalDateTime heure12HAvant = heureActuelle.minusHours(12);
-		System.out.println(heure12HAvant);
-		System.out.println(derniereMiseAJourCours);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
-			System.out.println("Tentative de mise à jour");
-			//RequestFormeur request = new RequestFormeur(this.codeSalle);
-			//File fichierCalendrier = request.write();
-			//ICSParser ics = new ICSParser(fichierCalendrier);
-			//this.listeCours = ics.recoverData();
+			System.out.println("Tentative de mise ï¿½ jour");
+			RequestFormeur request = new RequestFormeur(this.codeSalle);
+			File fichierCalendrier = request.write();
+			ICSParser ics = new ICSParser(fichierCalendrier);
+			this.listeCours = ics.recoverData();
+			if(this.listeCours.isEmpty()) {
+				ics = new ICSParser();
+				this.listeCours = ics.recoverData();
+			}
 			this.derniereMiseAJourCours = LocalDateTime.now();
-		}
-		
+		}	
 	}
 
 	public String getNomSalle() {
@@ -63,13 +65,10 @@ public class Salle {
 		this.codeSalle = codeSalle;
 	}
 
-	public List<Cours> getListeCours() {
+	public ListeCours getListeCours() {
 		return listeCours;
 	}
 
-	public void setListeCours(List<Cours> listeCours) {
-		this.listeCours = listeCours;
-	}
 
 	public static List<Salle> getListeSalles() {
 		return listeSalles;
