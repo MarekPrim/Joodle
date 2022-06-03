@@ -1,44 +1,53 @@
 package modele;
 
-import utils.UtilitaireICSTimeSlot;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
+
 
 public class Cours {
-	private String start;
-	private String end;
+	private LocalDateTime start;
+	private LocalDateTime end;
 	private String cours;
 	private String salle;
 	private String professeur;
+	
+	private static final DateTimeFormatter formatterDateHeure= DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
 	public Cours(){
-		this.start = "";
-		this.end = "";
+		this.start = null;
+		this.end = null;
 		this.cours = "";
 		this.salle = "";
 		this.professeur = "";
 	}
 	
-	public Cours(String start, String end, String cours, String salle, String professeur) {
-		this.start = start;
-		this.end = end;
+	public Cours(String startString, String endString, String cours, String salle, String professeur) {
+		this.start = convertirDateHeureStringVersLocalDateTime(startString);
+		this.end = convertirDateHeureStringVersLocalDateTime(endString);
 		this.cours = cours;
 		this.salle = salle;
 		this.professeur = professeur;
 	}
 
-	public String getStart() {
+	public LocalDateTime getStart() {
 		return start;
+	}
+	
+	private LocalDateTime convertirDateHeureStringVersLocalDateTime(String dateHeure) {
+		return LocalDateTime.parse(dateHeure, formatterDateHeure);
 	}
 
 	public void setStart(String start) {
-		this.start = start;
+		this.start = convertirDateHeureStringVersLocalDateTime(start);
 	}
 
-	public String getEnd() {
+	public LocalDateTime getEnd() {
 		return end;
 	}
 
 	public void setEnd(String end) {
-		this.end = end;
+		this.end = convertirDateHeureStringVersLocalDateTime(end);
 	}
 
 	public String getCours() {
@@ -76,27 +85,27 @@ public class Cours {
 	}
 	
 	public String getDay(){
-		return UtilitaireICSTimeSlot.getDay(this);
+		return start.getDayOfWeek().toString();
 	}
 
 	public int getDayNumber() {
-		return UtilitaireICSTimeSlot.getDayNumber(this);
+		return start.getDayOfMonth();
 	}
 
 	public String getMonth() {
-		return UtilitaireICSTimeSlot.getMonth(this);
+		return start.getMonth().toString();
 	}
 
 	public String getStartingHour() {
-		return UtilitaireICSTimeSlot.getStartingHour(this);
+		return start.getHour() + ":" + start.getMinute();
 	}
 
 	public String getEndingHour() {
-		return UtilitaireICSTimeSlot.getEndingHour(this);
+		return end.getHour() + ":" + end.getMinute();
 	}
 
 	public int getMonthNumber() {
-		return UtilitaireICSTimeSlot.getMonthNumber(this);
+		return start.getMonthValue();
 	}
 	
 }

@@ -59,8 +59,8 @@ private ArrayList<String> icsContent;
 	 * Return the list of all the events in the file
 	 * @return
 	 */
-	public ICSTimeSlotStack recoverData(){
-		ICSTimeSlotStack stack = new ICSTimeSlotStack();
+	public ListeCours recoverData(){
+		ListeCours stack = new ListeCours();
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
 			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {

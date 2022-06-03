@@ -18,12 +18,12 @@ import modele.Cours;
 import modele.Semaine;
 import utils.ICSParser;
 
-import utils.ICSTimeSlotStack;
+import utils.ListeCours;
 
 public class ControllerEDT implements Initializable{
 	
 	private Semaine modeledSemaine = new Semaine();
-	private ICSTimeSlotStack edt;
+	private ListeCours edt;
 	
     
     @FXML
