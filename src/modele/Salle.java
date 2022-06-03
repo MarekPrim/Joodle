@@ -5,25 +5,30 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import utils.ICSParser;
 import utils.ListeCours;
 import utils.RequestFormeur;
 
-public class Salle {
-	
-	private String nomSalle;
+public class Salle implements Comparable<Salle>{
 	
 	private int codeSalle;
 	
 	private ListeCours listeCours;
 	
-	private static Set<Salle> listeSalles = new HashSet<Salle>();
+	private static Set<Salle> listeSalles = new TreeSet<Salle>();
+	
+	private char batiment;
+	
+	private int numeroSalle;
+	
+	private char letteSousSalle;
 	
 	private LocalDateTime derniereMiseAJourCours;
 	
 	public Salle(String nomSalle, int code) throws IOException {
-		this.nomSalle = nomSalle;
+		setNomSalle(nomSalle);
 		this.codeSalle = code;
 		listeSalles.add(this);
 		this.chargerCours();
@@ -47,11 +52,16 @@ public class Salle {
 	}
 
 	public String getNomSalle() {
-		return nomSalle;
+		return batiment + "" + String.format("%03d", numeroSalle) + letteSousSalle;
 	}
 
 	public void setNomSalle(String nomSalle) {
-		this.nomSalle = nomSalle;
+		nomSalle = nomSalle.stripLeading();
+		this.batiment = nomSalle.charAt(0);
+		this.numeroSalle = Integer.parseInt(nomSalle.substring(1, 4));
+		if(nomSalle.length() > 4) {
+			this.letteSousSalle = nomSalle.charAt(4);
+		}
 	}
 
 	public int getCodeSalle() {
@@ -69,6 +79,18 @@ public class Salle {
 
 	public static Set<Salle> getListeSalles() {
 		return listeSalles;
+	}
+	
+	public char getBatiment() {
+		return batiment;
+	}
+	
+	public int getNumeroSalle() {
+		return numeroSalle;
+	}
+	
+	public char getLettreSousSalle() {
+		return letteSousSalle;
 	}
 	
 	public static Salle getSalleNomDonne(String nomDonne) {
@@ -90,6 +112,25 @@ public class Salle {
 		else {
 			return null;
 		}
+	}
+
+	@Override
+	public int compareTo(Salle salle2) {
+		int compareBatiment = Character.compare(this.batiment, salle2.getBatiment());
+		if(compareBatiment == 0) {
+			int compareNumero = this.numeroSalle - salle2.getNumeroSalle();
+			if(compareNumero == 0) {
+				System.out.println(this.letteSousSalle);
+				return Character.compare(this.letteSousSalle, salle2.getLettreSousSalle());
+			}
+			else {
+				return compareNumero;
+			}
+		}
+		else {
+			return compareBatiment;
+		}
+		
 	}
 
 }
