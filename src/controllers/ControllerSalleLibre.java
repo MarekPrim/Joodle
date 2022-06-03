@@ -30,6 +30,7 @@ public class ControllerSalleLibre implements Initializable{
 	
 	
 	@FXML private void chercherSalleLibre(ActionEvent e) {
+		listeSalleLibre.getItems().clear();
 		LocalDate dateChoisit = date.getValue();
 		LocalDateTime timestampDebut = dateChoisit.atTime(heureDebut.getValue(), 0);
 		LocalDateTime timestampFin = dateChoisit.atTime(heureFin.getValue(), 0);
