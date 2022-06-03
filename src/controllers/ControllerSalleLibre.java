@@ -31,9 +31,13 @@ public class ControllerSalleLibre implements Initializable{
 	
 	
 	@FXML private void chercherSalleLibre(ActionEvent e) {
+		listeSalleLibre.getItems().clear();
 		LocalDate dateChoisit = date.getValue();
 		LocalDateTime timestampDebut = dateChoisit.atTime(heureDebut.getValue(), 0);
 		LocalDateTime timestampFin = dateChoisit.atTime(heureFin.getValue(), 0);
+		if (timestampDebut.isAfter(timestampFin)) {
+			// Ici mettre pop up
+		}
 		Set<Salle> listeSalle = Salle.getListeSalles();
 		for(Salle salle : listeSalle) {
 			if(salle.getListeCours().searchCoursBetweenStartAndEnd(timestampDebut, timestampFin) == null) {

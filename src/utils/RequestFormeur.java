@@ -17,7 +17,6 @@ public class RequestFormeur {
 	public RequestFormeur(int code) throws IOException {
 		String urlFinal = url.replace("CODE", Integer.toString(code));
 		this.urlRequest = new URL(urlFinal);
-		System.out.println(this.urlRequest);
 	}
 	
 	public File write() throws IOException {
@@ -33,7 +32,6 @@ public class RequestFormeur {
         	outStream.write(inputStream.read());
        }
         outStream.close();
-        System.out.println(fichier.getAbsolutePath());
         return fichier;
 	}
 	
