@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import modele.Erreurs;
 import modele.Salle;
 import utils.Utils;
 

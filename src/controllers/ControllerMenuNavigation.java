@@ -2,6 +2,8 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -10,8 +12,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import views.App;
 import views.PagesDisponibles;
+import javafx.scene.control.DialogPane;
+import javafx.scene.text.Text;
+import modele.Erreurs;
 
-public class ControllerMenuNavigation implements Initializable{
+@SuppressWarnings("deprecation")
+public class ControllerMenuNavigation implements Initializable,Observer{
 	
 	@FXML private Button boutonEDT;
 	
@@ -25,7 +31,10 @@ public class ControllerMenuNavigation implements Initializable{
 	
 	@FXML private Button boutonSallesLibres;
 	
+    @FXML
+    private DialogPane popup;
 	
+    private Erreurs error;
 	
 	
 	@FXML
@@ -66,6 +75,7 @@ public class ControllerMenuNavigation implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		Erreurs.getInstanceErreur().addObserver(this);
 		switch (App.getPageActuelle()) {
 			case COURS:
 				boutonCours.setUnderline(true);
@@ -88,6 +98,13 @@ public class ControllerMenuNavigation implements Initializable{
 			default:
 				break;
 			}
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		String msg = (String) arg;
+		popup.setDisable(false);
+		popup.setContent(new Text(msg));
 	}
 
 }

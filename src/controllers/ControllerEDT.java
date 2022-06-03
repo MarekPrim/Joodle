@@ -14,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import modele.Cours;
+import modele.Erreurs;
 import modele.Etudiant;
 import modele.LectureProfilException;
 import modele.NomClasseIntrouvableException;
@@ -145,12 +146,15 @@ public class ControllerEDT implements Initializable{
 			edt = parser.recoverData();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			Erreurs.ajouterErreur(e);
 			e.printStackTrace();
 		} catch (NomClasseIntrouvableException e) {
 			// TODO Auto-generated catch block
+			Erreurs.ajouterErreur(e);
 			e.printStackTrace();
 		} catch (LectureProfilException e) {
 			// TODO Auto-generated catch block
+			Erreurs.ajouterErreur(e);
 			e.printStackTrace();
 		}
 		if(edt == null) {
@@ -190,8 +194,8 @@ public class ControllerEDT implements Initializable{
 					break;
 				}
 			} else {
-				System.out.println("Modele : "+modeledSemaine.getSelectedWeek().getMonthValue());
-				System.out.println("EDT : "+creneau.getMonthNumber()+"/"+dayNumber);
+//				System.out.println("Modele : "+modeledSemaine.getSelectedWeek().getMonthValue());
+//				System.out.println("EDT : "+creneau.getMonthNumber()+"/"+dayNumber);
 				
 			}
 		}
