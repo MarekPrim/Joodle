@@ -37,7 +37,7 @@ public class Salle {
 		System.out.println(heure12HAvant);
 		System.out.println(derniereMiseAJourCours);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
-			System.out.println("Tentative de mise à jour");
+			System.out.println("Tentative de mise a jour");
 			//RequestFormeur request = new RequestFormeur(this.codeSalle);
 			//File fichierCalendrier = request.write();
 			//ICSParser ics = new ICSParser(fichierCalendrier);

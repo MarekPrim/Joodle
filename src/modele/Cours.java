@@ -3,6 +3,11 @@ package modele;
 import javafx.scene.paint.Color;
 import utils.UtilitaireICSTimeSlot;
 
+/*
+ * Permet de représenter un créneau de cours avec sa salle, sa matière, son type, son professeur
+ * et ses horaires
+ * @author Kilyan
+ */
 public class Cours {
 	private String start;
 	private String end;
@@ -82,14 +87,18 @@ public class Cours {
 				+ professeur + "\n";
 	}
 	
+	/**
+	 * Permet d'afficher le cours dans le calendrier
+	 * @return String : le cours sous forme d'une chaine de caractères
+	 */
 	public String afficher() {
 		return this.getStartingHour()+" - " +this.getEndingHour() + "\n" + this.type + " - " + this.cours+"\n"+this.professeur+"\n";
 	}
 	
-	public String getDay(){
-		return UtilitaireICSTimeSlot.getDay(this);
-	}
-	
+	/**
+	 * Permet de fournir la couleur du cours selon son type
+	 * @return Color : la couleur du cours
+	 */
 	public Color color() {
 		if(this.type.contains("TP")) {
 			return Color.GREEN;
@@ -102,22 +111,50 @@ public class Cours {
 		}
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getDay()
+	 * @return String
+	 */
+	public String getDay(){
+		return UtilitaireICSTimeSlot.getDay(this);
+	}
+	
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getDayNumber()
+	 * @return String
+	 */
 	public int getDayNumber() {
 		return UtilitaireICSTimeSlot.getDayNumber(this);
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonth()
+	 * @return String
+	 */
 	public String getMonth() {
 		return UtilitaireICSTimeSlot.getMonth(this);
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getStartingHour()
+	 * @return String
+	 */
 	public String getStartingHour() {
 		return UtilitaireICSTimeSlot.getStartingHour(this);
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getEndingHour()
+	 * @return String
+	 */
 	public String getEndingHour() {
 		return UtilitaireICSTimeSlot.getEndingHour(this);
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonthNumber()
+	 * @return int
+	 */
 	public int getMonthNumber() {
 		return UtilitaireICSTimeSlot.getMonthNumber(this);
 	}
