@@ -110,7 +110,7 @@ private ArrayList<String> icsContent;
 			slot.setEnd(value);
 			break;
 		case "SUMMARY":
-			if(value.split("-").length == 3) {
+			if(value.split("-").length >= 3) {
 				slot.setCours(value.split("-")[2]);
 				slot.setType(value.split("-")[1]);
 			} else {
