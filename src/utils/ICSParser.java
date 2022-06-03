@@ -33,6 +33,12 @@ private ArrayList<String> icsContent;
 	public ICSParser(File fichier) throws IOException {
 		this.icsContent = this.readFileToArrayListOfString(fichier.getPath());
 	}
+	
+	public ICSParser(int code) throws IOException {
+		RequestFormeur rqf = new RequestFormeur(code);
+		File file = rqf.write();
+		this.icsContent = this.readFileToArrayListOfString(file.getAbsolutePath());
+	}
 
 	private ArrayList<String> readFileToArrayListOfString(String pathFile)
   throws IOException {
@@ -58,9 +64,13 @@ private ArrayList<String> icsContent;
 	/**
 	 * Return the list of all the events in the file
 	 * @return
+	 * @throws IOException 
 	 */
-	public ICSTimeSlotStack recoverData(){
+	public ICSTimeSlotStack recoverData() throws IOException{
 		ICSTimeSlotStack stack = new ICSTimeSlotStack();
+		if(!isValidICSFile()) {
+			this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
+		}
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
 			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {

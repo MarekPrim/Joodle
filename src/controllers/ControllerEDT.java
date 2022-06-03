@@ -13,8 +13,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import modele.Cours;
+import modele.Etudiant;
+import modele.LectureProfilException;
+import modele.NomClasseIntrouvableException;
 import modele.Semaine;
 import utils.ICSParser;
 
@@ -110,10 +114,10 @@ public class ControllerEDT implements Initializable{
 		S5.setText(modeledSemaine.getFollowingWeek(4).format(formatter));
 		
 		lundi.setText("Lundi "+modeledSemaine.getSelectedWeek().getDayOfMonth());
-		mardi.setText("Mardi "+(modeledSemaine.getSelectedWeek().getDayOfMonth()+1));
-		mercredi.setText("Mercredi "+(modeledSemaine.getSelectedWeek().getDayOfMonth()+2));
-		jeudi.setText("Jeudi "+(modeledSemaine.getSelectedWeek().getDayOfMonth()+3));
-		vendredi.setText("Vendredi "+(modeledSemaine.getSelectedWeek().getDayOfMonth()+4));
+		mardi.setText("Mardi "+(modeledSemaine.getSelectedWeek().plusDays(1).getDayOfMonth()));
+		mercredi.setText("Mercredi "+(modeledSemaine.getSelectedWeek().plusDays(2).getDayOfMonth()));
+		jeudi.setText("Jeudi "+(modeledSemaine.getSelectedWeek().plusDays(3).getDayOfMonth()));
+		vendredi.setText("Vendredi "+(modeledSemaine.getSelectedWeek().plusDays(4).getDayOfMonth()));
 	}
 	
     @FXML
@@ -130,10 +134,23 @@ public class ControllerEDT implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		modeledSemaine = new Semaine();
 		try {
-			ICSParser parser = new ICSParser();
+			int codeClasse;
+			try{
+				codeClasse = Etudiant.codeClasse();
+			} catch(NullPointerException e) {
+				codeClasse = 3579;
+			}
+			ICSParser parser = new ICSParser(codeClasse);
 			edt = parser.recoverData();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NomClasseIntrouvableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LectureProfilException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -152,21 +169,23 @@ public class ControllerEDT implements Initializable{
 			int dayNumber = creneau.getDayNumber() - modeledSemaine.getSelectedWeek().getDayOfMonth();
 			boolean isSameMonth = modeledSemaine.getSelectedWeek().getMonthValue() == creneau.getMonthNumber();
 			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {
+				Text texteToBeAdded = new Text(creneau.afficher());
+				texteToBeAdded.setFill(Color.RED);
 				switch(creneau.getDay()) {
 				case "Lundi":
-					liste_lundi.getItems().add(new Text(creneau.afficher()));
+					liste_lundi.getItems().add(texteToBeAdded);
 					break;
 				case "Mardi":
-					liste_mardi.getItems().add(new Text(creneau.afficher()));
+					liste_mardi.getItems().add(texteToBeAdded);
 					break;
 				case "Mercredi":
-					liste_mercredi.getItems().add(new Text(creneau.afficher()));
+					liste_mercredi.getItems().add(texteToBeAdded);
 					break;
 				case "Jeudi":
-					liste_jeudi.getItems().add(new Text(creneau.afficher()));
+					liste_jeudi.getItems().add(texteToBeAdded);
 					break;
 				case "Vendredi":
-					liste_vendredi.getItems().add(new Text(creneau.afficher()));
+					liste_vendredi.getItems().add(texteToBeAdded);
 					break;
 				default:
 					break;

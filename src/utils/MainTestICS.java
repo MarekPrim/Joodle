@@ -11,16 +11,9 @@ public class MainTestICS {
 
 		
 	public static void main(String[] args) throws IOException, ParseException {
-		ICSParser p = new ICSParser();		
-		for(Cours t : p.recoverData()) {
-			System.out.println(t.getStart());
-			System.out.println(t.getDay());
-			System.out.println(t.getDayNumber());
-			System.out.println(t.getMonth());
-			System.out.println(t.getStartingHour());
-			System.out.println(t.getSalle());
-			System.out.println(t.getProfesseur());
-		}
+		LocalDate t = LocalDate.parse("2022-06-30");
+		t = t.plusDays(1);
+		System.out.println(t);
 	}
 
 }

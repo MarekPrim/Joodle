@@ -155,6 +155,10 @@ public class Etudiant implements Serializable {
 		return classe;
 	}
 	
+	public static int codeClasse() throws NomClasseIntrouvableException, LectureProfilException {
+		return Classes.getCodeClasse(Etudiant.getInstanceEtudiant().getClasse());
+	}
+	
 	/**
 	 * Permet de modifier la classe de l'�tudiant.
 	 * @param classe La nouvelle classe de l'�tudiant.
