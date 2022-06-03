@@ -9,11 +9,13 @@ public class Cours {
 	private String cours;
 	private String salle;
 	private String professeur;
+	private String type;
 
 	public Cours(){
 		this.start = "";
 		this.end = "";
 		this.cours = "";
+		this.type = "";
 		this.salle = "";
 		this.professeur = "";
 	}
@@ -65,6 +67,14 @@ public class Cours {
 	public void setProfesseur(String professeur) {
 		this.professeur = professeur;
 	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	@Override
 	public String toString() {
@@ -73,7 +83,7 @@ public class Cours {
 	}
 	
 	public String afficher() {
-		return this.getStartingHour()+" - "+this.cours + ", "+this.salle+";\n"+this.professeur;
+		return this.getStartingHour()+" - " +this.getEndingHour() + "\n" + this.type + " - " + this.cours+"\n"+this.professeur+"\n";
 	}
 	
 	public String getDay(){
@@ -81,14 +91,14 @@ public class Cours {
 	}
 	
 	public Color color() {
-		if(this.cours.contains("TP")) {
+		if(this.type.contains("TP")) {
 			return Color.GREEN;
-		} else if(this.cours.contains("TD")){
+		} else if(this.type.contains("TD") || this.type.contains("CTD")){
 			return Color.BLUE;
-		} else if(this.cours.contains("EXAM")) {
+		} else if(this.type.contains("EXAM")) {
 			return Color.RED;
 		} else {
-			return Color.BLACK;
+			return Color.GREY;
 		}
 	}
 

@@ -105,7 +105,13 @@ private ArrayList<String> icsContent;
 			slot.setEnd(goodValue);
 			break;
 		case "SUMMARY":
-			slot.setCours(value);
+			if(value.split("-").length == 3) {
+				slot.setCours(value.split("-")[2]);
+				slot.setType(value.split("-")[1]);
+			} else {
+				slot.setCours(value);
+			}
+			
 			break;
 		case "LOCATION":
 			slot.setSalle(value);
