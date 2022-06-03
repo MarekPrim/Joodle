@@ -10,11 +10,14 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
 import modele.menu.Repa;
 
 public class ControllerRestauU implements Initializable {
 
+	private static final String LI = "li";
+	private static final String RESTO_FIN = "</resto>";
 	private static final String LI_DEBUT = "<li>";
 	private static final String LI_FIN = "</li>";
 	private static final String MENU_FIN = "</menu>";
@@ -26,29 +29,29 @@ public class ControllerRestauU implements Initializable {
 	private static final String NUM_RU = "r665";
 
 	@FXML
-	private TextField jour1Menu;
+	private ListView<Text> jour1Menu;
 	@FXML
-	private TextField jour1Date;
+	private Text jour1Date;
 
 	@FXML
-	private TextField jour2Menu;
+	private ListView<Text> jour2Menu;
 	@FXML
-	private TextField jour2Date;
+	private Text jour2Date;
 
 	@FXML
-	private TextField jour3Menu;
+	private ListView<Text> jour3Menu;
 	@FXML
-	private TextField jour3Date;
+	private Text jour3Date;
 
 	@FXML
-	private TextField jour4Menu;
+	private ListView<Text> jour4Menu;
 	@FXML
-	private TextField jour4Date;
+	private Text jour4Date;
 
 	@FXML
-	private TextField jour5Menu;
+	private ListView<Text> jour5Menu;
 	@FXML
-	private TextField jour5Date;
+	private Text jour5Date;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -82,9 +85,9 @@ public class ControllerRestauU implements Initializable {
 
 			// Récupérer seulement le menu du ru qui nous interesse
 			String debutRu = content.substring(
-					content.indexOf("<resto id=\"r665\">"),
+					content.indexOf("<resto id=\"" + NUM_RU + "\">"),
 					content.length() - 1);
-			String ru = debutRu.substring(0, debutRu.indexOf("</resto>"));
+			String ru = debutRu.substring(0, debutRu.indexOf(RESTO_FIN));
 
 			List<String> menusString = new ArrayList<String>();
 			while (ru.contains("menu")) {
@@ -99,22 +102,17 @@ public class ControllerRestauU implements Initializable {
 						XML_DATE.length(), DATE_SIZE + XML_DATE.length());
 				// Récupérer les plats
 				List<String> plats = new ArrayList<String>();
-				while (menu.contains("li")) {
+				while (menu.contains(LI)) {
 					int finMenu = menu.indexOf(LI_FIN);
-					System.out.println(
-							menu.substring(menu.indexOf(LI_DEBUT)+ LI_DEBUT.length(), finMenu));
 					plats.add(menu.substring(
 							menu.indexOf(LI_DEBUT) + LI_DEBUT.length(),
 							finMenu));
 					menu = menu.substring(finMenu + LI_FIN.length(),
 							menu.length());
 				}
-
-				System.out.println(date);
+				menus.add(new Repa(date, plats));
 			}
 		} catch (Exception e) {
-			// TODO enlever
-			e.printStackTrace();
 			System.out.println(ERREUR_URL);
 		}
 
@@ -124,36 +122,40 @@ public class ControllerRestauU implements Initializable {
 	private void remplirAffichage(List<Repa> menu) {
 		for (int i = 0; i < 5; i++) {
 			Repa repa = menu.get(i);
+			System.out.println(repa.getPlats().get(0));
+			System.out.println(repa.getDate());
 			switch (i) {
 			case 0:
-				jour1Menu.setText(repa.getPlats().get(0)); // FIXME pourchaque
-															// plat
+				setMenu(jour1Menu,repa.getPlats());
 				jour1Date.setText(repa.getDate());
 				break;
 			case 1:
-				jour2Menu.setText(repa.getPlats().get(0)); // FIXME pourchaque
-															// plat
+				setMenu(jour1Menu,repa.getPlats());
 				jour2Date.setText(repa.getDate());
 				break;
 			case 2:
-				jour3Menu.setText(repa.getPlats().get(0)); // FIXME pourchaque
-															// plat
+				setMenu(jour2Menu,repa.getPlats());
 				jour3Date.setText(repa.getDate());
 				break;
 			case 3:
-				jour4Menu.setText(repa.getPlats().get(0)); // FIXME pourchaque
-															// plat
+				setMenu(jour3Menu,repa.getPlats());
 				jour4Date.setText(repa.getDate());
 				break;
 			case 4:
-				jour5Menu.setText(repa.getPlats().get(0)); // FIXME pourchaque
-															// plat
+				setMenu(jour4Menu,repa.getPlats());
 				jour5Date.setText(repa.getDate());
 				break;
 
 			default:
 				break;
 			}
+		}
+	}
+	
+	private void setMenu(ListView<Text> menu, List<String> plats) {
+		for (String plat : plats) {
+			Text platText = new Text(plat);
+			menu.getItems().add(platText);
 		}
 	}
 }
