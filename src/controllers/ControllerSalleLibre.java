@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import modele.Salle;
 import utils.Utils;
 
@@ -25,16 +27,20 @@ public class ControllerSalleLibre implements Initializable{
 	
 	@FXML private DatePicker date;
 	
+	@FXML private ListView<String> listeSalleLibre;
+	
 	private final Integer[] tableauHeure = {8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 	
 	
 	@FXML private void chercherSalleLibre(ActionEvent e) {
 		LocalDate dateChoisit = date.getValue();
-		String timestampDebut = dateChoisit.atTime(heureDebut.getValue(), 0).format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"));
-		String timestampFin = dateChoisit.atTime(heureFin.getValue(), 0).format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"));
+		LocalDateTime timestampDebut = dateChoisit.atTime(heureDebut.getValue(), 0);
+		LocalDateTime timestampFin = dateChoisit.atTime(heureFin.getValue(), 0);
 		List<Salle> listeSalle = Salle.getListeSalles();
 		for(Salle salle : listeSalle) {
-			System.out.println(salle.getListeCours().searchByStartAndEnd(timestampDebut.toString(), timestampFin.toString()));
+			if(salle.getListeCours().searchCoursBetweenStartAndEnd(timestampDebut, timestampFin) == null) {
+				listeSalleLibre.getItems().add(salle.getNomSalle());
+			}
 		}
 	}
 	

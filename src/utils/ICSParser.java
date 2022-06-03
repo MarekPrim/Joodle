@@ -80,19 +80,14 @@ private ArrayList<String> icsContent;
 	}
 	
 	private void parseICSSpecificString(String icsString, Cours slot) throws ParseException {
-		String goodValue = "";
 		String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
-		//Standard ICS date format, see RFC 5545 for further information
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
-		
+	
 		switch (icsString.split(":")[0]) {
 		case "DTSTART":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setStart(goodValue);
+			slot.setStart(value);
 			break;
 		case "DTEND":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setEnd(goodValue);
+			slot.setEnd(value);
 			break;
 		case "SUMMARY":
 			slot.setCours(value);

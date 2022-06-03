@@ -12,7 +12,7 @@ public class Cours {
 	private String salle;
 	private String professeur;
 	
-	private static final DateTimeFormatter formatterDateHeure= DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
+	private static final DateTimeFormatter formatterDateHeure = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
 	public Cours(){
 		this.start = null;
@@ -36,6 +36,12 @@ public class Cours {
 	
 	private LocalDateTime convertirDateHeureStringVersLocalDateTime(String dateHeure) {
 		return LocalDateTime.parse(dateHeure, formatterDateHeure);
+	}
+	
+	public boolean estCoursDansCreneau(LocalDateTime debutCreneau, LocalDateTime finCreneau) {
+		return this.start.isEqual(debutCreneau) || this.end.isEqual(finCreneau) || 
+				(this.start.isAfter(debutCreneau) && this.start.isBefore(finCreneau)) ||
+				(this.start.isBefore(debutCreneau) && this.end.isAfter(debutCreneau));
 	}
 
 	public void setStart(String start) {

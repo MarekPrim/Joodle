@@ -27,7 +27,7 @@
                               <ChoiceBox fx:id="heureDebut" layoutX="22.0" layoutY="116.0" prefHeight="25.0" prefWidth="119.0" />
                               <ChoiceBox fx:id="heureFin" layoutX="158.0" layoutY="116.0" prefHeight="25.0" prefWidth="120.0" />
                               <Button layoutX="111.0" layoutY="164.0" mnemonicParsing="false" text="Chercher" onAction="#chercherSalleLibre" />
-                              <ListView layoutX="22.0" layoutY="211.0" prefHeight="77.0" prefWidth="256.0" />
+                              <ListView fx:id="listeSalleLibre" layoutX="22.0" layoutY="211.0" prefHeight="77.0" prefWidth="256.0" />
                               <Text layoutX="39.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher une salle libre">
                                  <font>
                                     <Font size="17.0" />
