@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +33,7 @@ public class ControllerSalleLibre implements Initializable{
 		LocalDate dateChoisit = date.getValue();
 		LocalDateTime timestampDebut = dateChoisit.atTime(heureDebut.getValue(), 0);
 		LocalDateTime timestampFin = dateChoisit.atTime(heureFin.getValue(), 0);
-		List<Salle> listeSalle = Salle.getListeSalles();
+		Set<Salle> listeSalle = Salle.getListeSalles();
 		for(Salle salle : listeSalle) {
 			if(salle.getListeCours().searchCoursBetweenStartAndEnd(timestampDebut, timestampFin) == null) {
 				listeSalleLibre.getItems().add(salle.getNomSalle());

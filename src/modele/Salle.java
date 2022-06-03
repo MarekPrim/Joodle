@@ -3,8 +3,8 @@ package modele;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import utils.ICSParser;
 import utils.ListeCours;
@@ -18,7 +18,7 @@ public class Salle {
 	
 	private ListeCours listeCours;
 	
-	private static List<Salle> listeSalles = new ArrayList<Salle>();
+	private static Set<Salle> listeSalles = new HashSet<Salle>();
 	
 	private LocalDateTime derniereMiseAJourCours;
 	
@@ -34,10 +34,14 @@ public class Salle {
 		LocalDateTime heure12HAvant = heureActuelle.minusHours(12);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
 			System.out.println("Tentative de mise a jour");
-			//RequestFormeur request = new RequestFormeur(this.codeSalle);
-			//File fichierCalendrier = request.write();
-			//ICSParser ics = new ICSParser(fichierCalendrier);
-			//this.listeCours = ics.recoverData();
+			RequestFormeur request = new RequestFormeur(this.codeSalle);
+			File fichierCalendrier = request.write();
+			ICSParser ics = new ICSParser(fichierCalendrier);
+			this.listeCours = ics.recoverData();
+			if (this.listeCours.isEmpty()) {
+				ics = new ICSParser();
+				this.listeCours = ics.recoverData();
+			}
 			this.derniereMiseAJourCours = LocalDateTime.now();
 		}	
 	}
@@ -63,15 +67,16 @@ public class Salle {
 	}
 
 
-	public static List<Salle> getListeSalles() {
+	public static Set<Salle> getListeSalles() {
 		return listeSalles;
 	}
 	
 	public static Salle getSalleNomDonne(String nomDonne) {
+		Salle[] listeSallesTab = (Salle[]) listeSalles.toArray();
 		int i = 0;
 		boolean trouve = false;
 		while (i < listeSalles.size() && !trouve) {
-			if (nomDonne.equals(listeSalles.get(i).getNomSalle())) {
+			if (nomDonne.equals(listeSallesTab[i].getNomSalle())) {
 				trouve = true;
 			}
 			else {
@@ -80,7 +85,7 @@ public class Salle {
 			
 		}
 		if (trouve) {
-			return listeSalles.get(i);
+			return listeSallesTab[i];
 		}
 		else {
 			return null;
