@@ -1,7 +1,6 @@
 package modele;
 
 import javafx.scene.paint.Color;
-import utils.UtilitaireICSTimeSlot;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Formatter;
