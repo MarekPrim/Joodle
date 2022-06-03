@@ -26,23 +26,7 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	/**
-	 * Retourne le numéro du jour dans la semaine
-	 * @param timeSlot
-	 * @return int
-	 */
-	static int getDayWeekNumber(Cours timeSlot) {
-		return timeSlot.getStart().getDayOfWeek().getValue();
-	}
-
-	/**
-	 * Retourne le numéro du jour dans le mois
-	 * @param timeSlot
-	 * @return int
-	 */
-	public static int getDayNumber(Cours timeSlot){
-		return timeSlot.getStart().getDayOfMonth();
-	}
+	
 	
 	/**
 	 * Retourne la traduction du mois au format français
@@ -80,31 +64,6 @@ public class UtilitaireICSTimeSlot {
 		}
 	}
 	
-	/**
-	 * Retourne le numéro du mois dans l'année
-	 * @param timeSlot
-	 * @return int
-	 */
-	public static int getMonthNumber(Cours timeSlot) {
-		return timeSlot.getStart().getMonthValue();
-	}
 	
-	/**
-	 * Retourne l'heure de début
-	 * @param timeSlot
-	 * @return String
-	 */
-	public static int getStartingHour(Cours timeSlot) {
-		return timeSlot.getStart().getHour();
-	}
-	
-	/**
-	 * Retourne l'heure de fin
-	 * @param timeSlot
-	 * @return String
-	 */
-	public static int getEndingHour(Cours timeSlot) {
-		return timeSlot.getEnd().getHour();
-	}
 
 }
