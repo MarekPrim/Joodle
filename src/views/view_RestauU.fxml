@@ -19,51 +19,31 @@
                      <children>
                         <Pane layoutX="34.0" layoutY="47.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
-                              <Pane layoutX="8.0" layoutY="56.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;">
-                                 <children>
-                                    <Text layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="116.87516563017107" />
-                                 </children>
-                              </Pane>
+                              <Pane fx:id="jour1list" accessibleRole="LIST_VIEW" layoutX="8.0" layoutY="56.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;" />
                               <Text layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
                            </children>
                         </Pane>
                         <Pane layoutX="227.0" layoutY="47.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
-                              <Pane layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;">
-                                 <children>
-                                    <Text layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="116.87516563017107" />
-                                 </children>
-                              </Pane>
+                              <Pane fx:id="jour2list" accessibleRole="LIST_VIEW" layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;" />
                               <Text layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
                            </children>
                         </Pane>
                         <Pane layoutX="416.0" layoutY="47.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
-                              <Pane layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;">
-                                 <children>
-                                    <Text layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="116.87516563017107" />
-                                 </children>
-                              </Pane>
+                              <Pane fx:id="jour3list" accessibleRole="LIST_VIEW" layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;" />
                               <Text layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
                            </children>
                         </Pane>
                         <Pane layoutX="131.0" layoutY="216.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
-                              <Pane layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;">
-                                 <children>
-                                    <Text layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="116.87516563017107" />
-                                 </children>
-                              </Pane>
+                              <Pane fx:id="jour4list" accessibleRole="LIST_VIEW" layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;" />
                               <Text layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
                            </children>
                         </Pane>
                         <Pane layoutX="322.0" layoutY="217.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
-                              <Pane layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;">
-                                 <children>
-                                    <Text layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="116.87516563017107" />
-                                 </children>
-                              </Pane>
+                              <Pane fx:id="jour5list" accessibleRole="LIST_VIEW" layoutX="8.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-color: e8e8e8; -fx-background-radius: 7;" />
                               <Text layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
                            </children>
                         </Pane>
