@@ -34,10 +34,10 @@ public class Salle {
 		LocalDateTime heure12HAvant = heureActuelle.minusHours(12);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
 			System.out.println("Tentative de mise a jour");
-			//RequestFormeur request = new RequestFormeur(this.codeSalle);
-			//File fichierCalendrier = request.write();
-			//ICSParser ics = new ICSParser(fichierCalendrier);
-			//this.listeCours = ics.recoverData();
+			RequestFormeur request = new RequestFormeur(this.codeSalle);
+			File fichierCalendrier = request.write();
+			ICSParser ics = new ICSParser(fichierCalendrier);
+			this.listeCours = ics.recoverData();
 			this.derniereMiseAJourCours = LocalDateTime.now();
 		}	
 	}
