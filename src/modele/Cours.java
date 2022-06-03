@@ -1,9 +1,9 @@
 package modele;
 
-import javafx.scene.paint.Color;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Formatter;
+
+import javafx.scene.paint.Color;
 
 
 public class Cours {
