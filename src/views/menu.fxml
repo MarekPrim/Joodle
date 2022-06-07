@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import java.lang.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -74,11 +74,6 @@
                   <Button fx:id="boutonSallesLibres" onAction="#switchToSalleLibre" style="-fx-background-color: #DAE3E5;" text="Salles vides" />
                </children>
             </HBox>
-            <DialogPane fx:id="popup" disable="true">
-               <header>
-                  <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur" />
-               </header>
-            </DialogPane>
          </children>
          <padding>
             <Insets bottom="50.0" top="50.0" />
