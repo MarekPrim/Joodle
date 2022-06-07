@@ -134,7 +134,7 @@ public class ControllerRestauU implements Initializable {
 	}
 
 	private void remplirAffichage(List<Repa> menu) {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			Repa repa = menu.get(i);
 			switch (i) {
 			case 0:
