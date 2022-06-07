@@ -52,8 +52,9 @@ public class App extends Application {
     public static void main(String[] args){
     	try {
 			Utils.chargerClasse();
+			Utils.chargerSalles();
 			launch();
-		} catch (FileNotFoundException e) {
+		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
 		}
     }

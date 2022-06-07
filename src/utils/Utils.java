@@ -38,7 +38,7 @@ public class Utils {
 		sc.close();
 	}
 	
-	public static void chargerSalles() throws NumberFormatException, IOException {
+	public static void chargerSalles() throws NumberFormatException, IOException{
 		Scanner sc = new Scanner(new File("salles.csv"));
         sc.useDelimiter(";");
         while(sc.hasNext()) {

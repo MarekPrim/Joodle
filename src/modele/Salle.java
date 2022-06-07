@@ -27,18 +27,18 @@ public class Salle implements Comparable<Salle>{
 	
 	private LocalDateTime derniereMiseAJourCours;
 	
-	public Salle(String nomSalle, int code) throws IOException {
+	public Salle(String nomSalle, int code) throws IOException{
 		setNomSalle(nomSalle);
 		this.codeSalle = code;
 		listeSalles.add(this);
 		this.chargerCours();
 	}
 
-	private void chargerCours() throws IOException {
+	private void chargerCours() throws IOException{
 		LocalDateTime heureActuelle = LocalDateTime.now();
 		LocalDateTime heure12HAvant = heureActuelle.minusHours(12);
 		if (this.derniereMiseAJourCours == null || this.derniereMiseAJourCours.isBefore(heure12HAvant)) {
-			System.out.println("Tentative de mise a jour");
+			System.out.println("Tentative de mise a jour de la salle " + this.getNomSalle());
 			RequestFormeur request = new RequestFormeur(this.codeSalle);
 			File fichierCalendrier = request.write();
 			ICSParser ics = new ICSParser(fichierCalendrier);

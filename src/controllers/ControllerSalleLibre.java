@@ -51,17 +51,6 @@ public class ControllerSalleLibre implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		heureDebut.getItems().addAll(tableauHeure);
 		heureFin.getItems().addAll(tableauHeure);
-		if (Salle.getListeSalles().isEmpty()) {
-			try {
-				Utils.chargerSalles();
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 
 }

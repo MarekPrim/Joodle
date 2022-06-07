@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -17,12 +18,12 @@ public class RequestFormeur {
 	
 	private URL urlRequest;
 	
-	public RequestFormeur(int code) throws IOException {
+	public RequestFormeur(int code) throws MalformedURLException {
 		String urlFinal = url.replace("CODE", Integer.toString(code));
 		this.urlRequest = new URL(urlFinal);
 	}
 	
-	public File write() throws IOException {
+	public File write() throws IOException{
 		String addresseDossierJoodle = Utils.addresseDossierDonneesApplication();
 		File fichier = new File(addresseDossierJoodle + File.separator + "calendrierTemp.ics");
 		
