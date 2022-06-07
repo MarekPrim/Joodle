@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -9,6 +12,18 @@
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
+            <VBox prefHeight="338.0" prefWidth="580.0">
+               <children>
+                  <ListView fx:id="a_faire" onMouseClicked="#finir" prefHeight="200.0" prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="ajouter_taches" mnemonicParsing="false" onMouseClicked="#ajouter_taches" text="Ajouter" />
+                        <TextField fx:id="tache" onKeyPressed="#entree" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="fini" onMouseClicked="#reprendre" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>
