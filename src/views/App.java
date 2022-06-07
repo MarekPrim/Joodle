@@ -25,8 +25,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException, LectureProfilException {
     	if(Etudiant.estConnecte()) {
     		System.out.println("Connecté");
-            setPageActuelle(PagesDisponibles.EDT);
-    		scene = new Scene(loadFXML("view_EDT"), 1200, 800);
+            setPageActuelle(PagesDisponibles.ACCUEIL);
+    		scene = new Scene(loadFXML("view_Accueil"), 1200, 800);
     	} else {
             setPageActuelle(PagesDisponibles.PROFIL_ETUDIANT);
     		scene = new Scene(loadFXML("view_Profil_Etudiant"), 1200, 800);

@@ -25,6 +25,8 @@ public class ControllerMenuNavigation implements Initializable,Observer{
 	
 	@FXML private Button boutonNotes;
 	
+	@FXML private Button boutonResultats;
+	
 	@FXML private Button boutonTaches;
 	
 	@FXML private Button boutonMenuRu;
@@ -72,6 +74,14 @@ public class ControllerMenuNavigation implements Initializable,Observer{
     	App.setPageActuelle(PagesDisponibles.RESTAUU);
     	App.setRoot("view_RestauU");
     }
+    
+    @FXML
+    private void switchToResultats(ActionEvent e) throws IOException {
+		App.setPageActuelle(PagesDisponibles.RESULTATS);
+        App.setRoot("view_Resultats");
+    }
+    
+    
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -85,6 +95,9 @@ public class ControllerMenuNavigation implements Initializable,Observer{
 				break;
 			case NOTES:
 				boutonNotes.setUnderline(true);
+				break;
+			case RESULTATS:
+				boutonResultats.setUnderline(true);
 				break;
 			case RESTAUU:
 				boutonMenuRu.setUnderline(true);

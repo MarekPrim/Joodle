@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
+
 import modele.Classes;
 import modele.Salle;
 
@@ -26,6 +29,11 @@ public class Utils {
 	        return System.getProperty("user.home") + File.separator + ".config" +
 	        	File.separator + "joodle";
 	    return System.getProperty("user.dir");
+	}
+	
+	public static String addresseDossierDocumentJoodle()
+	{
+		return new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + File.separator + "Joodle";
 	}
 	
 	public static void chargerClasse() throws FileNotFoundException {

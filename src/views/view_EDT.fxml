@@ -20,145 +20,162 @@
       <HBox prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox alignment="CENTER" maxHeight="80.0" minHeight="80.0" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #717171; -fx-border-insets: 34;">
-                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Semaines" textAlignment="CENTER">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin></Text>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
+            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+               <center>
+                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                     <top>
+                        <VBox alignment="CENTER" maxHeight="80.0" minHeight="80.0" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #717171; -fx-border-insets: 34;" BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="previous_edt" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#changeWeek" text="&lt;" textAlignment="CENTER" textOverrun="CLIP" />
-                              <Button fx:id="S1" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="28" textFill="WHITE">
-                                 <padding>
-                                    <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="S2" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="29" textFill="WHITE">
-                                 <padding>
-                                    <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="S3" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="30" textFill="WHITE">
-                                 <padding>
-                                    <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="S4" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="31" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="S5" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="32" textFill="WHITE">
-                                 <padding>
-                                    <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="next_edt" mnemonicParsing="false" onMouseClicked="#changeWeek" text="&gt;" />
-                           </children></HBox>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="15.0" right="15.0" top="20.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <VBox alignment="CENTER">
-                           <children>
-                              <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="10.0" style="-fx-background-color: C4C4C4;">
-                                 <children>
-                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <Label fx:id="lundi" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="13.0" text="Lundi" textAlignment="CENTER" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <Label fx:id="mardi" alignment="CENTER" layoutX="82.0" layoutY="13.0" text="Mardi" textAlignment="CENTER" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <Label fx:id="mercredi" alignment="CENTER" layoutX="72.0" layoutY="13.0" text="Mercredi" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <Label fx:id="jeudi" alignment="CENTER" layoutX="84.0" layoutY="13.0" text="Jeudi" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="40.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <Label fx:id="vendredi" alignment="CENTER" layoutX="71.0" layoutY="13.0" text="Vendredi" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding></HBox>
-                              <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: E9E9E9;">
-                                 <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <ListView fx:id="liste_lundi" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <ListView fx:id="liste_mardi" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <ListView fx:id="liste_mercredi" layoutX="-1.0" layoutY="1.0" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <ListView fx:id="liste_jeudi" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="150.0">
-                                       <children>
-                                          <ListView fx:id="liste_vendredi" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Semaines" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
+                              </Text>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Button fx:id="previous_edt" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#changeWeek" text="&lt;" textAlignment="CENTER" textOverrun="CLIP" />
+                                    <Button fx:id="S1" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="28" textFill="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="S2" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="29" textFill="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="S3" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="30" textFill="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="S4" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="31" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="S5" mnemonicParsing="false" onMouseClicked="#select_week" style="-fx-background-color: #507DBC;" text="32" textFill="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button fx:id="next_edt" mnemonicParsing="false" onMouseClicked="#changeWeek" text="&gt;" />
+                                 </children>
                               </HBox>
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                           </padding>
                         </VBox>
-                        <Button fx:id="test" mnemonicParsing="false" text="Button" textAlignment="CENTER">
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin></Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
-                     </VBox.margin>
-                  </VBox>
-                  <VBox layoutX="10.0" layoutY="140.0" prefHeight="0.0" prefWidth="600.0" />
-               </children>
-            </VBox>
+                     </top>
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" spacing="10.0" style="-fx-background-color: C4C4C4;">
+                                             <children>
+                                                <BorderPane maxWidth="1.7976931348623157E308" minWidth="150.0" HBox.hgrow="ALWAYS">
+                                                   <center>
+                                                      <Label fx:id="lundi" alignment="CENTER" contentDisplay="CENTER" text="Lundi" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane maxWidth="300.0" minWidth="150.0" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                                                   <center>
+                                                      <Label fx:id="mardi" alignment="CENTER" text="Mardi" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane maxWidth="300.0" minWidth="150.0" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                                                   <center>
+                                                      <Label fx:id="mercredi" alignment="CENTER" text="Mercredi" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane maxWidth="300.0" minWidth="150.0" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                                                   <center>
+                                                      <Label fx:id="jeudi" alignment="CENTER" text="Jeudi" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane maxWidth="300.0" minWidth="150.0" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                                                   <center>
+                                                      <Label fx:id="vendredi" alignment="CENTER" text="Vendredi" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" right="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: E9E9E9;">
+                                             <children>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <center>
+                                                      <ListView fx:id="liste_lundi" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="150.0" prefHeight="300.0" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <center>
+                                                      <ListView fx:id="liste_mardi" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="150.0" prefHeight="300.0" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <center>
+                                                      <ListView fx:id="liste_mercredi" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="150.0" prefHeight="300.0" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <center>
+                                                      <ListView fx:id="liste_jeudi" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="150.0" prefHeight="300.0" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                   <center>
+                                                      <ListView fx:id="liste_vendredi" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="150.0" prefHeight="300.0" BorderPane.alignment="CENTER" />
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </center>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+               </left>
+               <top>
+                  <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </top>
+               <right>
+                  <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+               </right>
+               <bottom>
+                  <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
          </children>
       </HBox>
    </children>
