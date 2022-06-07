@@ -127,6 +127,7 @@ public class ControllerRestauU implements Initializable {
 				menus.add(new Repa(date, plats));
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(ERREUR_URL);
 		}
 

@@ -18,34 +18,34 @@
                <children>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="722.0">
                      <children>
-                        <Pane fx:id="jour1Pane" layoutX="34.0" layoutY="47.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                        <Pane fx:id="jour1Pane" layoutX="46.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
                               <Text fx:id="jour1Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
-                              <ListView fx:id="jour1list" layoutX="8.0" layoutY="62.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <ListView fx:id="jour1list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
                            </children>
                         </Pane>
-                        <Pane fx:id="jour2Pane" layoutX="227.0" layoutY="47.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                        <Pane fx:id="jour2Pane" layoutX="279.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
                               <Text fx:id="jour2Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
-                              <ListView fx:id="jour2list" layoutX="8.0" layoutY="62.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <ListView fx:id="jour2list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
                            </children>
                         </Pane>
-                        <Pane fx:id="jour3Pane" layoutX="416.0" layoutY="47.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                        <Pane fx:id="jour3Pane" layoutX="510.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
                               <Text fx:id="jour3Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
-                              <ListView fx:id="jour3list" layoutX="8.0" layoutY="61.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <ListView fx:id="jour3list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <Pane fx:id="jour5Pane" layoutX="-117.0" layoutY="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                                 <children>
+                                    <Text fx:id="jour5Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
+                                    <ListView fx:id="jour5list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                                 </children>
+                              </Pane>
                            </children>
                         </Pane>
-                        <Pane fx:id="jour4Pane" layoutX="131.0" layoutY="216.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                        <Pane fx:id="jour4Pane" layoutX="163.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
                            <children>
                               <Text fx:id="jour4Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
-                              <ListView fx:id="jour4list" layoutX="8.0" layoutY="62.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
-                           </children>
-                        </Pane>
-                        <Pane fx:id="jour5Pane" layoutX="322.0" layoutY="217.0" prefHeight="135.0" prefWidth="149.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
-                           <children>
-                              <Text fx:id="jour5Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="116.87516563017113" />
-                              <ListView fx:id="jour5list" layoutX="9.0" layoutY="63.0" prefHeight="65.0" prefWidth="134.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <ListView fx:id="jour4list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
                            </children>
                         </Pane>
                      </children>
