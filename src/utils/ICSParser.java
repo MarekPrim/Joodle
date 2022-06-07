@@ -125,7 +125,7 @@ private ArrayList<String> icsContent;
 			int index = icsContent.indexOf(icsString);
 			String deuxiemeValue = icsContent.get(index+1);
 			value = value + deuxiemeValue;
-			Pattern rgx = Pattern.compile("[^\\\\n]*\\(\\d+\\)\\s?\\\\n[a-zA-Z\\s]+");
+			Pattern rgx = Pattern.compile("[^\\\\n]*\\(\\d+\\)\\s?\\\\n[a-zA-ZÀ-ÖØ-öø-ÿ\\-\\s]+");
 			Matcher matcher = rgx.matcher(value);
 			if(matcher.find()) {
 				value = matcher.group(0);

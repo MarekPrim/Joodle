@@ -1,12 +1,9 @@
 package controllers;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -15,23 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import modele.menu.Repas;
-
+import modele.Menu;
+import modele.Repas;
 
 public class ControllerRestauU implements Initializable {
 
 	private static final String COLOR_AND_RADIUS_PANE = "-fx-background-radius: 7 ; -fx-background-color: #AFA7A7";
-	private static final String LI = "li";
-	private static final String RESTO_FIN = "</resto>";
-	private static final String LI_DEBUT = "<li>";
-	private static final String LI_FIN = "</li>";
-	private static final String MENU_FIN = "</menu>";
-	private static final String MENU_DEBUT = "<menu";
-	private static final String XML_DATE = "<menu date=\"";
-	private static final int DATE_SIZE = 10;
 	private static final String URL = "http://webservices-v2.crous-mobile.fr:8080/feed/toulouse/externe/menu.xml";
-	private static final String ERREUR_URL = "Erreur lors de la récupération des menu du RU. Veuillez cotacter un administrateur";
-	private static final String NUM_RU = "r665";
 
 	@FXML
 	private ListView<Text> jour1list;
@@ -71,73 +58,15 @@ public class ControllerRestauU implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		List<Repas> menu = loadMenu();
-		if (menu.size() != 0) {
-			remplirAffichage(menu);
+		Menu menu = new Menu(URL);
+		if (menu.getRepas().size() != 0) {
+			remplirAffichage(menu.getRepas());
 		}
-	}
-
-	private List<Repas> loadMenu() {
-		List<Repas> menus = new ArrayList<>();
-		URL url = null;
-		try {
-			url = new URL(URL);
-			HttpURLConnection connexion = (HttpURLConnection) url
-					.openConnection();
-			connexion.setRequestMethod("GET");
-			// int status = connexion.getResponseCode();
-
-			BufferedReader in = new BufferedReader(
-					new InputStreamReader(connexion.getInputStream()));
-			String inputLine;
-			StringBuffer content = new StringBuffer();
-			while ((inputLine = in.readLine()) != null) {
-				content.append(inputLine);
-			}
-			in.close();
-
-			connexion.disconnect();
-
-			// Récupérer seulement le menu du ru qui nous interesse
-			String debutRu = content.substring(
-					content.indexOf("<resto id=\"" + NUM_RU + "\">"),
-					content.length() - 1);
-			String ru = debutRu.substring(0, debutRu.indexOf(RESTO_FIN));
-
-			List<String> menusString = new ArrayList<String>();
-			while (ru.contains("menu")) {
-				int finMenu = ru.indexOf(MENU_FIN);
-				menusString.add(ru.substring(ru.indexOf(MENU_DEBUT), finMenu));
-				ru = ru.substring(finMenu + MENU_FIN.length(), ru.length());
-			}
-
-			for (String menu : menusString) {
-				// récupérer la date du menu
-				String date = menu.substring(menu.indexOf(XML_DATE)).substring(
-						XML_DATE.length(), DATE_SIZE + XML_DATE.length());
-				// Récupérer les plats
-				List<String> plats = new ArrayList<String>();
-				while (menu.contains(LI)) {
-					int finMenu = menu.indexOf(LI_FIN);
-					plats.add(menu.substring(
-							menu.indexOf(LI_DEBUT) + LI_DEBUT.length(),
-							finMenu));
-					menu = menu.substring(finMenu + LI_FIN.length(),
-							menu.length());
-				}
-				menus.add(new Repas(date, plats));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(ERREUR_URL);
-		}
-
-		return menus;
 	}
 
 	private void remplirAffichage(List<Repas> menu) {
 		for (int i = 0; i < 4; i++) {
-			Repas Repas = menu.get(i);
+			Repas repa = menu.get(i);
 			switch (i) {
 			case 0:
 				setMenu(jour1list, Repas.getPlats());
