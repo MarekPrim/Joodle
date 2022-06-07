@@ -46,6 +46,16 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
                <children>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Vector(1).png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="boutonNotes" onAction="#switchToResultas" style="-fx-background-color: #DAE3E5;" text="Résultats" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+               <children>
                   <ImageView fitHeight="15.0" fitWidth="20.0" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../Group%204.png" />

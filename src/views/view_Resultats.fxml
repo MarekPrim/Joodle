@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerNotes">
+   <children>
+      <fx:include source="barre_superieure.fxml" />
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <fx:include source="menu.fxml" />
+            <WebView fx:id="web_resultats" prefHeight="338.0" prefWidth="578.0" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
