@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 /*
  * Permet d'obtenir la correspondance entre une classe (Ex : 1A APP MF2E) et son code
@@ -35,11 +36,15 @@ public class Classes {
 				return entry.getKey();
 			}
 		}
-		throw new NomClasseIntrouvableException("La classe " + nomClasse + "+n'a pas été trouvée");
+		throw new NomClasseIntrouvableException("La classe " + nomClasse + "n'a pas été trouvée");
 	}
 	
 	public static List<String> getListeNomClasse() {
 		return new ArrayList<String>(classes.values());
+	}
+	
+	public static Set<Integer> getListeCodeClasse(){
+		return classes.keySet();
 	}
 	
 	public static String getNomClasse(int code) {
