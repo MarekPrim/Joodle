@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
 
 
 public class RequestFormeur {
@@ -26,12 +29,12 @@ public class RequestFormeur {
 		if (!fichier.exists()) {
 			fichier.createNewFile();
 		}
-        BufferedInputStream inputStream = new BufferedInputStream(this.urlRequest.openStream());
-        OutputStream outStream = new FileOutputStream(fichier);
-        while (inputStream.available() > 0) {
-        	outStream.write(inputStream.read());
-       }
-        outStream.close();
+
+        ReadableByteChannel rbc = Channels.newChannel(this.urlRequest.openStream());
+        FileOutputStream fos = new FileOutputStream(fichier);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        fos.close();
+
         return fichier;
 	}
 	
