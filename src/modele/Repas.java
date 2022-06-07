@@ -1,13 +1,13 @@
-package modele.menu;
+package modele;
 
 import java.util.List;
 
-public class Repa {
+public class Repas {
 
 	private String date;
 	private List<String> plats;
 
-	public Repa(String date, List<String> plats) {
+	public Repas(String date, List<String> plats) {
 		this.date = date;
 		this.plats = plats;
 	}
