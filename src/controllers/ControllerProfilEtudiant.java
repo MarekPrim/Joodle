@@ -34,8 +34,8 @@ public class ControllerProfilEtudiant implements Initializable{
 	    	etudiant.setLogin(login.getText());
 	    	etudiant.setPrenom(prenom.getText());
 	    	etudiant.setNom(nom.getText());
-	    	etudiant.sauvegarderProfilEtudiant();
 	    	etudiant.setClasse(classe.getValue());
+	    	etudiant.sauvegarderProfilEtudiant();
 	    	App.setRoot("view_EDT");
 	    }
 	    

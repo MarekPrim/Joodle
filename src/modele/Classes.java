@@ -1,5 +1,6 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +13,13 @@ import java.util.Set;
  * dans l'API d'ADE pour obtenir le fichier .ics qui correspond
  * @author Yoann
  */
-public class Classes {
+public class Classes implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1237971888485644835L;
+
 	// Map qui contient la correspondance entre une classe et son code dans l'API d'ADE
 	// Attribut de classe
 	private static Map<Integer, String> classes = new HashMap<Integer, String>();
