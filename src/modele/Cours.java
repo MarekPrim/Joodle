@@ -1,44 +1,68 @@
 package modele;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import javafx.scene.paint.Color;
 import utils.UtilitaireICSTimeSlot;
 
+
+/*
+ * Permet de représenter un créneau de cours avec sa salle, sa matière, son type, son professeur
+ * et ses horaires
+ * @author Kilyan
+ */
 public class Cours {
-	private String start;
-	private String end;
+	private LocalDateTime start;
+	private LocalDateTime end;
 	private String cours;
 	private String salle;
 	private String professeur;
+	private String type;
+	
+	private static final DateTimeFormatter formatterDateHeure = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
 	public Cours(){
-		this.start = "";
-		this.end = "";
+		this.start = null;
+		this.end = null;
 		this.cours = "";
+		this.type = "";
 		this.salle = "";
 		this.professeur = "";
 	}
 	
-	public Cours(String start, String end, String cours, String salle, String professeur) {
-		this.start = start;
-		this.end = end;
+	public Cours(String startString, String endString, String cours, String salle, String professeur) {
+		this.start = convertirDateHeureStringVersLocalDateTime(startString).plusHours(2);
+		this.end = convertirDateHeureStringVersLocalDateTime(endString).plusHours(2);
 		this.cours = cours;
 		this.salle = salle;
 		this.professeur = professeur;
 	}
 
-	public String getStart() {
+	public LocalDateTime getStart() {
 		return start;
+	}
+	
+	private LocalDateTime convertirDateHeureStringVersLocalDateTime(String dateHeure) {
+		return LocalDateTime.parse(dateHeure, formatterDateHeure);
+	}
+	
+	public boolean estCoursDansCreneau(LocalDateTime debutCreneau, LocalDateTime finCreneau) {
+		return this.start.isEqual(debutCreneau) || this.end.isEqual(finCreneau) || 
+				(this.start.isAfter(debutCreneau) && this.start.isBefore(finCreneau)) ||
+				(this.start.isBefore(debutCreneau) && this.end.isAfter(debutCreneau));
 	}
 
 	public void setStart(String start) {
-		this.start = start;
+		this.start = convertirDateHeureStringVersLocalDateTime(start).plusHours(2);
 	}
 
-	public String getEnd() {
+	public LocalDateTime getEnd() {
 		return end;
 	}
 
 	public void setEnd(String end) {
-		this.end = end;
+		this.end = convertirDateHeureStringVersLocalDateTime(end).plusHours(2);
 	}
 
 	public String getCours() {
@@ -64,6 +88,14 @@ public class Cours {
 	public void setProfesseur(String professeur) {
 		this.professeur = professeur;
 	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	@Override
 	public String toString() {
@@ -71,24 +103,76 @@ public class Cours {
 				+ professeur + "\n";
 	}
 	
+	/**
+	 * Permet d'afficher le cours dans le calendrier
+	 * @return String : le cours sous forme d'une chaine de caractères
+	 */
+	public String afficher() {
+		return this.getStartingHour()+" - " +this.getEndingHour() + " - " + this.type + "\n" + this.cours + "\n" + this.professeur + "\n";
+	}
+	
+	/**
+	 * Permet de fournir la couleur du cours selon son type
+	 * @return Color : la couleur du cours
+	 */
+	public Color color() {
+		if(this.type.contains("TP")) {
+			return Color.GREEN;
+		} else if(this.type.contains("TD") || this.type.contains("CTD")){
+			return Color.BLUE;
+		} else if(this.type.contains("EXAM")) {
+			return Color.RED;
+		} else {
+			return Color.GREY;
+		}
+	}
+
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getDay()
+	 * @return String
+	 */
 	public String getDay(){
 		return UtilitaireICSTimeSlot.getDay(this);
 	}
-
-	public String getDayNumber() {
-		return UtilitaireICSTimeSlot.getDayNumber(this);
+	
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getDayNumber()
+	 * @return String
+	 */
+	public int getDayNumber() {
+		return start.getDayOfMonth();
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonth()
+	 * @return String
+	 */
 	public String getMonth() {
-		return UtilitaireICSTimeSlot.getMonth(this);
+		return start.getMonth().toString();
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getStartingHour()
+	 * @return String
+	 */
 	public String getStartingHour() {
-		return UtilitaireICSTimeSlot.getStartingHour(this);
+		return start.getHour() + ":" + start.getMinute();
 	}
 
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getEndingHour()
+	 * @return String
+	 */
 	public String getEndingHour() {
-		return UtilitaireICSTimeSlot.getEndingHour(this);
+		return end.getHour() + ":" + end.getMinute();
+	}
+
+	/**
+	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonthNumber()
+	 * @return int
+	 */
+	public int getMonthNumber() {
+		return start.getMonthValue();
 	}
 	
 }

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import modele.Erreurs;
 import modele.Etudiant;
 import modele.LectureProfilException;
 import views.App;
@@ -32,6 +33,7 @@ public class ControllerBarreSuperieure implements Initializable{
 			etudiant = Etudiant.getInstanceEtudiant();
 		} catch (LectureProfilException e) {
 			// TODO Auto-generated catch block
+			Erreurs.ajouterErreur(e);
 			e.printStackTrace();
 		}
     	profil_etudiant.setText(etudiant.toString());

@@ -1,5 +1,8 @@
 package views;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,9 +11,6 @@ import javafx.stage.Stage;
 import modele.Etudiant;
 import modele.LectureProfilException;
 import utils.Utils;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -24,6 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException, LectureProfilException {
     	if(Etudiant.estConnecte()) {
+    		System.out.println("Connecté");
             setPageActuelle(PagesDisponibles.EDT);
     		scene = new Scene(loadFXML("view_EDT"), 1200, 800);
     	} else {

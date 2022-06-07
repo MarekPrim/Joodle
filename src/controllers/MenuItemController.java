@@ -1,9 +1,8 @@
 package controllers;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
+@Deprecated
 public class MenuItemController implements EventHandler<MouseEvent>{
 
 	@Override

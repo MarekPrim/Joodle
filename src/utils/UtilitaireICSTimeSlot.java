@@ -4,64 +4,66 @@ import modele.Cours;
 
 public class UtilitaireICSTimeSlot {
 	
+	/**
+	 * Transforme un string au format "Mon" dans un jour complet en français
+	 * @param timeSlot : le créneau de cours
+	 * @return la traduction du jour au format français
+	 */
 	public static String getDay(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(0, 3)) {
-		case "Mon":
+		switch (timeSlot.getStart().getDayOfWeek()) {
+		case MONDAY:
 			return "Lundi";
-		case "Tue":
+		case TUESDAY:
 			return "Mardi";
-		case "Wed":
+		case WEDNESDAY:
 			return "Mercredi";
-		case "Thu":
+		case THURSDAY:
 			return "Jeudi";
-		case "Fri":
+		case FRIDAY:
 			return "Vendredi";
 		default:
 			return "";
 		}
 	}
-
-	public static String getDayNumber(Cours timeSlot){
-		return timeSlot.getStart().substring(8, 10);
-	}
 	
+	
+	
+	/**
+	 * Retourne la traduction du mois au format français
+	 * @param timeSlot
+	 * @return String
+	 */
 	public static String getMonth(Cours timeSlot) {
-		switch (timeSlot.getStart().substring(4, 7)) {
-		case "Jan":
+		switch (timeSlot.getStart().getMonth()) {
+		case JANUARY:
 			return "Janvier";
-		case "Feb":
+		case FEBRUARY:
 			return "Février";
-		case "Mar":
+		case MARCH:
 			return "Mars";
-		case "Apr":
+		case APRIL:
 			return "Avril";
-		case "May":
+		case MAY:
 			return "Mai";
-		case "Jun":
+		case JUNE:
 			return "Juin";
-		case "Jul":
+		case JULY:
 			return "Juillet";
-		case "Aug":
+		case AUGUST:
 			return "Août";
-		case "Sep":
+		case SEPTEMBER:
 			return "Septembre";
-		case "Oct":
+		case OCTOBER:
 			return "Octobre";
-		case "Nov":
+		case NOVEMBER:
 			return "Novembre";
-		case "Dec":
+		case DECEMBER:
 			return "Décembre";
 		default:
 			return "";
 		}
 	}
 	
-	public static String getStartingHour(Cours timeSlot) {
-		return timeSlot.getStart().substring(12, 16);
-	}
 	
-	public static String getEndingHour(Cours timeSlot) {
-		return timeSlot.getEnd().substring(12, 16);
-	}
 
 }

@@ -1,23 +1,22 @@
 package utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import modele.Cours;
 
 
-//Parse each element from a .ics file
+/**
+ * Permet de parser un fichier .ics
+ */
 public class ICSParser {
 	
 	private static final String FILENAME = "ADECal.ics";
@@ -28,7 +27,20 @@ private ArrayList<String> icsContent;
 		//Read the file and store the content in a string
 		this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
 	}
+	
+	public ICSParser(File fichier) throws IOException {
+		this.icsContent = this.readFileToArrayListOfString(fichier.getPath());
+	}
+	
+	public ICSParser(int code) throws IOException {
+		RequestFormeur rqf = new RequestFormeur(code);
+		File file = rqf.write();
+		this.icsContent = this.readFileToArrayListOfString(file.getAbsolutePath());
+	}
 
+	/**
+	 * Permet de passer d'un fichier à une ArrayList de String
+	 */
 	private ArrayList<String> readFileToArrayListOfString(String pathFile)
   throws IOException {
     Path path = Paths.get(pathFile);
@@ -41,7 +53,10 @@ private ArrayList<String> icsContent;
     }
     return stack;
 }
-	
+	/**
+	 * Indique si un fichier est valide
+	 * @return
+	 */
 	public boolean isValidICSFile() {
 		if(this.icsContent.get(0).equals("BEGIN:VCALENDAR")) {
 			return true;
@@ -53,9 +68,13 @@ private ArrayList<String> icsContent;
 	/**
 	 * Return the list of all the events in the file
 	 * @return
+	 * @throws IOException 
 	 */
-	public ICSTimeSlotStack recoverData(){
-		ICSTimeSlotStack stack = new ICSTimeSlotStack();
+	public ListeCours recoverData() throws IOException{
+		ListeCours stack = new ListeCours();
+		if(!isValidICSFile()) {
+			this.icsContent = this.readFileToArrayListOfString(ICSParser.FILENAME);
+		}
 		for(int i = 0;i<this.icsContent.size()-1;i++) {
 			
 			if(this.icsContent.get(i).equals("BEGIN:VEVENT")) {
@@ -74,23 +93,30 @@ private ArrayList<String> icsContent;
 		return stack;
 	}
 	
+	/**
+	 * Parse une ligne d'un fichier ICS en fonction de son identifiant en début de ligne
+	 * @param string La ligne à parser
+	 * @param cumul Le cours à construire
+	 * @throws ParseException
+	 */
 	private void parseICSSpecificString(String icsString, Cours slot) throws ParseException {
-		String goodValue = "";
 		String value = icsString.split(":").length > 1 ? icsString.split(":")[1] : "";
-		//Standard ICS date format, see RFC 5545 for further information
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
-		
+	
 		switch (icsString.split(":")[0]) {
 		case "DTSTART":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setStart(goodValue);
+			slot.setStart(value);
 			break;
 		case "DTEND":
-			goodValue = dateFormat.parse(value).toString();
-			slot.setEnd(goodValue);
+			slot.setEnd(value);
 			break;
 		case "SUMMARY":
-			slot.setCours(value);
+			if(value.split("-").length >= 3) {
+				slot.setCours(value.split("-")[2]);
+				slot.setType(value.split("-")[1]);
+			} else {
+				slot.setCours(value);
+			}
+			
 			break;
 		case "LOCATION":
 			slot.setSalle(value);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -16,15 +17,40 @@
       <HBox prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <DatePicker fx:id="date" promptText="Date" />
-                  <ChoiceBox fx:id="heureDebut" prefWidth="150.0" />
-                  <ChoiceBox fx:id="heureFin" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
-               </children>
-            </VBox>
+            <BorderPane prefHeight="502.0" prefWidth="600.0">
+               <center>
+                  <VBox prefHeight="262.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="304.0" prefWidth="300.0">
+                           <children>
+                              <DatePicker fx:id="date" layoutX="51.0" layoutY="67.0" promptText="Date" />
+                              <ChoiceBox fx:id="heureDebut" layoutX="22.0" layoutY="116.0" prefHeight="25.0" prefWidth="119.0" />
+                              <ChoiceBox fx:id="heureFin" layoutX="158.0" layoutY="116.0" prefHeight="25.0" prefWidth="120.0" />
+                              <Button layoutX="111.0" layoutY="164.0" mnemonicParsing="false" text="Chercher" onAction="#chercherSalleLibre" />
+                              <ListView fx:id="listeSalleLibre" layoutX="22.0" layoutY="211.0" prefHeight="77.0" prefWidth="256.0" />
+                              <Text layoutX="39.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher une salle libre">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </center>
+               <top>
+                  <AnchorPane prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+               </top>
+               <left>
+                  <AnchorPane prefHeight="102.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <AnchorPane prefHeight="102.0" prefWidth="150.0" BorderPane.alignment="CENTER" />
+               </right>
+               <bottom>
+                  <AnchorPane prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
          </children>
       </HBox>
    </children>
