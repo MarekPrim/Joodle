@@ -66,32 +66,33 @@ public class ControllerRestauU implements Initializable {
 
 	private void remplirAffichage(List<Repas> menu) {
 		for (int i = 0; i < 4; i++) {
-			Repas repa = menu.get(i);
+			Repas repas = menu.get(i);
+			System.out.println(repas.getDate());
 			switch (i) {
 			case 0:
-				setMenu(jour1list, repa.getPlats());
-				jour1Date.setText(repa.getDate());
-				setRadiusPane(repa.getDate(), jour1Pane);
+				setMenu(jour1list, repas.getPlats());
+				jour1Date.setText(repas.afficher());
+				setRadiusPane(repas.getDate(), jour1Pane);
 				break;
 			case 1:
-				setMenu(jour2list, repa.getPlats());
-				jour2Date.setText(repa.getDate());
-				setRadiusPane(repa.getDate(), jour2Pane);
+				setMenu(jour2list, repas.getPlats());
+				jour2Date.setText(repas.afficher());
+				setRadiusPane(repas.getDate(), jour2Pane);
 				break;
 			case 2:
-				setMenu(jour3list, repa.getPlats());
-				jour3Date.setText(repa.getDate());
-				setRadiusPane(repa.getDate(), jour3Pane);
+				setMenu(jour3list, repas.getPlats());
+				jour3Date.setText(repas.afficher());
+				setRadiusPane(repas.getDate(), jour3Pane);
 				break;
 			case 3:
-				setMenu(jour4list, repa.getPlats());
-				jour4Date.setText(repa.getDate());
-				setRadiusPane(repa.getDate(), jour4Pane);
+				setMenu(jour4list, repas.getPlats());
+				jour4Date.setText(repas.afficher());
+				setRadiusPane(repas.getDate(), jour4Pane);
 				break;
 			case 4:
-				setMenu(jour5list, repa.getPlats());
-				jour5Date.setText(repa.getDate());
-				setRadiusPane(repa.getDate(), jour5Pane);
+				setMenu(jour5list, repas.getPlats());
+				jour5Date.setText(repas.afficher());
+				setRadiusPane(repas.getDate(), jour5Pane);
 				break;
 
 			default:
