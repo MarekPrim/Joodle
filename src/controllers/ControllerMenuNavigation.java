@@ -97,7 +97,7 @@ public class ControllerMenuNavigation implements Initializable,Observer{
 				boutonNotes.setUnderline(true);
 				break;
 			case RESULTATS:
-				boutonNotes.setUnderline(true);
+				boutonResultats.setUnderline(true);
 				break;
 			case RESTAUU:
 				boutonMenuRu.setUnderline(true);

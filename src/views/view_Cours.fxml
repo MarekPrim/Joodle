@@ -13,7 +13,11 @@
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <WebView fx:id="webMoodle" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="600.0" />
+            <BorderPane HBox.hgrow="ALWAYS">
+               <center>
+                  <WebView fx:id="webMoodle" minHeight="-1.0" minWidth="-1.0" prefHeight="1000.0" prefWidth="1500.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
          </children>
       </HBox>
    </children>

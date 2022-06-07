@@ -51,7 +51,7 @@
                         <Image url="@../../../../../../Vector(1).png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="boutonNotes" onAction="#switchToResultats" style="-fx-background-color: #DAE3E5;" text="Résultats" />
+                  <Button fx:id="boutonResultats" onAction="#switchToResultats" style="-fx-background-color: #DAE3E5;" text="Résultats" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">

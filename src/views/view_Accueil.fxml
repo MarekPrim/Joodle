@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 <?import java.lang.*?>
@@ -14,21 +15,60 @@
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <AnchorPane prefHeight="350.0" prefWidth="599.0">
-               <children>
-                  <Text fill="#3379a8" layoutX="125.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur Joodle" textAlignment="CENTER" wrappingWidth="349.4267578125">
-                     <font>
-                        <Font size="31.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="32.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ici vous pouvez retrouver toutes les informations nécessaires pour vos cours !" textAlignment="CENTER" wrappingWidth="535.7548828125" />
-                  <Text layoutX="181.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" - L'emploie du temps" textAlignment="CENTER" wrappingWidth="224.7548828125" />
-                  <Text layoutX="181.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" - Vos différents cours" textAlignment="CENTER" wrappingWidth="224.7548828125" />
-                  <Text layoutX="145.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" - Un outil de prise de notes" textAlignment="CENTER" wrappingWidth="308.7548828125" />
-                  <Text layoutX="145.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Le menu du RU" textAlignment="CENTER" wrappingWidth="308.7548828125" />
-                  <Text layoutX="139.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" - Trouver une salle libre" textAlignment="CENTER" wrappingWidth="308.7548828125" />
-               </children>
-            </AnchorPane>
+            <BorderPane HBox.hgrow="ALWAYS">
+               <top>
+                  <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+               </right>
+               <bottom>
+                  <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </bottom>
+               <center>
+                  <VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Text fill="#3379a8" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur Joodle" textAlignment="CENTER" wrappingWidth="349.4267578125" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ici vous pouvez retrouver toutes les informations nécessaires pour vos cours !" textAlignment="CENTER" wrappingWidth="535.7548828125">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" - Trouver une salle libre" textAlignment="CENTER" wrappingWidth="308.7548828125" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Le menu du RU" textAlignment="CENTER" wrappingWidth="308.7548828125" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" - Un outil de prise de notes" textAlignment="CENTER" wrappingWidth="308.7548828125" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" - Vos différents cours" textAlignment="CENTER" wrappingWidth="224.7548828125" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" - L'emploie du temps" textAlignment="CENTER" wrappingWidth="224.7548828125" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
          </children>
       </HBox>
    </children>
