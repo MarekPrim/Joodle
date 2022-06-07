@@ -43,10 +43,21 @@ public class Cours {
 		return start;
 	}
 	
+	/**
+	 * Convertit une date/heure de string vers un LocalDateTime
+	 * @param dateHeure String représentant la date à convertir
+	 * @return
+	 */
 	private LocalDateTime convertirDateHeureStringVersLocalDateTime(String dateHeure) {
 		return LocalDateTime.parse(dateHeure, formatterDateHeure);
 	}
 	
+	/**
+	 * Indique si un un cours est présent dans le créneau
+	 * @param debutCreneau Début du créneau
+	 * @param finCreneau Fin du créneau
+	 * @return Créneau libre de cours ?
+	 */
 	public boolean estCoursDansCreneau(LocalDateTime debutCreneau, LocalDateTime finCreneau) {
 		return this.start.isEqual(debutCreneau) || this.end.isEqual(finCreneau) || 
 				(this.start.isAfter(debutCreneau) && this.start.isBefore(finCreneau)) ||
@@ -136,7 +147,7 @@ public class Cours {
 	}
 	
 	/**
-	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getDayNumber()
+	 * Retourne le numéro du jour dans le mois
 	 * @return String
 	 */
 	public int getDayNumber() {
@@ -144,7 +155,7 @@ public class Cours {
 	}
 
 	/**
-	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonth()
+	 * Retourne le mois en francais en String
 	 * @return String
 	 */
 	public String getMonth() {
@@ -152,7 +163,7 @@ public class Cours {
 	}
 
 	/**
-	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getStartingHour()
+	 * Retourne l'heure de début du cours
 	 * @return String
 	 */
 	public String getStartingHour() {
@@ -160,7 +171,7 @@ public class Cours {
 	}
 
 	/**
-	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getEndingHour()
+	 * Retourne l'heure de fin du cours
 	 * @return String
 	 */
 	public String getEndingHour() {
@@ -168,7 +179,7 @@ public class Cours {
 	}
 
 	/**
-	 * Se référer à la javadoc de UtilitaireICSTimeSlot.getMonthNumber()
+	 * Retourne le numéro du mois dans l'année
 	 * @return int
 	 */
 	public int getMonthNumber() {
