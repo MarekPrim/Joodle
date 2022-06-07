@@ -23,7 +23,7 @@ public class Salle implements Comparable<Salle>{
 	
 	private int numeroSalle;
 	
-	private char letteSousSalle;
+	private char lettreSousSalle;
 	
 	private LocalDateTime derniereMiseAJourCours;
 	
@@ -52,7 +52,7 @@ public class Salle implements Comparable<Salle>{
 	}
 
 	public String getNomSalle() {
-		return batiment + "" + String.format("%03d", numeroSalle) + letteSousSalle;
+		return batiment + "" + String.format("%03d", numeroSalle) + lettreSousSalle;
 	}
 
 	public void setNomSalle(String nomSalle) {
@@ -60,7 +60,7 @@ public class Salle implements Comparable<Salle>{
 		this.batiment = nomSalle.charAt(0);
 		this.numeroSalle = Integer.parseInt(nomSalle.substring(1, 4));
 		if(nomSalle.length() > 4) {
-			this.letteSousSalle = nomSalle.charAt(4);
+			this.lettreSousSalle = nomSalle.charAt(4);
 		}
 	}
 
@@ -90,7 +90,7 @@ public class Salle implements Comparable<Salle>{
 	}
 	
 	public char getLettreSousSalle() {
-		return letteSousSalle;
+		return lettreSousSalle;
 	}
 	
 	public static Salle getSalleNomDonne(String nomDonne) {
@@ -120,8 +120,7 @@ public class Salle implements Comparable<Salle>{
 		if(compareBatiment == 0) {
 			int compareNumero = this.numeroSalle - salle2.getNumeroSalle();
 			if(compareNumero == 0) {
-				System.out.println(this.letteSousSalle);
-				return Character.compare(this.letteSousSalle, salle2.getLettreSousSalle());
+				return Character.compare(this.lettreSousSalle, salle2.getLettreSousSalle());
 			}
 			else {
 				return compareNumero;
