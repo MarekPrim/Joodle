@@ -16,7 +16,13 @@ public class Semaine {
 	 */
 	private final int REGULAR_STEP = 5;
 
+  /**
+   * Semaine début
+   */
 	private LocalDate week;
+  /**
+   * Semaine selectionnée
+   */
 	private LocalDate selectedDate;
 
 	public Semaine() {
@@ -42,7 +48,8 @@ public class Semaine {
   
   /**
    * Permet d'obtenir la semaine + n par rapport à la semaine courante
-   * @return
+   * @param step Nombre de semaines à ajouter
+   * @return LocalDate
    */
   public LocalDate getFollowingWeek(int step) {
 	  if(step<=0 || step>=REGULAR_STEP) {
