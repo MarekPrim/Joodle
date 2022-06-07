@@ -72,6 +72,8 @@ public class ControllerMenuNavigation implements Initializable,Observer{
     	App.setPageActuelle(PagesDisponibles.RESTAUU);
     	App.setRoot("view_RestauU");
     }
+    
+    
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
