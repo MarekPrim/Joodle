@@ -56,7 +56,7 @@ public class App extends Application {
     public static void main(String[] args){
     	try {
 			Utils.chargerClasse();
-			//Utils.chargerSalles();
+			Utils.chargerSalles();
 			launch();
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
