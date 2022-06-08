@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+
+
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+ <center>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+       <center>
+          <VBox minHeight="30.0" prefHeight="300.0" prefWidth="100.0" style="-fx-background-color: E2E2E2; -fx-background-radius: 7;" BorderPane.alignment="CENTER">
+             <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+             </padding>
+             <children>
+                <TitledPane fx:id="panneauDossier" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 7;"/>
+                <Button fx:id="bouton_ajouter_fichier" mnemonicParsing="false" onAction="#ajouterFichier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+">
+                   <VBox.margin>
+                      <Insets bottom="5.0" left="5.0" top="5.0" />
+                   </VBox.margin>
+                </Button>
+             </children>
+          </VBox>
+       </center>
+    </BorderPane>
+ </center>
+ <left>
+    <AnchorPane prefHeight="133.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+ </left>
+ <right>
+    <AnchorPane prefHeight="200.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+ </right>
+ <top>
+    <AnchorPane prefHeight="5.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+ </top>
+ <bottom>
+    <AnchorPane prefHeight="5.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+ </bottom>
+</BorderPane>
