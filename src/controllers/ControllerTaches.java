@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import modele.Taches;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 
 public class ControllerTaches implements Initializable,Observer{
 
@@ -31,7 +32,14 @@ public class ControllerTaches implements Initializable,Observer{
     @FXML
     private TextField tache;
     
+    @FXML
+    private Button down;
+    
+    @FXML
+    private Button up;
+    
     Taches taches;
+    
 
     @FXML
     void ajouter_taches(MouseEvent event) {
@@ -42,7 +50,6 @@ public class ControllerTaches implements Initializable,Observer{
     
     @FXML
     void entree(KeyEvent event) {
-    	System.out.println(event);
     	if(event.getCode().equals(KeyCode.ENTER)) {
     		Text t = new Text(tache.getText());
         	this.taches.ajouter(t.getText());
@@ -58,27 +65,56 @@ public class ControllerTaches implements Initializable,Observer{
 	
 	@FXML
     void finir(MouseEvent event) {
-		Text clicked = a_faire.getSelectionModel().getSelectedItem();
-		this.taches.finir(clicked.getText());
+		if(event.getClickCount()==2) {
+			Text clicked = a_faire.getSelectionModel().getSelectedItem();
+			this.taches.finir(clicked.getText());
+		}
+		
     }
 	
 	@FXML
 	void reprendre(MouseEvent event) {
-		Text clicked = fini.getSelectionModel().getSelectedItem();
-		this.taches.reprendre(clicked.getText());
+		if(event.getClickCount()==2) {
+			Text clicked = fini.getSelectionModel().getSelectedItem();
+			this.taches.reprendre(clicked.getText());
+		}
+		
 	}
+	
+    @FXML
+    void reorder(MouseEvent event) {
+    	String idSource = event.getPickResult().getIntersectedNode().getId();
+		
+		if(idSource == null) {
+			return;
+		}
+		Text clicked = a_faire.getSelectionModel().getSelectedItem();
+		if(idSource.equals("up")) {
+			this.taches.reorder(clicked.getText(),true);
+		} else {
+			this.taches.reorder(clicked.getText(),false);
+		}
+    }
 
 	@Override
 	public void update(Observable o, Object arg) {
-		this.a_faire.getItems().clear();
-		this.fini.getItems().clear();
+		Boolean bothListChanged = (Boolean) arg;
 		Taches tasks = (Taches) o;
-		for(String s : tasks.getToDo()) {
-			this.a_faire.getItems().add(new Text(s));
+		this.a_faire.getItems().clear();
+		if(bothListChanged) {
+			this.fini.getItems().clear();
+			for(String s : tasks.getToDo()) {
+				this.a_faire.getItems().add(new Text(s));
+			}
+			for(String s : tasks.getDone()) {
+				this.fini.getItems().add(new Text(s));
+			}
+		} else {		
+			for(String s : tasks.getToDo()) {
+				this.a_faire.getItems().add(new Text(s));
+			}
 		}
-		for(String s : tasks.getDone()) {
-			this.fini.getItems().add(new Text(s));
-		}
+		
 	}
 
 }

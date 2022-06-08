@@ -14,14 +14,24 @@
             <fx:include source="menu.fxml" />
             <VBox prefHeight="338.0" prefWidth="580.0">
                <children>
-                  <ListView fx:id="a_faire" onMouseClicked="#finir" prefHeight="200.0" prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="a_faire" onMouseClicked="#finir" prefHeight="97.0" prefWidth="619.0" />
+                        <VBox prefHeight="97.0" prefWidth="140.0">
+                           <children>
+                              <Button fx:id="up" mnemonicParsing="false" onMouseClicked="#reorder" text="△" />
+                              <Button fx:id="down" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#reorder" text="▽" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="ajouter_taches" mnemonicParsing="false" onMouseClicked="#ajouter_taches" text="Ajouter" />
                         <TextField fx:id="tache" onKeyPressed="#entree" />
                      </children>
                   </HBox>
-                  <ListView fx:id="fini" onMouseClicked="#reprendre" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="fini" onMouseClicked="#reprendre" prefHeight="190.0" prefWidth="414.0" />
                </children>
             </VBox>
          </children>
