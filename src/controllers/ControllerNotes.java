@@ -126,18 +126,4 @@ public class ControllerNotes implements Initializable{
 		}
 		
 	}
-
-	private class EventHandlerEnregistrementFichier implements EventHandler<KeyEvent> {
-
-		@Override
-		public void handle(KeyEvent e) {
-			if (e.getCode().equals(KeyCode.ENTER))  {
-				bouton_ajouter_dossier.setVisible(true);
-				texte_ajouter_dossier.setVisible(false);
-	       }
-		}
-		
-	}
-	
-
 }
