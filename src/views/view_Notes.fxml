@@ -23,14 +23,19 @@
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <top>
-                              <AnchorPane prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
-                           </top>
                            <center>
-                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: E2E2E2;" BorderPane.alignment="CENTER">
+                              <VBox minHeight="30.0" prefHeight="300.0" prefWidth="100.0" style="-fx-background-color: E2E2E2; -fx-background-radius: 7;" BorderPane.alignment="CENTER">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
+                                 <children>
+                                    <TitledPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 7;" text="Cours 1" />
+                                    <Button fx:id="bouton_ajouter_fichier" mnemonicParsing="false" onAction="#ajouterFichier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
                               </VBox>
                            </center>
                         </BorderPane>
@@ -48,30 +53,26 @@
                         <AnchorPane prefHeight="10.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
                      </bottom>
                   </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                  <BorderPane prefHeight="0.0" prefWidth="146.0">
                      <center>
-                        <Button fx:id="bouton_ajouter_dossier" mnemonicParsing="false" onAction="#ajouterDossier" text="Ajouter Dossier" BorderPane.alignment="CENTER" />
+                        <Button fx:id="bouton_ajouter_dossier" minWidth="0.0" mnemonicParsing="false" onAction="#ajouterDossier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <center>
-                        <Button fx:id="bouton_ajouter_fichier" mnemonicParsing="false" onAction="#ajouterFichier" text="Ajouter Fichier" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <center>
                   <AnchorPane prefHeight="305.0" prefWidth="553.0" BorderPane.alignment="CENTER">
                      <children>
-                        <BorderPane layoutX="-3.0" layoutY="99.0" prefHeight="200.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <BorderPane layoutX="-3.0" layoutY="99.0" prefHeight="200.0" prefWidth="556.0" style="-fx-background-color: E7E7E7; -fx-background-radius: 7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <center>
                               <TextArea fx:id="editeur_text" style="-fx-background-color: E7E7E7;" BorderPane.alignment="CENTER" />
                            </center>
                            <bottom>
-                              <AnchorPane prefHeight="33.0" prefWidth="399.0" style="-fx-background-color: #C4C4C4;" BorderPane.alignment="CENTER">
+                              <AnchorPane prefHeight="33.0" prefWidth="399.0" style="-fx-background-color: #C4C4C4; -fx-background-radius: 7;" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Button fx:id="bouton_valider" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#enregistrerFichier" text="Valider" />
+                                    <Button fx:id="bouton_valider" layoutX="10.0" layoutY="4.0" mnemonicParsing="false" onAction="#enregistrerFichier" style="-fx-background-color: #FFFFFF; -fx-background-radius: 7;" text="Enregistrer" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
                                  </children>
                               </AnchorPane>
                            </bottom>
