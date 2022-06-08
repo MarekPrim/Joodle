@@ -33,7 +33,13 @@ public class Utils {
 	
 	public static String addresseDossierDocumentJoodle()
 	{
-		return new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + File.separator + "Joodle";
+		String cheminDossierJoodle = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + File.separator + "Joodle";
+		// Création du dossier joodle s'il n'existe pas
+		File dossier = new File(cheminDossierJoodle);
+		if (!dossier.exists()) {
+			dossier.mkdir();
+		}
+		return cheminDossierJoodle;
 	}
 	
 	public static void chargerClasse() throws FileNotFoundException {
