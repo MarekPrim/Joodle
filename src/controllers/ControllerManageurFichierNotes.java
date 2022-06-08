@@ -13,11 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import modele.DossierNotes;
@@ -79,6 +78,7 @@ public class ControllerManageurFichierNotes implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		panneauDossier.setText(dossier.getNomDossier());
+		liste_fichiers.getItems().add(new Text("eee"));
 		texte_ajouter_fichier.setOnKeyPressed(new EventHandlerEnregistrementFichier());
 	}
 	
@@ -96,13 +96,6 @@ public class ControllerManageurFichierNotes implements Initializable{
 			}
 		}
 		
-		panneauDossier.setGraphic(p);
-		
-		t.setOnMouseClicked(event -> System.out.println(event));
-		System.out.println(liste_fichiers);
-		for(FichierNotes f : this.dossier.getListeFichier()) {
-			t.getItems().add(new Text(f.getNomFichier()));
-		}
 	}
 	
     @FXML
