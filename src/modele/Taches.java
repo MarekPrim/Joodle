@@ -136,7 +136,6 @@ public class Taches extends Observable implements Serializable{
 		} catch (IOException e) {
 			throw new IOException("Une erreur est survenue lors de la sauvegarde des taches");
 		}
-		System.out.println(this.a_faire);
 	}
 	
 	private void lireSurDisque() throws LectureTachesException {
