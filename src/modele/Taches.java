@@ -1,6 +1,7 @@
 package modele;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Observable;
 
 
@@ -19,7 +20,7 @@ public class Taches extends Observable{
 	public void ajouter(String tache) {
 		this.a_faire.add(tache);
 		this.setChanged();
-		this.notifyObservers();
+		this.notifyObservers(false);
 	}
 	
 	public void finir(String s) {
@@ -32,7 +33,7 @@ public class Taches extends Observable{
 		this.a_faire.remove(remo);
 		fini.add("FINI : "+s);
 		this.setChanged();
-		this.notifyObservers();
+		this.notifyObservers(true);
 	}
 	
 	public ArrayList<String> getToDo(){
@@ -54,6 +55,18 @@ public class Taches extends Observable{
 		s = s.replace("FINI : ", "");
 		a_faire.add(s);
 		this.setChanged();
-		this.notifyObservers();
+		this.notifyObservers(true);
+	}
+	
+	public void reorder(String s, boolean up) {
+		int sIndex = this.a_faire.indexOf(s);
+		try {
+			Collections.swap(a_faire, sIndex, up ? sIndex-1 : sIndex+1);
+		} catch(IndexOutOfBoundsException e) {
+			//L'utilisateur tente de faire remonter une tache qui est déjà au début
+			//ou descendre la dernière tache
+		}
+		this.setChanged();
+		this.notifyObservers(false);
 	}
 }
