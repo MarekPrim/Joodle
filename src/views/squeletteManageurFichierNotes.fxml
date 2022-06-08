@@ -23,6 +23,7 @@
              </padding>
              <children>
                 <TitledPane fx:id="panneauDossier" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 7;"/>
+                <TextField fx:id="texte_ajouter_fichier" layoutX="274.0" layoutY="10.0" visible="false" />
                 <Button fx:id="bouton_ajouter_fichier" mnemonicParsing="false" onAction="#ajouterFichier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+">
                    <VBox.margin>
                       <Insets bottom="5.0" left="5.0" top="5.0" />
