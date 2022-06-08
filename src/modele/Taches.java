@@ -1,5 +1,8 @@
 package modele;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Observable;
@@ -31,7 +34,9 @@ public class Taches extends Observable{
 			}
 		}
 		this.a_faire.remove(remo);
-		fini.add("FINI : "+s);
+		LocalDateTime l = LocalDateTime.now();
+		DateTimeFormatter d = DateTimeFormatter.ofPattern("dd MMM uuuu', à' HH':'mm");
+		fini.add("FINI ( le "+d.format(l)+" ) : "+s);
 		this.setChanged();
 		this.notifyObservers(true);
 	}
@@ -52,8 +57,10 @@ public class Taches extends Observable{
 			}
 		}
 		this.getDone().remove(remo);
-		s = s.replace("FINI : ", "");
-		a_faire.add(s);
+		
+		s = s.replace(s.split(":")[0],"").replace(s.split(":")[1], "");
+		s = s.replace(":: ", "");
+		a_faire.add(s.strip());
 		this.setChanged();
 		this.notifyObservers(true);
 	}
