@@ -55,8 +55,11 @@ public class ControllerNotes implements Initializable{
 		String addresseDossierDocument = Utils.addresseDossierDocumentJoodle();
 		File fichier = new File(addresseDossierDocument + File.separator + nomCoursModifie + File.separator
 				+ nomFichierModifie + ".txt");
-		
-		
+		System.out.println(addresseDossierDocument + File.separator + nomCoursModifie + File.separator
+				+ nomFichierModifie + ".txt");
+		if(!fichier.exists()) {
+			fichier.createNewFile();
+		}
         FileOutputStream fos = new FileOutputStream(fichier);
         fos.write(editeur_text.getText().getBytes());
         fos.close();
@@ -76,7 +79,8 @@ public class ControllerNotes implements Initializable{
 			if(fichierDocumentJoodle.isDirectory() && fichierDocumentJoodle.getName().contains("Notes_")) {
 				DossierNotes dossier = new DossierNotes(fichierDocumentJoodle.getPath(), fichierDocumentJoodle.getName().replace("Notes_", ""));
 				for(File fichier : fichierDocumentJoodle.listFiles()) {
-					if(!fichierDocumentJoodle.isDirectory() && fichierDocumentJoodle.getName().contains("Notes_")) {
+					
+					if(!fichier.isDirectory() && fichier.getName().contains("Notes_")) {
 						dossier.ajouterFichier(new FichierNotes(fichier.getPath(), fichier.getName().replace("Notes_", "")));
 					}
 				}
@@ -93,11 +97,12 @@ public class ControllerNotes implements Initializable{
 		chargerNotesExistantes();
 		System.out.println(this.listeDossier);
 		for(DossierNotes dossier : this.listeDossier) {
+//			dossier.afficherFichiers();
 			try {
 				FXMLLoader loader = App.getFXMLLoader("squeletteManageurFichierNotes");
 				ControllerManageurFichierNotes controller = new ControllerManageurFichierNotes(dossier);
 				loader.setController(controller);
-				VboxManageurNotes.getChildren().add(0, loader.load());
+				VboxManageurNotes.getChildren().add(loader.load());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

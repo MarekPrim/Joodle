@@ -46,5 +46,11 @@ public class DossierNotes {
 	public String toString() {
 		return nomDossier;
 	}
+	
+	public void afficherFichiers() {
+		for(FichierNotes f : this.listeFichier) {
+			System.out.println(f);
+		}
+	}
 
 }
