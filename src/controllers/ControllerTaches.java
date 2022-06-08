@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import modele.LectureTachesException;
 import modele.Taches;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -40,7 +41,9 @@ public class ControllerTaches implements Initializable,Observer{
     
     Taches taches;
     
-
+    @FXML
+    private Button save;
+    
     @FXML
     void ajouter_taches(MouseEvent event) {
     	Text t = new Text(tache.getText());
@@ -59,7 +62,18 @@ public class ControllerTaches implements Initializable,Observer{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		taches = new Taches();
+		try {
+			taches = new Taches();
+			for(String s : taches.getToDo()) {
+				this.a_faire.getItems().add(new Text(s));
+			}
+			for(String s : taches.getDone()) {
+				this.fini.getItems().add(new Text(s));
+			}
+		} catch (LectureTachesException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		taches.addObserver(this);
 	}
 	
@@ -116,5 +130,10 @@ public class ControllerTaches implements Initializable,Observer{
 		}
 		
 	}
+	
+    @FXML
+    void sauvegarder(MouseEvent event) {
+
+    }
 
 }
