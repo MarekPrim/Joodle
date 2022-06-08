@@ -21,6 +21,9 @@
             <VBox fx:id="VboxManageurNotes" prefHeight="455.0" prefWidth="146.0" style="-fx-background-color: #C4C4C4;">
                <children>
                   <BorderPane prefHeight="0.0" prefWidth="146.0">
+                  	<top>
+                  		<TextField fx:id="texte_ajouter_dossier" layoutX="14.0" layoutY="10.0" visible="false" />
+                  	</top>
                      <center>
                         <Button fx:id="bouton_ajouter_dossier" minWidth="0.0" mnemonicParsing="false" onAction="#ajouterDossier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+" BorderPane.alignment="CENTER" />
                      </center>
@@ -54,10 +57,7 @@
                   <AnchorPane prefHeight="455.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
                </right>
                <top>
-                  <AnchorPane prefHeight="43.0" prefWidth="653.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <TextField fx:id="texte_ajouter_dossier" layoutX="14.0" layoutY="10.0" visible="false" />
-                     </children></AnchorPane>
+                  <AnchorPane prefHeight="43.0" prefWidth="653.0" BorderPane.alignment="CENTER" />
                </top>
                <bottom>
                   <AnchorPane prefHeight="58.0" prefWidth="653.0" BorderPane.alignment="CENTER" />

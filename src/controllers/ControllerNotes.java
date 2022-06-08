@@ -35,9 +35,6 @@ public class ControllerNotes implements Initializable{
 	private Button bouton_ajouter_dossier;
 	
 	@FXML
-	private TextField texte_ajouter_fichier;
-	
-	@FXML
 	private TextField texte_ajouter_dossier;
 	
 	@FXML
@@ -64,8 +61,31 @@ public class ControllerNotes implements Initializable{
 	
 	@FXML
 	private void ajouterDossier(ActionEvent e) {
-		this.bouton_ajouter_dossier.setVisible(false);
-		this.texte_ajouter_dossier.setVisible(true);
+		System.out.println(this.texte_ajouter_dossier.isVisible());
+		if (this.texte_ajouter_dossier.isVisible()) {
+			if (!this.texte_ajouter_dossier.getText().isBlank()) {
+				enregistrementNouveauDosier();
+			}
+			else {
+				texte_ajouter_dossier.setVisible(false);
+			}
+		}
+		else {
+			this.texte_ajouter_dossier.setVisible(true);
+		}
+	}
+	
+	private void enregistrementNouveauDosier() {
+		File dossier = new File(Utils.addresseDossierDocumentJoodle() + File.separator + "Notes_" + texte_ajouter_dossier.getText());
+		if(!dossier.exists()) {
+			dossier.mkdir();
+			DossierNotes dossierNotes = new DossierNotes(dossier.getPath(), texte_ajouter_dossier.getText());
+			listeDossier.add(dossierNotes);
+			loadNouveauManageurFichierNotes(dossierNotes);
+		}
+		texte_ajouter_dossier.setText("");
+		texte_ajouter_dossier.setVisible(false);
+		
 	}
 	
 	private void chargerNotesExistantes() {
@@ -84,6 +104,17 @@ public class ControllerNotes implements Initializable{
 			}
 		}
 	}
+	
+	private void loadNouveauManageurFichierNotes(DossierNotes dossier) {
+		try {
+			FXMLLoader loader = App.getFXMLLoader("squeletteManageurFichierNotes");
+			ControllerManageurFichierNotes controller = new ControllerManageurFichierNotes(dossier);
+			loader.setController(controller);
+			VboxManageurNotes.getChildren().add(0, loader.load());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -91,16 +122,8 @@ public class ControllerNotes implements Initializable{
 			this.texte_ajouter_dossier.setOnKeyPressed(new EventHandlerEnregistrementDossier());
 		}
 		chargerNotesExistantes();
-		System.out.println(this.listeDossier);
 		for(DossierNotes dossier : this.listeDossier) {
-			try {
-				FXMLLoader loader = App.getFXMLLoader("squeletteManageurFichierNotes");
-				ControllerManageurFichierNotes controller = new ControllerManageurFichierNotes(dossier);
-				loader.setController(controller);
-				VboxManageurNotes.getChildren().add(0, loader.load());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			loadNouveauManageurFichierNotes(dossier);
 		}
 	}
 	
@@ -110,12 +133,9 @@ public class ControllerNotes implements Initializable{
 		@Override
 		public void handle(KeyEvent e) {
 			if (e.getCode().equals(KeyCode.ENTER))  {
-				String addresseDossierDocument = Utils.addresseDossierDocumentJoodle();
-				File fichier = new File(addresseDossierDocument + File.separator + texte_ajouter_dossier.getText());
-				if(!fichier.exists()) {
-					fichier.mkdir();
+				if (!texte_ajouter_dossier.getText().isBlank()) {
+					enregistrementNouveauDosier();
 				}
-				bouton_ajouter_dossier.setVisible(true);
 				texte_ajouter_dossier.setVisible(false);
 	       }
 		}
