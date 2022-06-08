@@ -20,7 +20,7 @@
             <fx:include source="menu.fxml" />
             <VBox prefHeight="455.0" prefWidth="146.0" style="-fx-background-color: #C4C4C4;">
                <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                  <BorderPane fx:id="banane" prefHeight="200.0" prefWidth="200.0">
                      <center>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <center>
