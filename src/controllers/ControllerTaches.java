@@ -41,8 +41,6 @@ public class ControllerTaches implements Initializable,Observer{
     
     Taches taches;
     
-    @FXML
-    private Button save;
     
     @FXML
     void ajouter_taches(MouseEvent event) {
@@ -131,9 +129,5 @@ public class ControllerTaches implements Initializable,Observer{
 		
 	}
 	
-    @FXML
-    void sauvegarder(MouseEvent event) {
-
-    }
 
 }
