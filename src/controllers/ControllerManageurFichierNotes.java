@@ -1,6 +1,5 @@
 package controllers;
 
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +18,7 @@ import javafx.scene.control.TextField;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import modele.DossierNotes;
 import modele.FichierNotes;
 
@@ -26,7 +26,7 @@ public class ControllerManageurFichierNotes implements Initializable{
 	
 
     @FXML
-    private ListView<Text> liste_fichiers;
+    private ListView<FichierNotes> liste_fichiers;
     
 	private DossierNotes dossier;
 	
@@ -64,7 +64,9 @@ public class ControllerManageurFichierNotes implements Initializable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			dossier.ajouterFichier(new FichierNotes(fichier.getPath(), texte_ajouter_fichier.getText()));
+			FichierNotes fichierNote = new FichierNotes(fichier.getPath(), texte_ajouter_fichier.getText());
+			dossier.ajouterFichier(fichierNote);
+			liste_fichiers.getItems().add(fichierNote);
 		}
 		texte_ajouter_fichier.setText("");
 		texte_ajouter_fichier.setVisible(false);
@@ -78,8 +80,11 @@ public class ControllerManageurFichierNotes implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		panneauDossier.setText(dossier.getNomDossier());
-		liste_fichiers.getItems().add(new Text("eee"));
+		for (FichierNotes fichier : dossier.getListeFichier()) {
+			liste_fichiers.getItems().add(fichier);
+		}
 		texte_ajouter_fichier.setOnKeyPressed(new EventHandlerEnregistrementFichier());
+		liste_fichiers.setOnMouseClicked(new EventHandlerSelectionFichier());
 	}
 	
 	private class EventHandlerEnregistrementFichier implements EventHandler<KeyEvent> {
@@ -98,9 +103,12 @@ public class ControllerManageurFichierNotes implements Initializable{
 		
 	}
 	
-    @FXML
-    void select_notes(MouseEvent event) {
-    	System.out.println(event.getSource());
-    }
+	private class EventHandlerSelectionFichier implements EventHandler<MouseEvent> {
+
+		@Override
+		public void handle(MouseEvent event) {
+			System.out.println(event.getSource());
+		}
+	}
 
 }

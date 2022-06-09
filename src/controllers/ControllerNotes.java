@@ -101,7 +101,9 @@ public class ControllerNotes implements Initializable{
 				for(File fichier : fichierDocumentJoodle.listFiles()) {
 					
 					if(!fichier.isDirectory() && fichier.getName().contains("Notes_")) {
-						dossier.ajouterFichier(new FichierNotes(fichier.getPath(), fichier.getName().replace("Notes_", "")));
+						String nomFichier = fichier.getName().replace("Notes_", "");
+						nomFichier = nomFichier.substring(0, nomFichier.lastIndexOf(".txt"));
+						dossier.ajouterFichier(new FichierNotes(fichier.getPath(), nomFichier ));
 					}
 				}
 				this.listeDossier.add(dossier);
