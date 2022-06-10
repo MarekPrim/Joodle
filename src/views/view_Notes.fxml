@@ -18,42 +18,12 @@
       <HBox id="valider" prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <VBox prefHeight="455.0" prefWidth="146.0" style="-fx-background-color: #C4C4C4;">
+            <VBox fx:id="VboxManageurNotes" prefHeight="455.0" prefWidth="146.0" style="-fx-background-color: #C4C4C4;">
                <children>
-                  <BorderPane fx:id="banane" prefHeight="200.0" prefWidth="200.0">
-                     <center>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <center>
-                              <VBox minHeight="30.0" prefHeight="300.0" prefWidth="100.0" style="-fx-background-color: E2E2E2; -fx-background-radius: 7;" BorderPane.alignment="CENTER">
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                                 <children>
-                                    <TitledPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 7;" text="Cours 1" />
-                                    <Button fx:id="bouton_ajouter_fichier" mnemonicParsing="false" onAction="#ajouterFichier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+">
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" left="5.0" top="5.0" />
-                                       </VBox.margin>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </center>
-                        </BorderPane>
-                     </center>
-                     <left>
-                        <AnchorPane prefHeight="133.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <AnchorPane prefHeight="200.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
-                     </right>
-                     <top>
-                        <AnchorPane prefHeight="5.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-                     </top>
-                     <bottom>
-                        <AnchorPane prefHeight="5.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
-                     </bottom>
-                  </BorderPane>
                   <BorderPane prefHeight="0.0" prefWidth="146.0">
+                  	<top>
+                  		<TextField fx:id="texte_ajouter_dossier" layoutX="14.0" layoutY="10.0" visible="false" />
+                  	</top>
                      <center>
                         <Button fx:id="bouton_ajouter_dossier" minWidth="0.0" mnemonicParsing="false" onAction="#ajouterDossier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
@@ -90,11 +60,7 @@
                   <AnchorPane prefHeight="455.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
                </right>
                <top>
-                  <AnchorPane prefHeight="43.0" prefWidth="653.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <TextField fx:id="texte_ajouter_dossier" layoutX="14.0" layoutY="10.0" visible="false" />
-                        <TextField fx:id="texte_ajouter_fichier" layoutX="274.0" layoutY="10.0" visible="false" />
-                     </children></AnchorPane>
+                  <AnchorPane prefHeight="43.0" prefWidth="653.0" BorderPane.alignment="CENTER" />
                </top>
                <bottom>
                   <AnchorPane prefHeight="58.0" prefWidth="653.0" BorderPane.alignment="CENTER" />

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileSystemView;
 
 import modele.Classes;
 import modele.Salle;
