@@ -10,11 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import views.App;
-import views.PagesDisponibles;
 import javafx.scene.control.DialogPane;
 import javafx.scene.text.Text;
 import modele.Erreurs;
+import views.App;
+import views.PagesDisponibles;
 
 @SuppressWarnings("deprecation")
 public class ControllerMenuNavigation implements Initializable,Observer{

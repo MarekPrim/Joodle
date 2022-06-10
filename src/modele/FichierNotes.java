@@ -1,7 +1,5 @@
 package modele;
 
-import javafx.scene.text.Text;
-
 public class FichierNotes {
 
 	private String cheminFichier;
