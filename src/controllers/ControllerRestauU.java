@@ -1,6 +1,5 @@
 package controllers;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -65,7 +64,7 @@ public class ControllerRestauU implements Initializable {
 	}
 
 	private void remplirAffichage(List<Repas> menu) {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < (menu.size() >= 5 ? 5 : menu.size()); i++) {
 			Repas repas = menu.get(i);
 			System.out.println(repas.getDate());
 			switch (i) {
