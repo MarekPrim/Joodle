@@ -17,22 +17,25 @@
       <HBox prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
          <children>
             <fx:include source="menu.fxml" />
-            <BorderPane prefHeight="502.0" prefWidth="600.0">
+            <BorderPane prefHeight="800.0" prefWidth="1000.0" HBox.hgrow="ALWAYS">
                <center>
-                  <VBox prefHeight="262.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="262.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="304.0" prefWidth="300.0">
+                        <AnchorPane maxWidth="400.0" minWidth="400.0" prefHeight="302.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <DatePicker fx:id="date" layoutX="51.0" layoutY="67.0" promptText="Date" />
-                              <ChoiceBox fx:id="heureDebut" layoutX="22.0" layoutY="116.0" prefHeight="25.0" prefWidth="119.0" />
-                              <ChoiceBox fx:id="heureFin" layoutX="158.0" layoutY="116.0" prefHeight="25.0" prefWidth="120.0" />
-                              <Button layoutX="111.0" layoutY="164.0" mnemonicParsing="false" text="Chercher" onAction="#chercherSalleLibre" />
-                              <ListView fx:id="listeSalleLibre" layoutX="22.0" layoutY="211.0" prefHeight="77.0" prefWidth="256.0" />
-                              <Text layoutX="39.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher une salle libre">
+                              <DatePicker fx:id="date" layoutX="101.0" layoutY="61.0" promptText="Date" />
+                              <ChoiceBox fx:id="heureDebut" layoutX="99.0" layoutY="109.0" prefHeight="25.0" prefWidth="74.0" />
+                              <ChoiceBox fx:id="heureFin" layoutX="221.0" layoutY="109.0" prefHeight="25.0" prefWidth="74.0" />
+                              <Button layoutX="161.0" layoutY="158.0" mnemonicParsing="false" onAction="#chercherSalleLibre" text="Chercher" />
+                              <ListView fx:id="listeSalleLibre" layoutX="72.0" layoutY="205.0" prefHeight="77.0" prefWidth="256.0" />
+                              <Text layoutX="89.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechercher une salle libre">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Text>
+                              <Text layoutX="69.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De" />
+                              <Text layoutX="178.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="h   à" />
+                              <Text layoutX="298.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="h" />
                            </children>
                         </AnchorPane>
                      </children>

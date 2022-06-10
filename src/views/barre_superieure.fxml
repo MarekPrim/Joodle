@@ -22,7 +22,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
          <right>
             <AnchorPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: A1C6EA;" BorderPane.alignment="CENTER">
                <children>
@@ -31,7 +31,7 @@
             </AnchorPane>
          </right>
          <center>
-            <AnchorPane minWidth="1500.0" prefHeight="200.0" prefWidth="1500.0" style="-fx-background-color: A1C6EA;" BorderPane.alignment="CENTER" />
+            <AnchorPane minWidth="500.0" prefHeight="200.0" prefWidth="1500.0" style="-fx-background-color: A1C6EA;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

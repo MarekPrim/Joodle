@@ -17,7 +17,7 @@
             <fx:include source="menu.fxml" />
             <BorderPane HBox.hgrow="ALWAYS">
                <top>
-                  <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </top>
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
@@ -29,7 +29,7 @@
                   <AnchorPane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </bottom>
                <center>
-                  <VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="1000.0" BorderPane.alignment="TOP_CENTER">
                      <children>
                         <Text fill="#3379a8" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur Joodle" textAlignment="CENTER" wrappingWidth="349.4267578125" VBox.vgrow="ALWAYS">
                            <font>
