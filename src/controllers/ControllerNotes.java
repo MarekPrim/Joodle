@@ -1,9 +1,13 @@
 package controllers;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -45,6 +49,8 @@ public class ControllerNotes implements Initializable{
 	private String nomCoursModifie = "UE_Test";
 	
 	private List<DossierNotes> listeDossier;
+	
+	private FichierNotes fichierEnCours;
 
 	
 	@FXML
@@ -91,6 +97,19 @@ public class ControllerNotes implements Initializable{
 		
 	}
 	
+	protected void chargerFichier(FichierNotes fichier) throws IOException {
+		this.fichierEnCours = fichier;
+		Path path = Paths.get(fichier.getCheminFichier());
+	    String stack = "";
+	    BufferedReader reader = Files.newBufferedReader(path);
+	    String line = reader.readLine();
+	    while (line != null) {
+	    	stack += line+"\n";
+	    	line = reader.readLine();
+	    }
+	    editeur_text.setText(stack);
+	}
+	
 	private void chargerNotesExistantes() {
 		this.listeDossier = new ArrayList<DossierNotes>();
 		String addresseDossierDocument = Utils.addresseDossierDocumentJoodle();
@@ -114,7 +133,7 @@ public class ControllerNotes implements Initializable{
 	private void loadNouveauManageurFichierNotes(DossierNotes dossier) {
 		try {
 			FXMLLoader loader = App.getFXMLLoader("squeletteManageurFichierNotes");
-			ControllerManageurFichierNotes controller = new ControllerManageurFichierNotes(dossier);
+			ControllerManageurFichierNotes controller = new ControllerManageurFichierNotes(dossier,this);
 			loader.setController(controller);
 			VboxManageurNotes.getChildren().add(0, loader.load());
 		} catch (IOException e) {
@@ -124,6 +143,7 @@ public class ControllerNotes implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.fichierEnCours = null;
 		if (this.texte_ajouter_dossier != null) {
 			this.texte_ajouter_dossier.setOnKeyPressed(new EventHandlerEnregistrementDossier());
 		}

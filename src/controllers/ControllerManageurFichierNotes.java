@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 
 import javafx.scene.text.Text;
@@ -29,6 +30,7 @@ public class ControllerManageurFichierNotes implements Initializable{
     private ListView<FichierNotes> liste_fichiers;
     
 	private DossierNotes dossier;
+	private ControllerNotes ctnotes;
 	
 	@FXML
 	private Button bouton_ajouter_fichier;
@@ -73,7 +75,8 @@ public class ControllerManageurFichierNotes implements Initializable{
 		
 	}
 	
-	public ControllerManageurFichierNotes(DossierNotes dossier) {
+	public ControllerManageurFichierNotes(DossierNotes dossier, ControllerNotes ctnotes) {
+		this.ctnotes = ctnotes;
 		this.dossier = dossier;
 	}
 
@@ -107,7 +110,16 @@ public class ControllerManageurFichierNotes implements Initializable{
 
 		@Override
 		public void handle(MouseEvent event) {
-			System.out.println(event.getSource());
+			ListView<FichierNotes> l = (ListView<FichierNotes>)event.getSource();
+			System.out.println(l.getSelectionModel().getSelectedItem());
+			FichierNotes f = (FichierNotes)l.getSelectionModel().getSelectedItem();
+			System.out.println(f);
+			try {
+				ctnotes.chargerFichier(f);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
