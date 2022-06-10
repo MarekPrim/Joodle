@@ -47,15 +47,18 @@
                         <AnchorPane prefHeight="200.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
                      </right>
                      <top>
-                        <AnchorPane prefHeight="19.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="5.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
                      </top>
                      <bottom>
-                        <AnchorPane prefHeight="10.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="5.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
                      </bottom>
                   </BorderPane>
                   <BorderPane prefHeight="0.0" prefWidth="146.0">
                      <center>
-                        <Button fx:id="bouton_ajouter_dossier" minWidth="0.0" mnemonicParsing="false" onAction="#ajouterDossier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+" BorderPane.alignment="CENTER" />
+                        <Button fx:id="bouton_ajouter_dossier" minWidth="0.0" mnemonicParsing="false" onAction="#ajouterDossier" style="-fx-background-radius: 15px; -fx-background-color: #FFFFFF;" text="+" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </BorderPane.margin></Button>
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" />
