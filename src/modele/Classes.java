@@ -11,7 +11,7 @@ import java.util.Set;
 /*
  * Permet d'obtenir la correspondance entre une classe (Ex : 1A APP MF2E) et son code
  * dans l'API d'ADE pour obtenir le fichier .ics qui correspond
- * @author Yoann
+ * @author Yoan
  */
 public class Classes implements Serializable{
 	
