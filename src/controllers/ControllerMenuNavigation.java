@@ -36,8 +36,6 @@ public class ControllerMenuNavigation implements Initializable,Observer{
     @FXML
     private DialogPane popup;
 	
-    private Erreurs error;
-	
 	
 	@FXML
     private void switchToEDT(ActionEvent e) throws IOException {
