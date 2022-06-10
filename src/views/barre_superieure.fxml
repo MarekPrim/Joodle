@@ -22,13 +22,17 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: A1C6EA;" HBox.hgrow="ALWAYS">
-         <children>
-            <Label id="profil_etudiant" fx:id="profil_etudiant" layoutX="449.0" layoutY="18.0" onMouseClicked="#modifier_profil_etudiant" text="profil_etudiant" />
-         </children>
-         <padding>
-            <Insets right="30.0" />
-         </padding>
-      </AnchorPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <right>
+            <AnchorPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" style="-fx-background-color: A1C6EA;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label id="profil_etudiant" fx:id="profil_etudiant" alignment="CENTER" layoutX="449.0" layoutY="18.0" onMouseClicked="#modifier_profil_etudiant" text="profil_etudiant" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+               </children>
+            </AnchorPane>
+         </right>
+         <center>
+            <AnchorPane minWidth="1500.0" prefHeight="200.0" prefWidth="1500.0" style="-fx-background-color: A1C6EA;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </HBox>
