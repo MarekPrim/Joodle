@@ -1,24 +1,23 @@
 package modele;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
+
+import utils.UtilitaireICSTimeSlot;
 
 public class Repas {
 
 	private static final DateTimeFormatter formatterDateHeure = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	private String date;
+	private LocalDate date;
 	private List<String> plats;
 
-	public Repas(String date, List<String> plats) {
-		this.date = date;
+	public Repas(String dateString, List<String> plats) {
+		this.date = this.convertirDateHeureStringVersLocalDateTime(dateString);
 		this.plats = plats;
 	}
 
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
@@ -26,18 +25,13 @@ public class Repas {
 		return plats;
 	}
 	
-	private Date convertirDateHeureStringVersLocalDateTime(String dateHeure) throws ParseException {
-		return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+	private LocalDate convertirDateHeureStringVersLocalDateTime(String dateHeure) {
+		return LocalDate.parse(dateHeure, formatterDateHeure);
 	}
 	
-	public String afficher() {
-		try {
-			return ""+convertirDateHeureStringVersLocalDateTime(this.date).toLocaleString().split("à")[0];
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return date;
+	public String afficherDate() {
+		return UtilitaireICSTimeSlot.getDay(date) + " "
+				+ date.getDayOfMonth() + " " + UtilitaireICSTimeSlot.getMonth(date);
 	}
 
 }

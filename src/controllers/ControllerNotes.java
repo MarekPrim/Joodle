@@ -17,14 +17,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import modele.DossierNotes;
 import modele.FichierNotes;
 import utils.Utils;
@@ -42,30 +42,43 @@ public class ControllerNotes implements Initializable{
 	private TextField texte_ajouter_dossier;
 	
 	@FXML
+	private TextFlow visualisateur_text;
+	
+	@FXML
 	private VBox VboxManageurNotes;
 	
-	private String nomFichierModifie = "test";
+	@FXML
+	private Button bouton_editer;
 	
-	private String nomCoursModifie = "UE_Test";
+	@FXML
+	private Button bouton_enregistrer;
 	
 	private List<DossierNotes> listeDossier;
 	
 	private FichierNotes fichierEnCours;
 
+	@FXML
+	private void editerFichier(ActionEvent e) {
+		bouton_editer.setVisible(false);
+		editeur_text.setVisible(true);
+		visualisateur_text.setVisible(false);
+		bouton_enregistrer.setVisible(true);
+	}
 	
 	@FXML
 	private void enregistrerFichier(ActionEvent e) throws IOException {
-		String addresseDossierDocument = Utils.addresseDossierDocumentJoodle();
-		File fichier = new File(addresseDossierDocument + File.separator + nomCoursModifie + File.separator
-				+ nomFichierModifie + ".txt");
-		System.out.println(addresseDossierDocument + File.separator + nomCoursModifie + File.separator
-				+ nomFichierModifie + ".txt");
+		File fichier = new File(this.fichierEnCours.getCheminFichier());
 		if(!fichier.exists()) {
 			fichier.createNewFile();
 		}
         FileOutputStream fos = new FileOutputStream(fichier);
         fos.write(editeur_text.getText().getBytes());
         fos.close();
+        this.chargerFichier(this.fichierEnCours);
+        bouton_editer.setVisible(true);
+        visualisateur_text.setVisible(true);
+        bouton_enregistrer.setVisible(false);
+		editeur_text.setVisible(false);
 	}
 	
 	@FXML
@@ -100,11 +113,27 @@ public class ControllerNotes implements Initializable{
 	protected void chargerFichier(FichierNotes fichier) throws IOException {
 		this.fichierEnCours = fichier;
 		Path path = Paths.get(fichier.getCheminFichier());
+		visualisateur_text.getChildren().clear();
+		editeur_text.clear();
 	    String stack = "";
 	    BufferedReader reader = Files.newBufferedReader(path);
-	    String line = reader.readLine();
+	    String line = reader.readLine();	    
 	    while (line != null) {
-	    	stack += line+"\n";
+	    	stack += line + System.lineSeparator();
+	    	String[] splitGras = line.split("\\*\\*");
+	    	for(int i = 0; i < splitGras.length; i++) {
+	    		switch(i%2) {
+	    		case 0:
+	    			visualisateur_text.getChildren().add(new Text(splitGras[i]));
+	    			break;
+	    		case 1:
+	    			Text texteGras = new Text(splitGras[i]);
+	    			texteGras.setStyle("-fx-font-weight: bold");
+	    			visualisateur_text.getChildren().add(texteGras);
+	    			break;
+	    		}
+	    	}
+	    	visualisateur_text.getChildren().add(new Text(System.lineSeparator()));
 	    	line = reader.readLine();
 	    }
 	    editeur_text.setText(stack);

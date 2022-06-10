@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -160,7 +162,7 @@ public class ControllerEDT implements Initializable{
 		if(edt == null) {
 			throw new NullPointerException();
 		}
-		
+		Collections.sort(edt);
 		majButtonSemaine();
 		fillEDT();
 		System.out.println("Démarrage controlleur EDT");
@@ -168,7 +170,7 @@ public class ControllerEDT implements Initializable{
 	
 	void fillEDT() {
 		clearListes();
-		for(Cours creneau : edt) {
+		for(Cours creneau : new ArrayList<Cours>(edt)) {
 			int dayNumber = creneau.getDayNumber() - modeledSemaine.getSelectedWeek().getDayOfMonth();
 			boolean isSameMonth = modeledSemaine.getSelectedWeek().getMonthValue() == creneau.getMonthNumber();
 			if(dayNumber >= 0 && dayNumber <= 4 && isSameMonth) {

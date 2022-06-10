@@ -1,6 +1,5 @@
 package modele;
 
-
 public class FichierNotes {
 
 	private String cheminFichier;

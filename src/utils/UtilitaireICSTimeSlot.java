@@ -1,5 +1,7 @@
 package utils;
 
+import java.time.LocalDate;
+
 import modele.Cours;
 
 public class UtilitaireICSTimeSlot {
@@ -10,31 +12,47 @@ public class UtilitaireICSTimeSlot {
 	 * @return la traduction du jour au format français
 	 */
 	public static String getDay(Cours timeSlot) {
-		switch (timeSlot.getStart().getDayOfWeek()) {
-		case MONDAY:
-			return "Lundi";
-		case TUESDAY:
-			return "Mardi";
-		case WEDNESDAY:
-			return "Mercredi";
-		case THURSDAY:
-			return "Jeudi";
-		case FRIDAY:
-			return "Vendredi";
-		default:
-			return "";
-		}
+		return getDay(timeSlot.getStart().toLocalDate());
 	}
 	
-	
+	/**
+	 * Transforme un string au format "Mon" dans un jour complet en français
+	 * @param timeSlot : date au format localdatetime
+	 * @return la traduction du jour au format français
+	 */
+	public static String getDay(LocalDate timeSlot) {
+		switch (timeSlot.getDayOfWeek()) {
+			case MONDAY:
+				return "Lundi";
+			case TUESDAY:
+				return "Mardi";
+			case WEDNESDAY:
+				return "Mercredi";
+			case THURSDAY:
+				return "Jeudi";
+			case FRIDAY:
+				return "Vendredi";
+			default:
+				return "";
+			}
+	}
 	
 	/**
 	 * Retourne la traduction du mois au format français
-	 * @param timeSlot
+	 * @param timeSlot : Créneau de cours
 	 * @return String
 	 */
 	public static String getMonth(Cours timeSlot) {
-		switch (timeSlot.getStart().getMonth()) {
+		return getMonth(timeSlot.getStart().toLocalDate());
+	}
+
+	/**
+	 * Retourne la traduction du mois au format français
+	 * @param timeSlot : date au format localdatetime
+	 * @return String
+	 */
+	public static String getMonth(LocalDate timeSlot) {
+		switch (timeSlot.getMonth()) {
 		case JANUARY:
 			return "Janvier";
 		case FEBRUARY:

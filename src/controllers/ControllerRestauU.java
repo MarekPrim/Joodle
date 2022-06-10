@@ -2,7 +2,6 @@ package controllers;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -70,27 +69,27 @@ public class ControllerRestauU implements Initializable {
 			switch (i) {
 			case 0:
 				setMenu(jour1list, repas.getPlats());
-				jour1Date.setText(repas.afficher());
+				jour1Date.setText(repas.afficherDate());
 				setRadiusPane(repas.getDate(), jour1Pane);
 				break;
 			case 1:
 				setMenu(jour2list, repas.getPlats());
-				jour2Date.setText(repas.afficher());
+				jour2Date.setText(repas.afficherDate());
 				setRadiusPane(repas.getDate(), jour2Pane);
 				break;
 			case 2:
 				setMenu(jour3list, repas.getPlats());
-				jour3Date.setText(repas.afficher());
+				jour3Date.setText(repas.afficherDate());
 				setRadiusPane(repas.getDate(), jour3Pane);
 				break;
 			case 3:
 				setMenu(jour4list, repas.getPlats());
-				jour4Date.setText(repas.afficher());
+				jour4Date.setText(repas.afficherDate());
 				setRadiusPane(repas.getDate(), jour4Pane);
 				break;
 			case 4:
 				setMenu(jour5list, repas.getPlats());
-				jour5Date.setText(repas.afficher());
+				jour5Date.setText(repas.afficherDate());
 				setRadiusPane(repas.getDate(), jour5Pane);
 				break;
 
@@ -100,18 +99,10 @@ public class ControllerRestauU implements Initializable {
 		}
 	}
 
-	private void setRadiusPane(String date, Pane pane) {
-		if (date.equals(getActualDate())) {
+	private void setRadiusPane(LocalDate date, Pane pane) {
+		if (date.equals(LocalDate.now())) {
 			pane.setStyle(COLOR_AND_RADIUS_PANE);
 		}
-	}
-
-	private String getActualDate() {
-		LocalDate dateObj = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		String date = dateObj.format(formatter);
-		return date;
-
 	}
 
 	/**
