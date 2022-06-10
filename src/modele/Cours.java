@@ -12,7 +12,8 @@ import utils.UtilitaireICSTimeSlot;
  * et ses horaires
  * @author Kilyan
  */
-public class Cours {
+public class Cours implements Comparable<Cours>{
+
 	private LocalDateTime start;
 	private LocalDateTime end;
 	private String cours;
@@ -185,5 +186,10 @@ public class Cours {
 	public int getMonthNumber() {
 		return start.getMonthValue();
 	}
-	
+
+	@Override
+	public int compareTo(Cours o) {
+		return this.getStart().compareTo(o.getStart());
+	}
+
 }
