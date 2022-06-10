@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox minWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerRestauU">
+   <children>
+      <fx:include source="barre_superieure.fxml" />
+      <HBox prefHeight="455.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+         <children>
+            <fx:include source="menu.fxml" />
+            <StackPane alignment="CENTER" prefHeight="521.0" prefWidth="596.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="722.0">
+                     <children>
+                        <Pane fx:id="jour1Pane" layoutX="46.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                           <children>
+                              <Text fx:id="jour1Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.87516563017113" />
+                              <ListView fx:id="jour1list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="jour2Pane" layoutX="279.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                           <children>
+                              <Text fx:id="jour2Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.87516563017113" />
+                              <ListView fx:id="jour2list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="jour3Pane" layoutX="510.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                           <children>
+                              <Text fx:id="jour3Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.87516563017113" />
+                              <ListView fx:id="jour3list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                              <Pane fx:id="jour5Pane" layoutX="-117.0" layoutY="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                                 <children>
+                                    <Text fx:id="jour5Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.87516563017113" />
+                                    <ListView fx:id="jour5list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="jour4Pane" layoutX="163.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="165.0" style="-fx-background-color: #d5d5d5; -fx-background-radius: 7;">
+                           <children>
+                              <Text fx:id="jour4Date" layoutX="17.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.87516563017113" />
+                              <ListView fx:id="jour4list" layoutX="8.0" layoutY="62.0" prefHeight="139.0" prefWidth="149.0" style="-fx-background-radius: 7; -fx-background-color: e8e8e8;" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+         <children>
+            <AnchorPane prefWidth="200.0" style="-fx-background-color: #DAE3E5;" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

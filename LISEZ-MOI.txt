@@ -9,7 +9,7 @@
 pandoc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
 ~~~
 
-# Recommandation
+# Recommandation.
 
 ## Ne pas encombrer le serveur SVN avec des fichiers inutiles
 
