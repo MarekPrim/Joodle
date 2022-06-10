@@ -1,5 +1,6 @@
 package modele;
 
+import javafx.scene.text.Text;
 
 public class FichierNotes {
 
