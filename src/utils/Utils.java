@@ -42,7 +42,7 @@ public class Utils {
 	}
 	
 	public static void chargerClasse() throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("groupeEtudiant.csv"));
+		Scanner sc = new Scanner(Utils.class.getClassLoader().getResourceAsStream("groupeEtudiant.csv"));
 		sc.useDelimiter(";");
 		while(sc.hasNext()) {
 			String[] ligneClasse = sc.next().split(",");
@@ -52,7 +52,7 @@ public class Utils {
 	}
 	
 	public static void chargerSalles() throws NumberFormatException, IOException{
-		Scanner sc = new Scanner(new File("salles.csv"));
+		Scanner sc = new Scanner(Utils.class.getClassLoader().getResourceAsStream("salles.csv"));
         sc.useDelimiter(";");
         while(sc.hasNext()) {
             String data = sc.next();
