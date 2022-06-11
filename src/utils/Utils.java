@@ -19,15 +19,20 @@ public class Utils {
 	public static String addresseDossierDonneesApplication()
 	{
 		String nomOS = System.getProperty("os.name").toLowerCase();
+		String adresse = "";
 	    if (nomOS.contains("win"))
-	        return System.getenv("APPDATA") + File.separator + "Joodle";
+	    	adresse = System.getenv("APPDATA") + File.separator + "Joodle";
 	    else if (nomOS.contains("mac"))
-	        return System.getProperty("user.home") + File.separator + "Library" 
+	    	adresse = System.getProperty("user.home") + File.separator + "Library" 
 	        		+ File.separator + "Preferences" + File.separator + "Joodle";
 	    else if (nomOS.contains("nix")|| nomOS.contains("nux"))
-	        return System.getProperty("user.home") + File.separator + ".config" +
+	    	adresse = System.getProperty("user.home") + File.separator + ".config" +
 	        	File.separator + "joodle";
-	    return System.getProperty("user.dir");
+	    File dossier = new File(adresse);
+	    if (!dossier.exists()) {
+			dossier.mkdir();
+		}
+	    return !adresse.isEmpty() ? adresse : System.getProperty("user.dir");
 	}
 	
 	public static String addresseDossierDocumentJoodle()
