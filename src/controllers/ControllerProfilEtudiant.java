@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -45,6 +46,7 @@ public class ControllerProfilEtudiant implements Initializable{
 	        nom.setText(etudiant.getNom());
 	        login.setText(etudiant.getLogin());
 	        List<String> listeNomClasse = Classes.getListeNomClasse();
+	        Collections.sort(listeNomClasse);
 	        classe.setItems(FXCollections.observableList(listeNomClasse));
 	        classe.setValue(etudiant.getClasse());
 	    }
